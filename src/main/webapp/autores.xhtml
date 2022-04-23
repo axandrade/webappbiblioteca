@@ -1,0 +1,125 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/templates/default/main.xhtml">
+	<ui:define name="content">
+		<div class="row">
+			<div class="col-md">
+				<div class="card" style="margin-top: 20px; min-height: 65vh;">
+					<div class="card-body bg-light">
+
+						<h4 class="card-title">Listagem de Autores</h4>
+						<hr class="mb-5" />
+
+						<h:form id="form-autores">
+							<div class="row mt-3">
+								<h:dataTable binding="#{table}" value="#{autorBean.autoresList}"
+									var="a"
+									styleClass="table dataTable-autor table-striped table-sm">
+									<h:column>
+										<f:facet name="header">#</f:facet>
+                                        #{table.rowIndex + 1}
+                                    </h:column>
+
+									<h:column>
+										<f:facet name="header">Nome</f:facet>
+                                        #{a.nome}
+                                    </h:column>
+
+									<h:column pt:style="text-align:center;padding:5px 0;">
+										<f:facet name="header">
+											<i class="fa fa-cog" aria-hidden="true"></i>
+										</f:facet>
+										<h:commandLink action="#{autorBean.prepareUpdate(a)}"
+											style="text-decoration:none;" pt:data-toggle="modal"
+											pt:data-target=".modal-cadastro" pt:data-backdrop="static"
+											pt:data-keyboard="false">
+											<i class="fa fa-pencil fa-fw" aria-hidden="true" />
+											<f:ajax render="form-cadastro-autor" />
+										</h:commandLink>
+									</h:column>
+
+								</h:dataTable>
+							</div>
+							<h:panelGroup>
+								<hr class="mb-3" />
+								<div class="btn-group" role="group">
+
+									<h:commandLink styleClass="btn btn-success"
+										pt:data-toggle="modal" pt:data-target=".modal-cadastro"
+										pt:data-backdrop="static" pt:data-keyboard="false">
+										<i class="fa fa-clone fa-fw" aria-hidden="true" /> Adicionar
+                                        <f:ajax render="form-cadastro-autor" listener="#{autorBean.prepareSave}"/>
+									</h:commandLink>
+
+								</div>
+							</h:panelGroup>
+						</h:form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 		Modal Adicionar -->
+		<div class="modal modal-cadastro modal-draggable fade" tabindex="-1"
+			role="dialog">
+			<div class="modal-dialog modal-lg" style="max-width: 1400px;"
+				role="document">
+				<div class="modal-content">
+					<h:form id="form-cadastro-autor">
+						<h:messages />
+						<div class="modal-header">
+							<h:outputLabel rendered="#{autorBean.autor.id eq null}"
+								styleClass="modal-title" value="Cadastro de Autores" />
+							<h:outputLabel rendered="#{autorBean.autor.id ne null}"
+								styleClass="modal-title" value="Editar Dados de Autores" />
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&#215;</span>
+							</button>
+						</div>
+
+						<div class="modal-body bg-light">
+							<div class="row">
+								<div class="form-group col-md-12">
+									<label for="firstName">Nome</label> <input type="hidden" /> <label
+										class="asterisco" for="firstName">*</label> <input
+										type="hidden" />
+									<h:inputText styleClass="form-control" required="true"
+										requiredMessage="Campo nome é Obrigatorio"
+										value="#{autorBean.autor.nome}">
+									</h:inputText>
+								</div>
+							</div>
+						</div>
+
+						<div class="modal-footer">
+
+							<h:commandLink style="margin-right:5px"
+								styleClass="btn btn-success">
+								<i class="fa fa-save fa-fw" aria-hidden="true" />
+
+								<f:ajax event="click" execute="@form"
+									render="@form :form-autores" listener="#{autorBean.save}"
+									onevent="dataTableAutorFromJSF" /> Salvar
+
+                            </h:commandLink>
+
+							<h:commandLink style="margin-right:5px"
+								styleClass="btn btn-danger" pt:data-dismiss="modal">
+								<i class="fa fa-sign-out fa-fw" aria-hidden="true" /> Fechar
+                                <f:ajax />
+							</h:commandLink>
+
+						</div>
+					</h:form>
+
+				</div>
+			</div>
+		</div>
+		<!-- Fecha Modal adicionar-->
+
+	</ui:define>
+</ui:composition>

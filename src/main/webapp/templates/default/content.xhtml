@@ -1,0 +1,85 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+	<div id="content">
+
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded">
+
+			<button type="button" id="sidebarCollapse" class="navbar-brand">
+				<span></span> <span></span> <span></span>
+			</button>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarMenu" aria-controls="navbarSupportedContent"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarMenu">
+
+				<ul class="navbar-nav mr-auto">
+					<!-- <li class="nav-item active">
+							<a href="index.xhtml" class="nav-link"><i class="fa fa-home fa-fw"></i> Home<span class="sr-only">(current)</span> </a>
+						</li>
+						<li class="nav-item dropdown">
+					        <a class="nav-link dropdown-toggle" href="#" id="ctgDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					         <i class="fa fa-cube fa-fw"></i> Contagem
+					        </a>
+					        <div class="dropdown-menu" aria-labelledby="ctgDropdown">
+					          <a class="dropdown-item" href="ativos.xhtml">Ativos</a>
+					          <a class="dropdown-item" href="materiais.xhtml">Materiais</a>
+					          <a class="dropdown-item" href="qualidade-qr.xhtml">Qualidade - QR</a>
+					          <a class="dropdown-item" href="produto-acabado-aereo.xhtml">Produto acabado - Aereo</a>
+					          <a class="dropdown-item disabled" href="produto-acabado-picking.xhtml">Produto acabado - Picking</a>
+					          <a class="dropdown-item" href="hope2-h1.xhtml">Hope 2 - H1</a>
+					          
+					        </div>
+					    </li>
+					    
+					    <li class="nav-item dropdown">
+					        <a class="nav-link dropdown-toggle" href="#" id="relDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					         <i class="fa fa-pie-chart fa-fw"></i> Relatórios
+					        </a>
+					        <div class="dropdown-menu" aria-labelledby="relDropdown">
+					          <a class="dropdown-item disabled" href="relatorio-materiais.xhtml">Relatório de contagens de materiais</a>
+						      <a class="dropdown-item disabled" href="#">Relatório de contagens de Produto acabado - Aereo</a>
+							  <a class="dropdown-item disabled" href="#">Relatório de contagens de Produto acabado - Picking</a>
+					        </div>
+					    </li>
+					    
+						<li class="nav-item dropdown">
+					        <a class="nav-link dropdown-toggle" href="#" id="admDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					         <i class="fa fa-hashtag fa-fw"></i> Administração
+					        </a>
+					        <div class="dropdown-menu" aria-labelledby="admDropdown">
+					          <a class="dropdown-item" href="cadastro-inventarios.xhtml">Cadastro de inventários</a>
+					          <a class="dropdown-item disabled" href="cadastro-usuarios.xhtml">Cadastro de usuários</a>
+					        </div>
+					    </li> -->
+				</ul>
+				<ul class="navbar-nav">
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> <i class="fa fa-user-circle-o fa-fw"></i>
+							#{securityController.usuario.nome}
+					</a>
+						<div class="dropdown-menu dropdown-menu-right"
+							aria-labelledby="navbarDropdown" data-toggle="modal"
+							data-target="#modalNovaSenha">
+							<a class="dropdown-item disabled" href="#">Redefinir senha</a>
+						</div></li>
+
+				</ul>
+
+			</div>
+		</nav>
+
+		<div class="row">
+			<div class="container-fluid">
+				<ui:insert name="content" />
+			</div>
+		</div>
+	</div>
+</ui:composition>
+

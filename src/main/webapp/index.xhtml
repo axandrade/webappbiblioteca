@@ -1,0 +1,1087 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/templates/default/main.xhtml">
+	<ui:define name="content">
+		<div class="row">
+			<div class="col-md">
+				<div class="card" style="margin-top: 20px; min-height: 65vh;">
+					<div class="card-body bg-light">
+					
+						<h4 class="card-title">Listagem de empréstimos</h4>
+						<hr class="mb-5" />
+						<h:form >
+						<div class="row">
+							<div class="col-md-4 mb-5">
+							<label>Seleciona o Status do Edital</label>
+								<h:selectOneMenu value = "#{editalBean.statusBusca}"  styleClass="form-control custom-select" > 
+									<f:selectItem itemValue = "" itemLabel = "Todos" /> 
+   									<f:selectItem itemValue = "NV" itemLabel = "Novos" /> 
+   									<f:selectItem itemValue = "AN" itemLabel = "Análise Concluída" /> 
+   									<f:ajax event="change" render="form-editais" onevent="dataTableEditalFromJSF"  listener="#{editalBean.findEditaisByStatus}" />
+   								</h:selectOneMenu>
+						
+							</div>						
+						</div>
+						</h:form>
+						<h:form id="form-editais">
+							<div class="row mt-3">
+								<h:dataTable binding="#{table}"
+									value="#{editalBean.editaisList}" var="e"
+									styleClass="table dataTable-edital table-striped table-sm">
+									<h:column>
+										<f:facet name="header">#</f:facet>
+                                        #{table.rowIndex + 1}
+                                    </h:column>
+									<h:column>
+										<f:facet name="header">Numero</f:facet>
+                                        #{e.numero}
+                                    </h:column>
+                                    
+                                    <h:column>
+										<f:facet name="header">Orgão</f:facet>
+                                        #{e.orgao}
+                                    </h:column>
+                                    
+                                    <h:column>
+										<f:facet name="header">Data da Licitação</f:facet>
+                                       
+                                        <h:outputText value="#{e.dataLicitacao}">
+                                       <f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
+                                        </h:outputText>
+                                    </h:column>
+                                    
+                                     <h:column>
+										<f:facet name="header">Data Cadastro Edital</f:facet>
+                                       
+                                        <h:outputText value="#{e.dataRegistro}">
+                                       <f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
+                                        </h:outputText>
+                                    </h:column>
+									<h:column pt:style="text-align:center;padding-right:5px;padding-left:5px">
+									<f:facet name="header">
+													Status
+									</f:facet>
+									<h:panelGroup rendered="#{e.status == 'NV'}" styleClass="text-center">
+										<i class="fa fa-circle text-success" aria-hidden="true" />
+									</h:panelGroup>
+									<h:panelGroup rendered="#{e.status == 'AN'}" styleClass="text-center">
+										<i class="fa fa-circle text-warning" aria-hidden="true" />
+									</h:panelGroup>
+									<h:panelGroup rendered="#{e.status == 'XX'}" styleClass="text-center">
+										<i class="fa fa-circle text-danger" aria-hidden="true" />
+									</h:panelGroup>
+									</h:column >
+					
+								<h:column pt:style="text-align:center;">
+										<f:facet name="header" >Adicionar Lotes</f:facet>									
+										
+										<h:commandLink 	action="#{editalBean.showLotesEdital(e)}"
+											style="text-decoration:none;" pt:data-toggle="modal"
+											pt:data-target=".modal-lote" pt:data-backdrop="static"
+											pt:data-keyboard="false">
+											<i class="fa fa-plus-circle" aria-hidden="true" />
+											<f:ajax render="form-lote" onevent="dataTableLoteFromJSF"/>
+										</h:commandLink>
+										
+								</h:column>		
+								<h:column pt:style="text-align:center;">
+										<f:facet name="header" >Editar</f:facet>	 
+										<h:commandLink 	action="#{editalBean.setEditalSelected(e)}"
+											style="text-decoration:none;" pt:data-toggle="modal"
+											pt:data-target=".modal-edit-edital" pt:data-backdrop="static"
+											pt:data-keyboard="false">
+											<i class="fa fa-pencil" aria-hidden="true" />
+											<f:ajax render="form-edit-edital" />
+										</h:commandLink>
+								</h:column>
+								</h:dataTable>
+							</div>
+							
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="legendas">
+										<label class="col-form-label">Legenda:</label><br /> 
+											<span><i
+											class="fa fa-circle fa-fw text-success" aria-hidden="true" />
+											Nova</span> 
+											<span><i class="fa fa-circle fa-fw text-warning"
+											aria-hidden="true" />Análise Iniciada</span> 
+											<span><i class="fa fa-circle fa-fw text-danger"
+											aria-hidden="true" /> Teste</span> 
+									</div>
+								</div>
+							</div>
+							<h:panelGroup>
+								<hr class="mb-3" />
+								<div class="btn-group" role="group">
+								
+									<h:commandLink styleClass="btn btn-success"
+										pt:data-toggle="modal" pt:data-target=".modal-add"
+										pt:data-backdrop="static" pt:data-keyboard="false">
+										<i class="fa fa-clone fa-fw" aria-hidden="true" /> Novo Edital
+                                        <f:ajax />
+									</h:commandLink>
+
+								</div>					
+
+							</h:panelGroup>
+						</h:form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 		Modal Adicionar edital-->
+		<div class="modal modal-add modal-draggable fade" tabindex="-1" role="dialog" >
+			<div class="modal-dialog" role="document" style="max-width: 90% !important">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="myModalLabel">Adicionar Novo Edital</h5>
+							<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&#215;</span>
+						</button>
+					</div>
+					<h:form id="form-add-edital">	
+					<h:messages />
+						<div class="modal-body bg-light">						
+								<div class="row">
+								
+									<div class="col-md-3">
+										
+										<label for="firstName">Numero</label> <input type="hidden"/>
+										<h:inputText styleClass="form-control" required="true"
+											requiredMessage="Campo numero é obrigatorio"
+											value="#{editalBean.edital.numero}">
+										</h:inputText>
+										
+									</div>
+									
+									<div class="col-md-6">
+										
+										<label for="firstName">Orgão</label> <input type="hidden"/>
+										<h:inputText styleClass="form-control" required="true"
+											requiredMessage="Campo orgão é obrigatorio"
+											value="#{editalBean.edital.orgao}">
+										</h:inputText>
+										
+									</div>			
+										
+									
+									<div class="col-md-3">
+									
+									<label>Data Licitação</label>
+									<h:inputText pt:type="date" required="true" requiredMessage="Data do registro"
+										styleClass="form-control	" value="#{editalBean.dataLicitacao}"/>
+										
+									</div>
+									
+									<div class="col-md-3">
+									
+									<label>Tipo da Licitação</label>
+									<h:selectOneMenu value="#{editalBean.tipoLicitacao}"
+										styleClass="form-control custom-select"  converter="generic" required="true">
+										<f:selectItem itemValue="" itemLabel="Selecione..." />
+											<f:selectItems value="#{editalBean.tiposLicitacoesList}" var="t"
+											itemValue="#{t}" itemLabel="#{t.descricao}" />
+									</h:selectOneMenu>
+									
+									
+									</div>
+									
+									<div class="col-md-3">
+									<label>Modalidade</label>
+									<h:selectOneMenu value="#{editalBean.modalidade}"
+										styleClass="form-control custom-select"  converter="generic" required="true">
+										<f:selectItem itemValue="" itemLabel="Selecione..." />
+											<f:selectItems value="#{editalBean.modalidadesList}" var="m"
+											itemValue="#{m}" itemLabel="#{m.descricao}" />
+											<f:ajax event="change" render="cbx-portal"
+												listener="#{editalBean.getModalidade}" />
+									</h:selectOneMenu>
+									
+									
+									</div>			
+									
+									<div class="col-md-3">
+									<label>Portal</label>
+									<h:selectOneMenu disable="#{editalBean.modalidade.descricao == 'PREGAO ELETRONICO'}" id="cbx-portal" value="#{editalBean.portal}"
+										styleClass="form-control custom-select"  converter="generic" required="true">
+										<f:selectItem itemValue="" itemLabel="Selecione..." />
+											<f:selectItems value="#{editalBean.portaisList}" var="p"
+											itemValue="#{p}" itemLabel="#{p.site}" />
+									</h:selectOneMenu>
+									
+									
+									</div>								
+									
+									<div class="col-md-3">
+									<label>Cidade</label>
+									<h:selectOneMenu value="#{editalBean.cidade}"
+										styleClass="form-control custom-select"  converter="generic">
+										<f:selectItem itemValue="" itemLabel="Selecione..." />
+											<f:selectItems value="#{editalBean.cidadesList}" var="c"
+											itemValue="#{c}" itemLabel="#{c.nome}" />
+											<f:ajax event="change" render="txtUf"
+												listener="#{editalBean.getCidade}" />
+									</h:selectOneMenu>									
+									</div>
+									
+									<div class="col-md-3">										 
+                                       
+                                       <label>Estado</label> <span class="input-group-text"><h:outputText
+										id="txtUf" value="#{editalBean.cidade.estado.uf}" /></span>
+									</div>
+								
+								<div class="col-md-6">
+									<label>Serviço</label>
+									<h:selectOneMenu value="#{editalBean.servico}"
+										styleClass="form-control custom-select"  converter="generic" required="true" requiredMessage="O Tipo do serviço é obrigatorio">
+										<f:selectItem itemValue="" itemLabel="Selecione..." />
+											<f:selectItems value="#{editalBean.servicosList}" var="s"
+											itemValue="#{s}" itemLabel="#{s.descricao}" />
+									</h:selectOneMenu>
+									
+									
+								</div>
+								
+							
+								<div class="col-md-3">
+										
+										<label for="firstName">Responsavel</label> <input type="hidden"/>
+										<h:inputText styleClass="form-control" required="true" disabled="true"
+											requiredMessage="Campo orgão é obrigatorio"
+											value="#{editalBean.usuario.nome}">
+										</h:inputText>
+										
+								</div>								
+								
+								<div class="col-md-12">		
+														
+								<label for="story">Objeto:</label>
+								
+								<h:inputTextarea value="#{editalBean.edital.objeto}" styleClass="form-control z-depth-1"  />
+																
+								</div>						
+								
+								<div class="col-md-12">								
+								<label for="story">Observação:</label>
+
+								<h:inputTextarea value="#{editalBean.edital.observacao}" styleClass="form-control z-depth-1"  />
+																
+								</div>
+																
+								</div>
+						</div>
+
+						<div class="modal-footer">
+
+							<h:commandLink style="margin-right:5px"
+								styleClass="btn btn-success">
+								<i class="fa fa-save fa-fw" aria-hidden="true" />
+
+								<f:ajax event="click" execute="@form" render="@form :form-editais"
+									listener="#{editalBean.saveEdital}" onevent="dataTableEditalFromJSF" /> Salvar
+
+                            </h:commandLink>
+
+							<h:commandLink style="margin-right:5px"
+								styleClass="btn btn-danger" pt:data-dismiss="modal">
+								<i class="fa fa-sign-out fa-fw" aria-hidden="true" /> Fechar
+                                <f:ajax event="click"  />
+							</h:commandLink>
+
+						</div>
+					</h:form>
+
+				</div>
+			</div>
+		</div>
+		<!-- Fecha Modal adicionar edital-->
+		
+			<!-- 		Modal Editar edital-->
+		<div class="modal modal-edit-edital modal-draggable fade" tabindex="-1" role="dialog" >
+			<div class="modal-dialog" role="document" style="max-width: 90% !important">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="myModalLabel">Editar Edital</h5>
+							<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&#215;</span>
+						</button>
+					</div>
+					<h:form id="form-edit-edital">	
+					<h:messages />
+						<div class="modal-body bg-light">						
+								<div class="row">
+								
+									<div class="col-md-3">
+										
+										<label for="firstName">Numero</label> <input type="hidden"/>
+										<h:inputText styleClass="form-control" required="true"
+											requiredMessage="Campo numero é obrigatorio"
+											value="#{editalBean.editalSelected.numero}">
+										</h:inputText>
+										
+									</div>
+									
+									<div class="col-md-6">
+										
+										<label for="firstName">Orgão</label> <input type="hidden"/>
+										<h:inputText styleClass="form-control" required="true"
+											requiredMessage="Campo orgão é obrigatorio"
+											value="#{editalBean.editalSelected.orgao}">
+										</h:inputText>
+										
+									</div>			
+										
+									
+									<div class="col-md-3">
+									
+									<label>Data Licitação</label>
+									<h:inputText required="true" requiredMessage="Data da Licitação é obrigatorio"
+										styleClass="form-control dti" value="#{editalBean.dataLicitacao}"/>
+										
+									</div>
+									
+									<div class="col-md-3">
+									<label>Tipo da Licitação</label>
+									<h:selectOneMenu value="#{editalBean.tipoLicitacao}"
+										styleClass="form-control custom-select"  converter="generic" required="true" requiredMessage="Tipo da Licitação é obrigatorio">
+										<f:selectItem itemValue="" itemLabel="Selecione..." />
+											<f:selectItems value="#{editalBean.tiposLicitacoesList}" var="t"
+											itemValue="#{t}" itemLabel="#{t.descricao}" />
+									</h:selectOneMenu>
+									
+									
+									</div>
+									
+									<div class="col-md-3">
+									<label>Modalidade</label>
+									<h:selectOneMenu value="#{editalBean.modalidade}"
+										styleClass="form-control custom-select"  converter="generic" required="true" requiredMessage="modalidade é obrigatorio">
+										<f:selectItem itemValue="" itemLabel="Selecione..." />
+											<f:selectItems value="#{editalBean.modalidadesList}" var="m"
+											itemValue="#{m}" itemLabel="#{m.descricao}" />
+									</h:selectOneMenu>
+									
+									
+									</div>
+									
+									<div class="col-md-3">
+									<label>Cidade</label>
+									<h:selectOneMenu value="#{editalBean.cidade}"
+										styleClass="form-control custom-select"  converter="generic">
+										<f:selectItem itemValue="" itemLabel="Selecione..." />
+											<f:selectItems value="#{editalBean.cidadesList}" var="c"
+											itemValue="#{c}" itemLabel="#{c.nome}" />
+											<f:ajax event="change" render="txtUf"
+												listener="#{editalBean.getCidade}" />
+									</h:selectOneMenu>									
+									</div>
+									
+									<div class="col-md-3">										 
+                                       
+                                       <label>Estado</label> <span class="input-group-text"><h:outputText
+										id="txtUf" value="#{editalBean.cidade.estado.uf}" /></span>
+									</div>
+								
+								<div class="col-md-6">
+									<label>Tipo de Serviço</label>
+									<h:selectOneMenu value="#{editalBean.servico}"
+										styleClass="form-control custom-select"  converter="generic" required="true" requiredMessage="tipo de Serviço é obrigatorio">
+										<f:selectItem itemValue="" itemLabel="Selecione..." />
+											<f:selectItems value="#{editalBean.servicosList}" var="s"
+											itemValue="#{s}" itemLabel="#{s.descricao}" />
+									</h:selectOneMenu>
+									
+									
+								</div>
+								
+							
+								<div class="col-md-3">
+										
+										<label for="firstName">Responsavel</label> <input type="hidden"/>
+										<h:inputText styleClass="form-control" required="true" disabled="true"
+											requiredMessage="Campo orgão é obrigatorio"
+											value="#{editalBean.usuario.nome}">
+										</h:inputText>
+										
+								</div>								
+								
+								<div class="col-md-12">		
+														
+								<label for="story">Objeto:</label>
+								
+								<h:inputTextarea value="#{editalBean.editalSelected.objeto}" styleClass="form-control z-depth-1"  />
+																
+								</div>						
+								
+								<div class="col-md-12">								
+								<label for="story">Observação:</label>
+
+								<h:inputTextarea value="#{editalBean.editalSelected.observacao}" styleClass="form-control z-depth-1"  />
+																
+								</div>
+																
+								</div>
+						</div>
+
+						<div class="modal-footer">
+
+							<h:commandLink style="margin-right:5px"
+								styleClass="btn btn-success">
+								<i class="fa fa-save fa-fw" aria-hidden="true" />
+
+								<f:ajax event="click" execute="@form" render="@form :form-editais"
+									listener="#{editalBean.editEdital}" onevent="dataTableEditalFromJSF" /> Salvar
+
+                            </h:commandLink>
+
+							<h:commandLink style="margin-right:5px"
+								styleClass="btn btn-danger" pt:data-dismiss="modal">
+								<i class="fa fa-sign-out fa-fw" aria-hidden="true" /> Fechar
+                                <f:ajax event="click"  />
+							</h:commandLink>
+
+						</div>
+					</h:form>
+
+				</div>
+			</div>
+		</div>
+		<!-- Fecha Modal editar edital-->		
+		
+		
+	<!-- 		Modal Lotes -->		
+		<div class="modal modal-lote modal-draggable fade" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document" style="max-width: 70% !important">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="myModalLabel">Lotes</h5>
+							<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&#215;</span>
+						</button>
+					</div>				
+					
+					<h:form id="form-lote">	
+					
+						<div class="modal-body bg-light">
+						<h:messages />
+						
+						<div class="row">
+						<div class="col-md-12 form-group h3">
+						EDITAL
+						
+						</div>
+
+								<div class="col-md-3 form-group">
+									<label class="control-label">Código</label><br /> <span
+										class="text-primary">#{editalBean.editalSelected.numero}</span>
+								</div>
+								
+								<div class="col-md-6 form-group">
+									<label class="control-label">Orgão</label><br /> <span
+										class="text-primary">#{editalBean.editalSelected.orgao}</span>
+								</div>
+										
+								
+								<div class="col-md-3 form-group">
+								
+									<label class="control-label">Data da Licitação</label><br /> 
+									<h:outputText class="control-label text-primary" value="#{editalBean.editalSelected.dataLicitacao}">
+									
+									<f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
+									
+									</h:outputText><br /> 
+										
+								</div>		
+								
+								<div class="col-md-3 form-group">
+									<label class="control-label">Tipo de Licitação</label><br /> <span
+										class="text-primary">#{editalBean.editalSelected.tipoLicitacao.descricao}</span>
+								</div>
+								
+								<div class="col-md-3 form-group">
+									<label class="control-label">Modalidade</label><br /> <span
+										class="text-primary">#{editalBean.editalSelected.modalidade.descricao}</span>
+								</div>
+								
+								<div class="col-md-3 form-group">
+									<label class="control-label">Serviço</label><br /> <span
+										class="text-primary">#{editalBean.editalSelected.servico.descricao}</span>
+								</div>
+								
+								<div class="col-md-3 form-group">
+								<label class="control-label">Data da Registro</label><br /> 
+									<h:outputText class="control-label text-primary" value="#{editalBean.editalSelected.dataRegistro}">
+									
+									<f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
+									
+									</h:outputText><br /> 
+										
+								</div>									
+			
+								
+								<div class="col-md-12 form-group">
+									<label class="control-label">Objeto</label><br /> <span
+										class="text-primary">#{editalBean.editalSelected.objeto}</span>
+								</div>		
+								
+							  <hr />
+															
+														
+						</div>
+						
+						<div class="row">
+						
+						<div class="col-md-12 form-group h3">
+						LOTES DO EDITAL
+						
+						</div>
+						
+							<div class="col-md-12 text-lowercase">									
+									<div class="table-responsive">
+									<h:dataTable
+									value="#{editalBean.editalSelected.lotes}" var="l"
+									styleClass="table dataTable-lote table-striped table-sm" style="width:100%">
+												
+									<h:column>
+										<f:facet name="header">Sequencial</f:facet>
+                                        #{l.sequencialLote}
+                                    </h:column>								                                 
+                                    <h:column>
+										<f:facet name="header">Prazo (Mês)</f:facet>
+                                        #{l.prazoEdital}
+                                    </h:column>
+                                    
+                                    <h:column>
+										<f:facet name="header">Valor Total</f:facet>                                          
+                                        <h:outputText value="#{l.valorTotal}">  
+                                       
+                                        </h:outputText>
+                                    </h:column>
+                                    
+ 									<h:column>
+										<f:facet name="header">Valor Parcela</f:facet>                                          
+                                        <h:outputText value="#{l.valorMensal}"> 
+                                        </h:outputText>
+                                    </h:column>    
+                                    
+                                    <h:column>
+										<f:facet name="header">atende</f:facet>
+                                        #{l.atende}
+                                    </h:column>                                
+                                     
+                                    
+									<h:column pt:style="text-align:center;padding-right:5px;padding-left:5px">
+									<f:facet name="header">
+													Status
+									</f:facet>
+									<h:panelGroup id="status" rendered="#{l.status == 'NV'}" styleClass="text-center">
+										<i class="fa fa-circle text-success" aria-hidden="true" />
+									</h:panelGroup>
+									<h:panelGroup rendered="#{l.status == 'AN'}" styleClass="text-center">
+										<i class="fa fa-circle text-warning" aria-hidden="true" />
+									</h:panelGroup>
+									
+									
+									</h:column >                                   
+                                    
+                                    <h:column pt:style="text-align:center;">
+										<f:facet name="header" >analises</f:facet>										
+									<h:commandLink 	
+											style="text-decoration:none;" pt:data-toggle="modal" action="#{editalBean.showAnaliseByEdital(l)}"
+											pt:data-target=".modal-analise" pt:data-backdrop="static"
+											pt:data-keyboard="false">
+											<i class="fa fa-plus-circle" aria-hidden="true" />
+											<f:ajax  render="form-analise" onevent="dataTableAnaliseFromJSF" />
+										</h:commandLink>
+									</h:column>
+									<h:column pt:style="text-align:center;">
+										<f:facet name="header" >editar</f:facet>		
+										<h:commandLink	action="#{editalBean.setLoteSelected(l)}"
+											style="text-decoration:none;" pt:data-toggle="modal"
+											pt:data-target=".modal-edit-lote" pt:data-backdrop="static"
+											pt:data-keyboard="false">
+											<i class="fa fa-pencil" aria-hidden="true" />
+											<f:ajax render="form-edit-lote" />
+										</h:commandLink>
+									</h:column>
+									<h:column pt:style="text-align:center;">
+									<f:facet name="header" >encerrar analise</f:facet>	
+										<h:commandLink  action="#{editalBean.setLoteSelected(l)}"	 
+											style="text-decoration:none;" pt:data-toggle="modal"
+											pt:data-target=".modal-confirmacao-enc-analise" pt:data-backdrop="static"
+											pt:data-keyboard="false">
+											<i class="fa fa-check-square-o" aria-hidden="true" />
+											<f:ajax  />
+									</h:commandLink>
+									</h:column>
+									
+									
+									</h:dataTable>
+									
+									</div>
+					    	</div>
+									
+						</div>
+						
+						<div class="row">
+								<div class="col-sm-12">
+									<div class="legendas">
+										<label class="col-form-label">Legenda:</label><br /> 
+											<span><i
+											class="fa fa-circle fa-fw text-success" aria-hidden="true" />
+											Nova</span> 
+											<span><i class="fa fa-circle fa-fw text-warning"
+											aria-hidden="true" /> Análise em Andamento</span> 
+											
+									</div>
+								</div>
+							</div>
+						
+						</div>
+
+						<div class="modal-footer">
+						
+							<h:commandLink styleClass="btn btn-success"
+									pt:data-toggle="modal" pt:data-target=".modal-add-lote"
+									pt:data-backdrop="static" pt:data-keyboard="false">
+									<i class="fa fa-clone fa-fw" aria-hidden="true" /> Novo Lote
+                                    <f:ajax event="click" render="form-add-lote" />
+							</h:commandLink>
+
+							<h:commandLink style="margin-right:5px"
+								styleClass="btn btn-danger" pt:data-dismiss="modal">
+								<i class="fa fa-sign-out fa-fw" aria-hidden="true" /> Fechar
+                                <f:ajax   />
+							</h:commandLink>
+
+						</div>
+					</h:form>
+
+				</div>
+			</div>
+		</div>
+		<!-- Fecha Modal Lotes-->
+		
+		<!-- 		Modal Adicionar lotes -->
+		<div class="modal modal-add-lote modal-draggable fade" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="myModalLabel">Adicionar Novo Lote</h5>
+							<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&#215;</span>
+						</button>
+					</div>
+					<h:form id="form-add-lote">	
+					<h:messages />
+						<div class="modal-body bg-light">						
+								<div class="row">
+								
+								<div class="col-md-3">
+										
+										<label for="firstName">Prazo (Mês)</label> <input type="hidden"/>
+										<h:inputText styleClass="form-control" required="true"
+											requiredMessage="Campo prazo é obrigatorio"
+											value="#{editalBean.lote.prazoEdital}">
+										</h:inputText>
+										
+								</div>
+								
+								<div class="col-md-3">
+										
+										<label for="firstName">Valor</label> <input type="hidden"/>
+										<h:inputText styleClass="form-control" required="true"
+											requiredMessage="Campo valor é obrigatorio"
+											value="#{editalBean.lote.valorTotal}">
+											 <f:convertNumber pattern="#,###,##0,00"/> 
+										</h:inputText>
+								</div>
+								
+
+								<div class="col-md-12">		
+														
+								<label for="story">Objeto:</label>
+								
+								<h:inputTextarea value="#{editalBean.lote.objetoLote}" styleClass="form-control z-depth-1"  />
+																
+								</div>	
+									
+								</div>
+						</div>
+
+						<div class="modal-footer">
+
+							<h:commandLink style="margin-right:5px"
+								styleClass="btn btn-success">
+								<i class="fa fa-save fa-fw" aria-hidden="true" />
+
+								<f:ajax event="click" execute="@form" render="@form :form-lote :form-editais"
+									listener="#{editalBean.saveLotes}" onevent="dataTableLoteFromJSF"/> Salvar
+
+                            </h:commandLink>
+
+							<h:commandLink style="margin-right:5px"
+								styleClass="btn btn-danger" pt:data-dismiss="modal">
+								<i class="fa fa-sign-out fa-fw" aria-hidden="true" /> Fechar
+                                <f:ajax event="click"  />
+							</h:commandLink>
+
+						</div>
+					</h:form>
+
+				</div>
+			</div>
+		</div>
+		<!-- Fecha Modal add lotes -->
+		
+			<!-- 		Modal editar lotes -->
+		<div class="modal modal-edit-lote modal-draggable fade" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="myModalLabel">Editar Lote</h5>
+							<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&#215;</span>
+						</button>
+					</div>
+					<h:form id="form-edit-lote">	
+					<h:messages />
+						<div class="modal-body bg-light">						
+								<div class="row">
+								
+								<div class="col-md-3">
+										
+										<label for="firstName">Prazo (Mês)</label> <input type="hidden"/>
+										<h:inputText styleClass="form-control" required="true"
+											requiredMessage="Campo prazo é obrigatorio"
+											value="#{editalBean.loteSelected.prazoEdital}">
+										</h:inputText>
+										
+								</div>
+								
+								<div class="col-md-3">
+										
+										<label for="firstName">Valor</label> <input type="hidden"/>
+										<h:inputText styleClass="form-control" required="true"
+											requiredMessage="Campo valor é obrigatorio"
+											value="#{editalBean.loteSelected.valorTotal}">
+										</h:inputText>
+										
+								</div>
+								
+
+								<div class="col-md-12">		
+														
+								<label for="story">Objeto:</label>
+								
+								<h:inputTextarea value="#{editalBean.loteSelected.objetoLote}" styleClass="form-control z-depth-1"  />
+																
+								</div>	
+									
+								</div>
+						</div>
+
+						<div class="modal-footer">
+
+							<h:commandLink style="margin-right:5px"
+								styleClass="btn btn-success">
+								<i class="fa fa-save fa-fw" aria-hidden="true" />
+
+								<f:ajax event="click" execute="@form" render="@form :form-lote"
+									listener="#{editalBean.editLote}" onevent="dataTableLoteFromJSF"/> Salvar
+
+                            </h:commandLink>
+
+							<h:commandLink style="margin-right:5px"
+								styleClass="btn btn-danger" pt:data-dismiss="modal">
+								<i class="fa fa-sign-out fa-fw" aria-hidden="true" /> Fechar
+                                <f:ajax event="click"  />
+							</h:commandLink>
+
+						</div>
+					</h:form>
+
+				</div>
+			</div>
+		</div>
+		<!-- Fecha Modal editar lotes -->
+		
+		
+		
+		<!-- 		Modal Analise -->		
+		<div class="modal modal-analise modal-draggable" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document" style="max-width: 90% !important">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="myModalLabel">Inserir Nova Analise</h5>
+							<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&#215;</span>
+						</button>
+					</div>				
+					<h:form id="form-analise">
+					<div class="modal-body bg-light">
+					
+					<div class="row">
+					
+					<div class="col-md-7 ">
+					
+					<p class="h1">LOTE -  #{editalBean.loteSelected.sequencialLote}</p>
+					
+					</div>
+					
+					</div>
+					
+					<div class="row mt-5">				
+					
+					<div class="col-md-7 ">
+					
+					<p class="text-center">QUALIFICAÇÃO TECNICA EXIGIDA PELO EDITAL</p>
+					
+					</div>
+					
+					<div class="col-md-5 ">
+					
+					<p class="text-center">QUALIFICAÇÃO TECNICA ATENDIDA PELA EMPRESA</p>
+					
+					</div>
+					
+					<div class="col-md-2">
+					
+					QUALIFICAÇÃO
+					
+					</div>
+					
+					<div class="col-md-3">
+					
+					DESCRIÇÃO DOS SERVIÇOS
+					</div>
+					
+					<div class="col-md-1">
+					
+					UND
+					
+					</div>
+					
+					<div class="col-md-1 ">
+					
+					QTD
+					
+					</div>
+					
+					<div class="col-md-3">
+					
+					<p class="text-center">DESCRIÇÃO DOS SERVIÇOS MOBIT</p>
+					
+					</div>
+					
+					<div class="col-md-1">
+					
+					<p class="text-center">QTD</p>
+					
+					</div>
+					
+					<div class="col-md-1">
+					
+					<p class="text-center">POSIÇÃO</p>
+					
+					</div>				
+					
+					</div>
+					
+					
+					<div class="row">
+								<h:messages />
+					
+					
+					<div class="col-md-2">
+					
+					<h:selectOneMenu  value = "#{editalBean.qualificacao}" styleClass="form-control custom-select" > 
+							<f:selectItem itemValue = "QL" itemLabel = "QL - Profissional/Licitante" /> 
+   							<f:selectItem itemValue = "P" itemLabel = "P - Profissional" /> 
+   							<f:selectItem itemValue = "L" itemLabel = "L - Licitante" /> 
+   							<f:ajax   />
+   					</h:selectOneMenu>
+					
+					</div>	
+					
+					<div class="col-md-3">
+					
+					<h:inputTextarea  styleClass="form-control z-depth-1"   value="#{editalBean.analise.descricaoServEdital}"/>
+					
+					</div>
+					
+					<div class="col-md-1">
+					
+					
+					<h:inputText styleClass="form-control" value="#{editalBean.analise.un}">
+					</h:inputText>				
+					
+					</div>					
+					
+					<div class="col-md-1">				
+					
+					<h:inputText styleClass="form-control" value="#{editalBean.analise.quantidade}">
+					<f:convertNumber pattern="#,###,##0,00"/> 
+					</h:inputText>
+					
+					</div>					
+										
+					<div class="col-md-3">
+					
+					<h:inputTextarea  styleClass="form-control z-depth-1"   value="#{editalBean.analise.descricaoServMobit}"/>
+					
+					</div>
+					
+					<div class="col-md-1">				
+					
+					<h:inputText styleClass="form-control" value="#{editalBean.analise.quantidadeMobit}">
+					 <f:convertNumber pattern="#,###,##0,00"/> 
+					</h:inputText>
+					
+					</div>		
+					
+					<div class="col-md-1">
+					
+					<h:selectOneMenu value = "#{editalBean.posicao}"  styleClass="form-control custom-select" > 
+							<f:selectItem itemValue = "SIM" itemLabel = "SIM" /> 
+   							<f:selectItem itemValue = "NAO" itemLabel = "NÂO" /> 
+   							<f:ajax   />
+   					</h:selectOneMenu>
+					
+					</div>				
+					
+					</div>
+					
+					<div class="row">					
+					
+					<div class="modal-footer ">
+						
+						<h:commandLink styleClass="btn btn-primary" 
+								action="#{editalBean.saveAnalise}" >
+								<i class="fa fa-check" aria-hidden="true" />
+								<f:ajax execute="@form"  render="@form :form-lote"
+									onevent="dataTableAnaliseFromJSF" />  Incluir
+							</h:commandLink>		
+                            
+                            				
+
+					</div>
+						
+					</div>					
+					
+					<div class="row">					
+					
+					<h:dataTable value="#{editalBean.loteSelected.analisesList}" var="a"
+									styleClass="table dataTable-analise table-striped table-sm">
+									
+						
+						<h:column styleClass = "text-center"  >
+										<f:facet name="header" >Qualificacao</f:facet>
+                                        #{a.qualificacao}
+                        </h:column>		
+                        
+                        <h:column 	styleClass="td">
+										<f:facet name="header">Descrição dos Serviço Edital</f:facet>
+                                        #{a.descricaoServEdital}
+                        </h:column>		
+                        
+                        <h:column>
+										<f:facet name="header">UND</f:facet>
+                                        #{a.un}
+                        </h:column>		
+                        
+                        <h:column>
+										<f:facet name="header">Qtd.</f:facet>
+                                        #{a.quantidade}
+                        </h:column>		
+                        
+                        <h:column 	styleClass="td">
+										<f:facet name="header">Descrição dos Serviço Mobit</f:facet>                                     
+                                        
+   										#{a.descricaoServMobit}
+                        </h:column >	
+                        
+                          <h:column>
+										<f:facet name="header">Qtd Mobit</f:facet>
+                                        #{a.quantidadeMobit}
+                        </h:column>	
+                        
+                        <h:column>
+										<f:facet name="header">Atende</f:facet>
+                                        #{a.atende}
+                        </h:column>	
+                        
+                        <h:column>
+                        			<f:facet name="header">Data Registro</f:facet>
+                        			
+									<h:outputText value="#{a.dataRegistro}">
+                                       <f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
+                                    </h:outputText>
+                        </h:column>					
+					
+					</h:dataTable>				
+					
+					</div>				
+						
+					</div>					
+						
+					</h:form>					
+					
+				</div>
+			</div>
+		</div>
+		<!-- Fecha Modal Analise-->
+		
+		<!-- 		Modal Confirmacao Encerra Analise -->	
+		<div class="modal modal-confirmacao-enc-analise " tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog " role="document">
+				<div class="modal-content ">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Deseja Encerrar a analise ?</h5>
+					</div>
+					<div class = "modal-body">
+					
+					</div>
+					<div class="modal-footer">
+						<h:form>
+						<h:messages />
+						
+						<div class="row">
+						
+						<div class="col-md">
+							<h:commandLink styleClass="btn btn-primary" pt:data-dismiss="modal"
+								action="#{editalBean.encerraAnaliseLote}" >
+								<i class="fa fa-check" aria-hidden="true" />
+								<f:ajax  render="@form :form-lote"
+									onevent="dataTableLoteFromJSF" />   SIM
+							</h:commandLink>
+							
+							<h:commandLink styleClass="btn btn-danger"
+									pt:data-dismiss="modal">
+									<i class="fa fa-times" aria-hidden="true" />   FECHAR
+							</h:commandLink>
+						</div>
+						
+						</div>
+						</h:form>
+					</div>
+				</div>
+			</div>
+		</div>
+<!-- 		Fecha Modal Confirmacao Encerra Analise -->	
+
+
+	</ui:define>
+</ui:composition>

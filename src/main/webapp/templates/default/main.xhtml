@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://xmlns.jcp.org/jsf/html" 
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+	<link rel="shortcut icon" type="image/x-icon" href="#{resource['images/favicon.ico']}" />
+	<f:facet name="first">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<h:outputScript target="body" name="js/jquery-3.6.0.min.js" />
+		<h:outputScript target="body" name="js/jquery-ui.min.js" />
+		<h:outputScript target="body" name="js/bootstrap.bundle.min.js" />
+		<h:outputScript target="body" name="js/loadingoverlay.min.js" />
+		<h:outputScript target="body" name="js/jquery.dataTables.min.js" />
+		<h:outputScript target="body" name="js/dataTables.bootstrap4.min.js" />
+		<h:outputScript target="body" name="js/dataTables.buttons.min.js" />
+		<h:outputScript target="body" name="js/buttons.bootstrap4.min.js" />
+		<h:outputScript target="body" name="js/jszip.min.js" />
+		<h:outputScript target="body" name="js/pdfmake.min.js" />
+		<h:outputScript target="body" name="js/vfs_fonts.js" />
+		<h:outputScript target="body" name="js/buttons.html5.min.js" />
+		<h:outputScript target="body" name="js/wizard.js" />
+		<h:outputScript target="body" library="webjars" name="	/1.14.16/dist/jquery.mask.min.js" />
+		
+		<h:outputScript target="body" name="js/app.js" />
+		
+		
+		
+		<h:outputStylesheet name="css/bootstrap.min.css" />
+		<h:outputStylesheet name="css/dataTables.bootstrap4.min.css" />
+		<h:outputStylesheet name="css/buttons.bootstrap4.min.css" />
+		<h:outputStylesheet name="css/font-awesome.css" />
+		<h:outputStylesheet name="css/glyphicons.css" />
+		<h:outputStylesheet name="css/wizard.css" />
+		<h:outputStylesheet name="css/style5.css" />
+		<h:outputStylesheet name="css/style.css" />
+		
+		
+		
+		
+
+	</f:facet>
+
+</h:head>
+<h:body>
+	<div class="wrapper">
+		<ui:include src="sidebar.xhtml" />
+		<ui:include src="content.xhtml" />
+	</div>
+</h:body>
+
+</html>
