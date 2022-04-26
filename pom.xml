@@ -263,6 +263,21 @@
 			<artifactId>commons-email</artifactId>
 			<version>1.5</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-search -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-search</artifactId>
+			<version>5.11.0.Final</version>
+			<type>pom</type>
+		</dependency>
+
 
 
 	</dependencies>
