@@ -49,9 +49,9 @@
 		<!-- Spring Data JPA -->
 		<spring-data-jpa.version>2.1.6.RELEASE</spring-data-jpa.version>
 		<!-- Hibernate / JPA -->
-		<hibernate.version>5.4.2.Final</hibernate.version>
+		<hibernate.version>5.6.9.Final</hibernate.version>
 		<!-- JSF Version -->
-		<jsf.version>2.2.18</jsf.version>
+		<jsf.version>2.2.20</jsf.version>
 		<!-- JUnit -->
 		<junit.jupiter.version>5.4.2</junit.jupiter.version>
 		<junit.platform.version>1.4.2</junit.platform.version>
@@ -263,6 +263,21 @@
 			<artifactId>commons-email</artifactId>
 			<version>1.5</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-search -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-search</artifactId>
+			<version>5.11.0.Final</version>
+			<type>pom</type>
+		</dependency>
+
 
 
 	</dependencies>

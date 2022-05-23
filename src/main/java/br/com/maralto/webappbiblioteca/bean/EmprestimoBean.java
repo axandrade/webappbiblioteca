@@ -76,6 +76,8 @@ public class EmprestimoBean {
 		this.emprestimosList = new ArrayList<Emprestimo>();
 		this.controleEmprestimoList = new ArrayList<ControleEmprestimo>();
 		this.usuario = usuarioService.findByLogin(authenticationFacade.getAuthentication().getName());
+		
+		
 	}
 
 	public void findAll() {

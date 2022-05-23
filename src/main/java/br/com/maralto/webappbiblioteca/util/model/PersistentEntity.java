@@ -1,6 +1,7 @@
 package br.com.maralto.webappbiblioteca.util.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -11,9 +12,11 @@ import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public abstract class PersistentEntity implements Serializable, SampleEntity {
-
-	private static final long serialVersionUID = 1L;
-
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 181414070635705117L;
 	@Id
 	@Basic(optional = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,30 +35,22 @@ public abstract class PersistentEntity implements Serializable, SampleEntity {
 
 	@Override
 	public int hashCode() {
-		int hash = 0;
-		hash += (this.getId() != null ? this.getId().hashCode() : 0);
-
-		return hash;
+		return Objects.hash(id);
 	}
 
 	@Override
-	public boolean equals(Object object) {
-		if (this == object)
+	public boolean equals(Object obj) {
+		if (this == obj)
 			return true;
-		if (object == null)
+		if (obj == null)
 			return false;
-		if (getClass() != object.getClass())
+		if (getClass() != obj.getClass())
 			return false;
-
-		PersistentEntity other = (PersistentEntity) object;
-		if (this.getId() != other.getId() && (this.getId() == null || !this.id.equals(other.id))) {
-			return false;
-		}
-		return true;
+		PersistentEntity other = (PersistentEntity) obj;
+		return Objects.equals(id, other.id);
 	}
 
-	@Override
-	public String toString() {
-		return this.getClass().getName() + " [ID=" + id + "]";
-	}
+	
+
+	
 }

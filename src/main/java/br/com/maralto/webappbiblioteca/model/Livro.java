@@ -31,7 +31,7 @@ public class Livro extends PersistentEntity {
 	private String titulo;
 	@OneToOne
 	@JoinColumn(name = "LIV_IDIOMA_ID", referencedColumnName = "IDIOMA_ID")
-	private Idioma idioma;
+	private Idioma idioma = new Idioma();
 	@Column(name = "LIV_DATA_CADASTRO")
 	@Temporal(TemporalType.DATE)
 	private Date dataCadastro;
@@ -39,13 +39,10 @@ public class Livro extends PersistentEntity {
 	@Temporal(TemporalType.DATE)
 	private Date dataPublicacao;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany()
 	@JoinTable(name = "AUTORES_LIVROS", joinColumns = @JoinColumn(name = "LIV_ID"), inverseJoinColumns = @JoinColumn(name = "AUT_ID"))
 	List<Autor> autoresList = new ArrayList<Autor>();
 	
-	@OneToOne(optional = false)
-	@JoinColumn(name = "LIV_CONTROLE_EMPRESTIMO_ID", referencedColumnName = "CONEMP_ID", nullable = false)
-	private ControleEmprestimo controleEmprestimo;
 		
 	public Livro() {
 	}
@@ -107,14 +104,6 @@ public class Livro extends PersistentEntity {
 		this.idioma = idioma;
 	}
 
-	public ControleEmprestimo getControleEmprestimo() {
-		return controleEmprestimo;
-	}
-
-	public void setControleEmprestimo(ControleEmprestimo controleEmprestimo) {
-		this.controleEmprestimo = controleEmprestimo;
-	}
-	
 	
 
 }
