@@ -34,16 +34,16 @@ public class ControleEmprestimo extends PersistentEntity {
 	
 	
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name = "CONEMP_EMP_ID", referencedColumnName = "EMP_ID", nullable = false)
-	private Emprestimo emprestimo;
+	@JoinColumn(name = "CONEMP_EMP_ID")
+	private Emprestimo emprestimo = new Emprestimo();
 	
-	
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name = "CONEMP_LIV_ID", referencedColumnName = "LIV_ID", nullable = false)
-	private Livro livro = new Livro();
 	
 	@Column(name = "CONEMP_SITUACAO")
 	private String situacao;
+	
+	@OneToOne()
+	@JoinColumn(name = "CONEMP_LIV_ID", referencedColumnName = "LIV_ID", nullable = false)
+	private Livro livro = new Livro();
 	
 	@JoinColumn(name = "CONEMP_USU_ID", referencedColumnName = "USU_ID", nullable = false)
 	@ManyToOne(optional = false)
@@ -58,15 +58,11 @@ public class ControleEmprestimo extends PersistentEntity {
 
 	public void setDataEmprestimo(Date dataEmprestimo) {
 		this.dataEmprestimo = dataEmprestimo;
-	}
-	
-
+	}	
 
 	public String getDataEmprestimoFormatado() {
 		return ConvertDate.DateToStringTimeStamp(this.dataEmprestimo);
-	}
-	
-	
+	}	
 	
 	public String getDataEntregaFormatado() {
 		return ConvertDate.DateToStringTimeStamp(this.dataEntrega);
@@ -95,15 +91,7 @@ public class ControleEmprestimo extends PersistentEntity {
 	public void setEmprestimo(Emprestimo emprestimo) {
 		this.emprestimo = emprestimo;
 	}
-
-	public Livro getLivro() {
-		return livro;
-	}
-
-	public void setLivro(Livro livro) {
-		this.livro = livro;
-	}
-
+	
 	public String getSituacao() {
 		return situacao;
 	}
@@ -119,5 +107,15 @@ public class ControleEmprestimo extends PersistentEntity {
 	public void setItemDevolucaoList(boolean isItemDevolucaoList) {
 		this.isItemDevolucaoList = isItemDevolucaoList;
 	}
+
+	public Livro getLivro() {
+		return livro;
+	}
+
+	public void setLivro(Livro livro) {
+		this.livro = livro;
+	}
+	
+	
 
 }

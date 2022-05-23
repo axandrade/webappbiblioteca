@@ -218,7 +218,7 @@
 												<div class="card-body">
 													<div class="form-group row">
 														<div class="col-md-12">
-															<h:outputLabel styleClass="modal-title"	value="Titulo : " />
+															<h:outputLabel styleClass="modal-title"	value="Titulo : #{c.livro.titulo}" />
 														</div>
 														<div class="col-md-12">
 															<h:outputLabel styleClass="modal-title"	value="	#{c.situacao}" />
@@ -484,6 +484,7 @@
 												value="#{emprestimoBean.emprestimo.controleEmprestimoList}" var="c">
 												<h:column>
 													<f:facet name="header">Titulo</f:facet>
+													 #{c.livro.titulo}
 												</h:column>
 												<h:column
 													pt:style="text-align:center;padding-right:5px;padding-left:5px">

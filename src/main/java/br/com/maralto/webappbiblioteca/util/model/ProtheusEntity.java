@@ -59,10 +59,7 @@ public abstract class ProtheusEntity implements Serializable, SampleEntity {
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return this.getClass().getName() + " [ID=" + id + "]";
-	}
+	
 
 
 }

@@ -1,3 +1,5 @@
+--
+
 DROP TABLE public.autores CASCADE;
 
 DROP TABLE public.autores_livros CASCADE;
