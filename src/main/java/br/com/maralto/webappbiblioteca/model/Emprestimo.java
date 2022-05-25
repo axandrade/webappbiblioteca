@@ -8,6 +8,7 @@ import javax.persistence.AttributeOverride;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -42,9 +43,8 @@ public class Emprestimo extends PersistentEntity {
 	@Column(name = "EMP_STATUS")
 	private Boolean status;
 	
-	@OneToMany(mappedBy = "emprestimo", cascade=CascadeType.PERSIST)
+	@OneToMany(mappedBy = "emprestimo",fetch = FetchType.EAGER, cascade=CascadeType.PERSIST)
 	private List<ControleEmprestimo> controleEmprestimoList = new ArrayList<ControleEmprestimo>();
-	
 
 	public Pessoa getPessoa() {
 		return pessoa;

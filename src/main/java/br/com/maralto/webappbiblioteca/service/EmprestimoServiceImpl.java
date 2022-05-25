@@ -67,22 +67,62 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 		
 		if(validaDadosEmprestimo(emprestimo)) {
 			emprestimoRepository.save(emprestimo);
-		
+			// sendEmail(emprestimo);
 		}
 		
-		// sendEmail(emprestimo);
+		
 	}
 	
 	public boolean validaDadosEmprestimo(Emprestimo emprestimo) {
 
 		if (emprestimo.getPessoa() != null && emprestimo.getPessoa().getCpf() != null	&& !emprestimo.getPessoa().getCpf().equals("")) {
-
+			
+		List<Emprestimo> emprestimosBusca = emprestimoRepository.findEmprestimoByUsuario(emprestimo.getPessoa().getId());
+		
+		if(!emprestimosBusca.isEmpty()) {
+			
+			boolean isLivroDevolvido = false;
+			
+			if(emprestimosBusca.size() == 1 ) {
+				
+				if(emprestimosBusca.get(0).getControleEmprestimoList().size() == 1) {
+					return true;
+				}
+				else {
+					
+					for(ControleEmprestimo ce: emprestimosBusca.get(0).getControleEmprestimoList()) {
+						
+						if(ce.getDataEntrega() != null) {
+							isLivroDevolvido = true;
+						}
+					}
+					
+					if(isLivroDevolvido) {
+						return true;
+					}
+					else{							
+						facesMessageUtils.addErrorMessage("Esse usuário ja possui o limite maximo de emprestimos ativos, faça a devolução de um dos livros para poder realizar um novo empréstimo");
+						return false;
+					}
+				}
+			}
+			else if(emprestimosBusca.size() == 2) {
+				facesMessageUtils.addErrorMessage("Esse usuário ja possui o limite maximo de emprestimos ativos, faça a devolução de um dos livros para poder realizar um novo empréstimo");
+				return false;
+			}
+			
+			return false;
+		}else {
+			
 			if (!emprestimo.getControleEmprestimoList().isEmpty()) {
 				return true;
 			} else {
 				facesMessageUtils.addErrorMessage("Nenhum livro foi selecionado para o empréstimo");
 				return false;
-			}
+			}	
+		}
+
+			
 
 		} else {
 			facesMessageUtils.addErrorMessage("O Campo CPF é Obrigatório");
