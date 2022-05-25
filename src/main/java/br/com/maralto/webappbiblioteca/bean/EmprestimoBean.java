@@ -167,29 +167,13 @@ public class EmprestimoBean {
 		this.emprestimo.getControleEmprestimoList().remove(controleEmprestimo);
 	}
 
-	public boolean validaDadosEmprestimo() {
-		
-
-		if (this.emprestimo.getPessoa() != null && this.emprestimo.getPessoa().getCpf() != null && !this.emprestimo.getPessoa().getCpf().equals("")) {
-			if (!this.emprestimo.getControleEmprestimoList().isEmpty()) {
-				return true;
-			} else {
-				facesMessageUtils.addErrorMessage("Nenhum livro foi selecionado para o empréstimo");
-				return false;
-			}
-		} else {
-			facesMessageUtils.addErrorMessage("O Campo CPF é Obrigatório");
-			return false;
-		}
-
-	}
 	
-	public void  saveEmprestimo() {
-		
-		if(validaDadosEmprestimo()) {
-			emprestimoService.save(this.emprestimo);
-			reset();
-		}
+	
+	public void saveEmprestimo() {
+
+		emprestimoService.save(this.emprestimo);
+		reset();
+
 	}
 	
 	public void toogleIsItemDevolucaoList(ControleEmprestimo controleEmprestimo) {

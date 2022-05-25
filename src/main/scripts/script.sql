@@ -262,3 +262,9 @@ select * from emprestimos e;
 
 select * from controle_emprestimos ce;
 
+select distinct l.liv_id, l.liv_titulo, l.liv_data_cadastro, l.liv_data_publicacao, l.liv_idioma_id, l.liv_isbn
+from public.livros l
+where l.liv_id not in (select ce.conemp_liv_id  from controle_emprestimos ce where ce.conemp_situacao = 'EMPRESTADO')
+
+
+

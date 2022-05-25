@@ -13,6 +13,7 @@ import br.com.maralto.webappbiblioteca.model.Emprestimo;
 import br.com.maralto.webappbiblioteca.repository.ControleEmprestimoRepository;
 import br.com.maralto.webappbiblioteca.repository.EmprestimoRepository;
 import br.com.maralto.webappbiblioteca.repository.LivroRepository;
+import br.com.maralto.webappbiblioteca.util.jsf.FacesMessageUtils;
 
 
 
@@ -26,7 +27,12 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 	EmprestimoRepository emprestimoRepository;
 	
 	@Autowired
+	private FacesMessageUtils facesMessageUtils;
+	
+	@Autowired
 	ControleEmprestimoRepository controleEmprestimoRepository;
+	
+	
 	
 
 	@Override
@@ -59,10 +65,30 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 		}
 		
 		
+		if(validaDadosEmprestimo(emprestimo)) {
+			emprestimoRepository.save(emprestimo);
 		
-		emprestimoRepository.save(emprestimo);
+		}
 		
 		// sendEmail(emprestimo);
+	}
+	
+	public boolean validaDadosEmprestimo(Emprestimo emprestimo) {
+
+		if (emprestimo.getPessoa() != null && emprestimo.getPessoa().getCpf() != null	&& !emprestimo.getPessoa().getCpf().equals("")) {
+
+			if (!emprestimo.getControleEmprestimoList().isEmpty()) {
+				return true;
+			} else {
+				facesMessageUtils.addErrorMessage("Nenhum livro foi selecionado para o empréstimo");
+				return false;
+			}
+
+		} else {
+			facesMessageUtils.addErrorMessage("O Campo CPF é Obrigatório");
+			return false;
+		}
+
 	}
 
 	private void atualizaDadosControleEmprestimo(Emprestimo emprestimo) {

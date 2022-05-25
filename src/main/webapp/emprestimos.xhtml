@@ -221,7 +221,7 @@
 															<h:outputLabel styleClass="modal-title"	value="Titulo : #{c.livro.titulo}" />
 														</div>
 														<div class="col-md-12">
-															<h:outputLabel styleClass="modal-title"	value="	#{c.situacao}" />
+															<h:outputLabel rendered="#{emprestimoBean.emprestimo.id ne null}" styleClass="modal-title"	value="	#{c.situacao}" />
 														</div>
 														<div class="col-md-7">
 															<h:outputLabel rendered="#{c.dataEntrega != null}" styleClass="modal-title"	value="Entrega : #{c.dataEntregaFormatado}" />
