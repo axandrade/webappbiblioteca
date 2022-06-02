@@ -298,17 +298,7 @@ function dataTableAutorSelected() {
 function dataTableEmprestimo() {
 
 	var table = $(".dataTable-emprestimo").DataTable({
-		lengthChange : false,
-		"columnDefs": [ {
-			"targets": 4, //objeto queinforma que as coluna 4,5,6 não serão ordenadas
-			"orderable": false
-			},{
-			"targets": 5, 
-			"orderable": false
-			},{
-			"targets": 6, 
-			"orderable": false
-			} ],
+		lengthChange : false,		
 		buttons : [ {
 			extend : 'csvHtml5',
 			text : 'CSV',

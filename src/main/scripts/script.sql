@@ -268,3 +268,5 @@ where l.liv_id not in (select ce.conemp_liv_id  from controle_emprestimos ce whe
 
 
 
+
+

@@ -35,6 +35,7 @@ public class Emprestimo extends PersistentEntity {
 	
 	@JoinColumn(name = "EMP_PES_ID", referencedColumnName = "PES_ID", nullable = false)
 	@ManyToOne(optional = false)
+	
 	private Pessoa pessoa;
 	
 	@Column(name = "EMP_OBSERVACAO")

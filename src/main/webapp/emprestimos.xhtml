@@ -266,8 +266,8 @@
 								<i class="fa fa-save fa-fw" aria-hidden="true" />
 
 								<f:ajax event="click" execute="@form"
-									render="@form :form-emprestimos" 
-									listener="#{emprestimoBean.saveEmprestimo}"/> Salvar
+									render="@form :form-emprestimos" listener="#{emprestimoBean.saveEmprestimo}"
+									onevent="dataTableEmprestimoFromJSF"/> Salvar
 
                             </h:commandLink>
 
