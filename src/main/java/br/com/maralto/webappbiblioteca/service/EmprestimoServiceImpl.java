@@ -41,7 +41,7 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 	}
 
 	@Override
-	public void save(Emprestimo emprestimo) {
+	public void save(Emprestimo emprestimo, boolean isFinalizacao) {
 		
 
 		if (emprestimo.getId() == null) {
@@ -49,23 +49,24 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 
 		}else {
 			
-			boolean finalizaEmprestimo = false;
+			boolean statusEmprestimo = false;
 			
 			atualizaDadosControleEmprestimo(emprestimo);
 			
 			for (ControleEmprestimo controleEmprestimo : emprestimo.getControleEmprestimoList()) {
 
-				if (!controleEmprestimo.isItemDevolucaoList()) {
+				if (controleEmprestimo.getSituacao().equals("EMPRESTADO")) {
 
-					finalizaEmprestimo = true;
+					statusEmprestimo = true;
 				}
 			}
 			
-			emprestimo.setStatus(finalizaEmprestimo);
+			emprestimo.setStatus(statusEmprestimo);
 		}
 		
 		
-		if(validaDadosEmprestimo(emprestimo)) {
+		if(validaDadosEmprestimo(emprestimo, isFinalizacao)) {
+			
 			emprestimoRepository.save(emprestimo);
 			// sendEmail(emprestimo);
 		}
@@ -73,13 +74,13 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 		
 	}
 	
-	public boolean validaDadosEmprestimo(Emprestimo emprestimo) {
+	public boolean validaDadosEmprestimo(Emprestimo emprestimo, boolean isFinalizacao) {
 
 		if (emprestimo.getPessoa() != null && emprestimo.getPessoa().getCpf() != null	&& !emprestimo.getPessoa().getCpf().equals("")) {
 			
 		List<Emprestimo> emprestimosBusca = emprestimoRepository.findEmprestimoByUsuario(emprestimo.getPessoa().getId());
 		
-		if(!emprestimosBusca.isEmpty()) {
+		if(!isFinalizacao && !emprestimosBusca.isEmpty()) {
 			
 			boolean isLivroDevolvido = false;
 			
@@ -91,7 +92,6 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 				else {
 					
 					for(ControleEmprestimo ce: emprestimosBusca.get(0).getControleEmprestimoList()) {
-						
 						if(ce.getDataEntrega() != null) {
 							isLivroDevolvido = true;
 						}
@@ -138,6 +138,7 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 					controleEmprestimo.setDataEntrega(new Date());
 					controleEmprestimo.setSituacao("DISPONIVEL");
 				}
+				
 
 			controleEmprestimoRepository.save(controleEmprestimo);
 		}

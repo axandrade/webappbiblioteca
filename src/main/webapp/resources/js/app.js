@@ -106,16 +106,17 @@ function dataTableUsuario() {
 function dataTableLivro() {
 
 	var table = $(".dataTable-livro").DataTable({
-		pageLength : 5,
-		lengthChange : false,
-		"columnDefs": [ {
-			"targets": 2,			 //informa qual coluna eu não desejo ordenar caso seja mais de uma coluna, criar novo objeoto entre conhechetes
-			"orderable": false
-			},	
+		pageLength : 5,				// informa a quantidade de linhas por pagina na tabela
+		lengthChange : false,		//opcao que libera a alteracao da qtd de linhas por pagina
+		"columnDefs": [ 
+			
 			{
 			"targets": 3,
 			"orderable": false
-			} ],
+			} 
+			
+			
+			],
 		buttons : [ {
 			extend : 'csvHtml5',
 			text : 'CSV',
@@ -213,7 +214,7 @@ function dataTableAutor() {
 	var table = $(".dataTable-autor").DataTable({
 		lengthChange : false,
 		"columnDefs": [ {
-			"targets": 2, //informa qual coluna eu não desejo ordenar
+			"targets": 0, //informa qual coluna eu não desejo ordenar
 			"orderable": false
 			} ],
 		buttons : [ {
@@ -298,20 +299,24 @@ function dataTableAutorSelected() {
 function dataTableEmprestimo() {
 
 	var table = $(".dataTable-emprestimo").DataTable({
-		lengthChange : false,		
-		buttons : [ {
-			extend : 'csvHtml5',
-			text : 'CSV',
-			title : 'report-csv'
-		}, {
-			extend : 'excelHtml5',
-			text : 'EXCEL',
-			title : 'report-excel'
-		}, {
-			extend : 'pdfHtml5',
-			text : 'PDF',
-			title : 'report-pdf'
-		} ],
+		pageLength : 5,				// informa a quantidade de linhas por pagina na tabela
+		lengthChange : false,		//opcao que libera a alteracao da qtd de linhas por pagina
+		"columnDefs": [ 			
+			{
+			"targets": 3,
+			"orderable": false
+			}, 
+			{
+			"targets": 4,
+			"orderable": false
+			}, 
+			{
+			"targets": 5,
+			"orderable": false
+			} 			
+			
+			],
+		
 		language : {
 			"sEmptyTable" : "Nenhum registro encontrado",
 			"sInfo" : "Mostrando de _START_ até _END_ de _TOTAL_ registros",

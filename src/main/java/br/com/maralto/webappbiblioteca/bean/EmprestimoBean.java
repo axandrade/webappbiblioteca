@@ -170,7 +170,7 @@ public class EmprestimoBean {
 	
 	public void saveEmprestimo() {
 
-		emprestimoService.save(this.emprestimo);
+		emprestimoService.save(this.emprestimo, false);
 		reset();
 
 	}
@@ -205,7 +205,7 @@ public class EmprestimoBean {
 	public void finalizarEmprestimo() {
 		
 		if(validaDadosfinalizacaoEmprestimo())
-		emprestimoService.save(this.emprestimo);
+		emprestimoService.save(this.emprestimo, true);
 		
 	}
 	

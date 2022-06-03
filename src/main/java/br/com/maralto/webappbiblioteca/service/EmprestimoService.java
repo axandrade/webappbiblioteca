@@ -10,7 +10,7 @@ public interface EmprestimoService {
 
 	List<Emprestimo> findAll();
 
-	void save(Emprestimo emprestimo);
+	void save(Emprestimo emprestimo, boolean isFinalizacao);
 	
 
 
