@@ -79,7 +79,6 @@ public class LivroBean {
 	}
 	
 	public void prepareUpdate(Livro livro) {
-		//TODO o set data não esta funcionando.
 		this.setDataPublicacao(ConvertDate.DateToString(livro.getDataPublicacao()));
 		setIdiomaSelected(livro.getIdioma());
 		this.livro = livro;

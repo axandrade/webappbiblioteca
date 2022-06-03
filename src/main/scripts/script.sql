@@ -255,6 +255,8 @@ select * from autores a;
 
 select * from livros l;
 
+select * from autores_livros al; 
+
 select * from idiomas i;
 
 

@@ -34,8 +34,7 @@ public class Emprestimo extends PersistentEntity {
 	private Date dataDevolucao;
 	
 	@JoinColumn(name = "EMP_PES_ID", referencedColumnName = "PES_ID", nullable = false)
-	@ManyToOne(optional = false)
-	
+	@ManyToOne(optional = false)	
 	private Pessoa pessoa;
 	
 	@Column(name = "EMP_OBSERVACAO")

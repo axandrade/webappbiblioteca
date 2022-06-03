@@ -41,31 +41,15 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 	}
 
 	@Override
-	public void save(Emprestimo emprestimo, boolean isFinalizacao) {
+	public void save(Emprestimo emprestimo) {
 		
 
-		if (emprestimo.getId() == null) {
+		if (emprestimo.getId() == null)
 			emprestimo.setStatus(true);
 
-		}else {
-			
-			boolean statusEmprestimo = false;
-			
-			atualizaDadosControleEmprestimo(emprestimo);
-			
-			for (ControleEmprestimo controleEmprestimo : emprestimo.getControleEmprestimoList()) {
-
-				if (controleEmprestimo.getSituacao().equals("EMPRESTADO")) {
-
-					statusEmprestimo = true;
-				}
-			}
-			
-			emprestimo.setStatus(statusEmprestimo);
-		}
 		
 		
-		if(validaDadosEmprestimo(emprestimo, isFinalizacao)) {
+		if(validaDadosEmprestimo(emprestimo)) {
 			
 			emprestimoRepository.save(emprestimo);
 			// sendEmail(emprestimo);
@@ -74,13 +58,13 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 		
 	}
 	
-	public boolean validaDadosEmprestimo(Emprestimo emprestimo, boolean isFinalizacao) {
+	public boolean validaDadosEmprestimo(Emprestimo emprestimo) {
 
 		if (emprestimo.getPessoa() != null && emprestimo.getPessoa().getCpf() != null	&& !emprestimo.getPessoa().getCpf().equals("")) {
 			
 		List<Emprestimo> emprestimosBusca = emprestimoRepository.findEmprestimoByUsuario(emprestimo.getPessoa().getId());
 		
-		if(!isFinalizacao && !emprestimosBusca.isEmpty()) {
+		if(!emprestimosBusca.isEmpty()) {
 			
 			boolean isLivroDevolvido = false;
 			
@@ -101,13 +85,13 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 						return true;
 					}
 					else{							
-						facesMessageUtils.addErrorMessage("Esse usuário ja possui o limite maximo de emprestimos ativos, faça a devolução de um dos livros para poder realizar um novo empréstimo");
+						facesMessageUtils.addErrorMessage("Esse usuário ja possui o limite máximo de empréstimos ativos, faça a devolução de um dos livros para poder realizar um novo empréstimo");
 						return false;
 					}
 				}
 			}
 			else if(emprestimosBusca.size() == 2) {
-				facesMessageUtils.addErrorMessage("Esse usuário ja possui o limite maximo de emprestimos ativos, faça a devolução de um dos livros para poder realizar um novo empréstimo");
+				facesMessageUtils.addErrorMessage("Esse usuário ja possui o limite máximo de empréstimos ativos, faça a devolução de um dos livros para poder realizar um novo empréstimo");
 				return false;
 			}
 			
@@ -121,8 +105,6 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 				return false;
 			}	
 		}
-
-			
 
 		} else {
 			facesMessageUtils.addErrorMessage("O Campo CPF é Obrigatório");
@@ -139,9 +121,57 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 					controleEmprestimo.setSituacao("DISPONIVEL");
 				}
 				
+				System.out.println(controleEmprestimo.getLivro().getTitulo() + "-" + controleEmprestimo.getSituacao());
 
 			controleEmprestimoRepository.save(controleEmprestimo);
 		}
+	}
+	
+	public void finalizaEmprestimo(Emprestimo emprestimo) {
+		
+		boolean statusEmprestimo = false;
+		
+		atualizaDadosControleEmprestimo(emprestimo);
+		
+		for (ControleEmprestimo controleEmprestimo : emprestimo.getControleEmprestimoList()) {
+
+			if (controleEmprestimo.getSituacao().equals("EMPRESTADO")) {
+
+				statusEmprestimo = true;
+			}
+		}
+		
+		emprestimo.setStatus(statusEmprestimo);
+		
+		if(validaDadosfinalizacaoEmprestimo(emprestimo)) {
+			emprestimoRepository.save(emprestimo);
+			
+			if(statusEmprestimo) {
+				System.out.println("O emprestimo ainda esta ativo");
+			}else {
+				System.out.println("Emprestimo encerrado");
+			}
+			
+		}
+		
+	}
+	
+	private boolean validaDadosfinalizacaoEmprestimo(Emprestimo emprestimo) {
+		
+		boolean isListaDesmarcada = true;
+		
+		for (ControleEmprestimo controleEmprestimo : emprestimo.getControleEmprestimoList()) {
+			if(controleEmprestimo.isItemDevolucaoList()) {
+				isListaDesmarcada = false;
+			}
+		}
+		
+		if(isListaDesmarcada) {
+			facesMessageUtils.addErrorMessage("Para Finalizar um empréstimo você deve selecionar no mínimo um livro");
+			return false;
+		}
+		
+		return true;
 	}
 
 	private void sendEmail(Emprestimo emprestimo) {

@@ -170,7 +170,7 @@ public class EmprestimoBean {
 	
 	public void saveEmprestimo() {
 
-		emprestimoService.save(this.emprestimo, false);
+		emprestimoService.save(this.emprestimo);
 		reset();
 
 	}
@@ -184,28 +184,12 @@ public class EmprestimoBean {
 		}
 	}
 	
-	private boolean validaDadosfinalizacaoEmprestimo() {
-		
-		boolean isListaDesmarcada = true;
-		
-		for (ControleEmprestimo controleEmprestimo : this.emprestimo.getControleEmprestimoList()) {
-			if(controleEmprestimo.isItemDevolucaoList()) {
-				isListaDesmarcada = false;
-			}
-		}
-		
-		if(isListaDesmarcada) {
-			facesMessageUtils.addErrorMessage("Para Finalizar um empréstimo você deve selecionar no mínimo um livro");
-			return false;
-		}
-		
-		return true;
-	}
+	
 	
 	public void finalizarEmprestimo() {
 		
-		if(validaDadosfinalizacaoEmprestimo())
-		emprestimoService.save(this.emprestimo, true);
+		
+		emprestimoService.finalizaEmprestimo(this.emprestimo);
 		
 	}
 	

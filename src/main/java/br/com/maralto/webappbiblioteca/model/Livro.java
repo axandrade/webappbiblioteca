@@ -39,10 +39,9 @@ public class Livro extends PersistentEntity {
 	@Temporal(TemporalType.DATE)
 	private Date dataPublicacao;
 	
-	@ManyToMany()
-	@JoinTable(name = "AUTORES_LIVROS", joinColumns = @JoinColumn(name = "LIV_ID"), inverseJoinColumns = @JoinColumn(name = "AUT_ID"))
+	@ManyToMany(fetch=FetchType.EAGER)
+	@JoinTable(name = "AUTORES_LIVROS", joinColumns = { @JoinColumn(name = "LIV_ID") }, inverseJoinColumns = {@JoinColumn(name = "AUT_ID")})
 	List<Autor> autoresList = new ArrayList<Autor>();
-	
 		
 	public Livro() {
 	}
@@ -102,6 +101,19 @@ public class Livro extends PersistentEntity {
 
 	public void setIdioma(Idioma idioma) {
 		this.idioma = idioma;
+	}
+
+	public String getListAutores() {
+		String delimitador = ", ";
+		List<String> nomesAutores = new ArrayList<String>();
+		
+		for(Autor a : this.autoresList) {
+			nomesAutores.add(a.getNome());
+		}
+		
+		return String.join(delimitador, nomesAutores);
+		
+		
 	}
 
 	
