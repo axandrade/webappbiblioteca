@@ -63,7 +63,7 @@
 											
 											<h:column pt:style="text-align:center;padding:5px 0;">
 												<f:facet name="header">Finalizar</f:facet>
-												<h:commandLink action="#{emprestimoBean.showEmprestimo(e)}"
+												<h:commandLink action="#{emprestimoBean.showEmprestimo(e)}" rendered="#{e.status == true}"
 													style="text-decoration:none;" pt:data-toggle="modal"
 													pt:data-target=".modal-finaliza-emprestimo" pt:data-backdrop="static"
 													pt:data-keyboard="false">
