@@ -169,7 +169,8 @@ public class EmprestimoBean {
 	
 	
 	public void saveEmprestimo() {
-
+		
+		this.emprestimo.setStatus(true);
 		emprestimoService.save(this.emprestimo);
 		reset();
 

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.maralto.webappbiblioteca.model.ControleEmprestimo;
 import br.com.maralto.webappbiblioteca.model.Emprestimo;
+import br.com.maralto.webappbiblioteca.model.Livro;
 import br.com.maralto.webappbiblioteca.repository.ControleEmprestimoRepository;
 import br.com.maralto.webappbiblioteca.repository.EmprestimoRepository;
 import br.com.maralto.webappbiblioteca.repository.LivroRepository;
@@ -47,7 +48,7 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 		if(validaDadosEmprestimo(emprestimo) && verificaHitoricoEmprestimos(emprestimo)) {
 			
 			System.out.println("GRAVANDO");
-			//emprestimoRepository.save(emprestimo);
+			emprestimoRepository.save(emprestimo);
 			// sendEmail(emprestimo);
 		}else {
 			System.out.println("ERRO ERRO ERRO");
@@ -229,16 +230,15 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 		
 		email.append("Livro(s):\n\n");
 		
-//		for(Livro l : emprestimo.getLivrosList()) {
-//			email.append("Titulo: " + l.getTitulo() + "\n");
-//		}
+		for(ControleEmprestimo ce : emprestimo.getControleEmprestimoList()) {
+			email.append("Titulo: " + ce.getLivro().getTitulo() + "\n");
+		}
 		
 		if(emprestimo.getObservacao() != null && !emprestimo.getObservacao().equals(""))
 			email.append("Observação: " + emprestimo.getObservacao() + "\n\n");
 		
 		email.append("Data do Empréstimo: " + emprestimo.getDataEmprestimoFormatado() + "\n");
-		//email.append("Data para Devolução: " + emprestimo.getDataDevolucaoFormatado() + "\n");
-		//email.append("Administrador: " + emprestimo.getUsuario().getNome() + "\n");
+		email.append("Data para Devolução: " + emprestimo.getDataDevolucaoFormatado() + "\n");		
 		email.append("Endereço: Rua Antônio Lima, nº 150, 200, Bairro Meireles, em Fortaleza-CE, 60115-270 \n");
 		email.append("O atraso na devolução acarreta multa de 0,50 ( cinquenta centavos) por dia. \n\n");
 		email.append("Centro Cultural Mar Alto");
