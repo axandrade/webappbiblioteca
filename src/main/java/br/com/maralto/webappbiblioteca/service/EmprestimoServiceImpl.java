@@ -43,60 +43,54 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 	@Override
 	public void save(Emprestimo emprestimo) {
 		
-
-		if (emprestimo.getId() == null)
-			emprestimo.setStatus(true);
-
 		
-		
-		if(validaDadosEmprestimo(emprestimo)) {
+		if(validaDadosEmprestimo(emprestimo) && verificaHitoricoEmprestimos(emprestimo)) {
 			
-			emprestimoRepository.save(emprestimo);
+			System.out.println("GRAVANDO");
+			//emprestimoRepository.save(emprestimo);
 			// sendEmail(emprestimo);
+		}else {
+			System.out.println("ERRO ERRO ERRO");
 		}
 		
 		
 	}
 	
-	public boolean validaDadosEmprestimo(Emprestimo emprestimo) {
+	private boolean verificaHitoricoEmprestimos(Emprestimo emprestimo) {
 
-		if (emprestimo.getPessoa() != null && emprestimo.getPessoa().getCpf() != null	&& !emprestimo.getPessoa().getCpf().equals("")) {
-			
+		boolean isLivroDevolvido = false;
+		Integer qtdControleEmprestimosDisponiveis;
+
 		List<Emprestimo> emprestimosBusca = emprestimoRepository.findEmprestimoByUsuario(emprestimo.getPessoa().getId());
-		
-		if(!emprestimosBusca.isEmpty()) {
-			
-			boolean isLivroDevolvido = false;
-			
-			if(emprestimosBusca.size() == 1 ) {
-				
-				if(emprestimosBusca.get(0).getControleEmprestimoList().size() == 1) {
-					return true;
-				}
-				else {
-					
-					for(ControleEmprestimo ce: emprestimosBusca.get(0).getControleEmprestimoList()) {
-						if(ce.getDataEntrega() != null) {
-							isLivroDevolvido = true;
-						}
-					}
-					
-					if(isLivroDevolvido) {
-						return true;
-					}
-					else{							
-						facesMessageUtils.addErrorMessage("Esse usuário ja possui o limite máximo de empréstimos ativos, faça a devolução de um dos livros para poder realizar um novo empréstimo");
-						return false;
-					}
-				}
-			}
-			else if(emprestimosBusca.size() == 2) {
+
+		if (!emprestimosBusca.isEmpty()) {
+
+			qtdControleEmprestimosDisponiveis = verificaQtdControleEmprestimosAtivos(emprestimosBusca.get(0).getControleEmprestimoList());
+
+			if (emprestimosBusca.size() == 1 && emprestimo.getControleEmprestimoList().size() > qtdControleEmprestimosDisponiveis) {
+
 				facesMessageUtils.addErrorMessage("Esse usuário ja possui o limite máximo de empréstimos ativos, faça a devolução de um dos livros para poder realizar um novo empréstimo");
 				return false;
+
+			} else {
+				for (ControleEmprestimo ce : emprestimosBusca.get(0).getControleEmprestimoList()) {
+					if (ce.getDataEntrega() != null) {
+						isLivroDevolvido = true;
+					}
+				}
+
+				if (isLivroDevolvido) {
+					return true;
+				} else {
+					facesMessageUtils.addErrorMessage("Esse usuário ja possui o limite máximo de empréstimos ativos, faça a devolução de um dos livros para poder realizar um novo empréstimo");
+					return false;
+				}
+
 			}
-			
-			return false;
-		}else {
+
+		}
+		
+		else {
 			
 			if (!emprestimo.getControleEmprestimoList().isEmpty()) {
 				return true;
@@ -106,12 +100,39 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 			}	
 		}
 
+	}
+	
+	private Integer verificaQtdControleEmprestimosAtivos(List<ControleEmprestimo> controleEmprestimoList) {
+		
+		for(ControleEmprestimo ce: controleEmprestimoList) {
+			if(ce.getDataEntrega() != null) {
+				return 1;
+			}else {
+				return 2;
+			}
+		}
+		
+		return null;
+	}
+
+	public boolean validaDadosEmprestimo(Emprestimo emprestimo) {
+
+		if (emprestimo.getPessoa() != null && emprestimo.getPessoa().getCpf() != null && !emprestimo.getPessoa().getCpf().equals("")) {
+			
+			if (!emprestimo.getControleEmprestimoList().isEmpty()) {
+				return true;
+			} else {
+				facesMessageUtils.addErrorMessage("Nenhum livro foi selecionado para o empréstimo");
+				return false;
+			}	
 		} else {
 			facesMessageUtils.addErrorMessage("O Campo CPF é Obrigatório");
 			return false;
 		}
 
 	}
+
+
 
 	private void atualizaDadosControleEmprestimo(Emprestimo emprestimo) {
 		for (ControleEmprestimo controleEmprestimo : emprestimo.getControleEmprestimoList()) {
