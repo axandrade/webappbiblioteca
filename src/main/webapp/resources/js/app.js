@@ -213,6 +213,7 @@ function dataTableAutor() {
 
 	var table = $(".dataTable-autor").DataTable({
 		lengthChange : false,
+		pageLength : 5,
 		"columnDefs": [ {
 			"targets": 0, //informa qual coluna eu não desejo ordenar
 			"orderable": false

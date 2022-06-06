@@ -43,18 +43,13 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 
 	@Override
 	public void save(Emprestimo emprestimo) {
-		
-		
-		if(validaDadosEmprestimo(emprestimo) && verificaHitoricoEmprestimos(emprestimo)) {
-			
-			System.out.println("GRAVANDO");
+
+		if (validaDadosEmprestimo(emprestimo) && verificaHitoricoEmprestimos(emprestimo)) {
+
 			emprestimoRepository.save(emprestimo);
 			// sendEmail(emprestimo);
-		}else {
-			System.out.println("ERRO ERRO ERRO");
 		}
-		
-		
+
 	}
 	
 	private boolean verificaHitoricoEmprestimos(Emprestimo emprestimo) {
