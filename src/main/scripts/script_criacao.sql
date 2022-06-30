@@ -1,12 +1,14 @@
 --
+DROP TABLE public.autorizacao_usuario CASCADE;
+
+DROP TABLE public.usuarios CASCADE;
+
+DROP TABLE public.autorizacoes CASCADE;
+
 
 DROP TABLE public.autores CASCADE;
 
 DROP TABLE public.autores_livros CASCADE;
-
-DROP TABLE public.autorizacao_usuario CASCADE;
-
-DROP TABLE public.autorizacoes CASCADE;
 
 DROP TABLE public.controle_emprestimos CASCADE;
 
@@ -18,7 +20,6 @@ DROP TABLE public.livros CASCADE;
 
 DROP TABLE public.pessoas CASCADE;
 
-DROP TABLE public.usuarios CASCADE;
 
 
 
@@ -87,25 +88,18 @@ INSERT INTO public.autorizacao_usuario(autorizacao_usuario_id, usu_id, aut_id)
 
 CREATE TABLE AUTORES (
 	AUT_ID serial PRIMARY KEY,
-	AUT_NOME VARCHAR ( 80 )
+	AUT_NOME VARCHAR ( 80 ) unique 
 );
-
-CREATE TABLE IDIOMAS (
-	IDIOMA_ID serial PRIMARY KEY,
-	IDIOMA_ATIVO bool,
-	IDIOMA_DESCRICAO varchar(100) NOT NULL
-	
-);
-
 
 
 CREATE TABLE LIVROS (
 	LIV_ID serial PRIMARY KEY,
 	LIV_TITULO VARCHAR ( 50 ),
+	LIV_CODIGO VARCHAR ( 6 ),
 	LIV_ISBN VARCHAR ( 50 ),	
 	LIV_DATA_CADASTRO TIMESTAMP,
 	LIV_DATA_PUBLICACAO TIMESTAMP,
-	LIV_IDIOMA_ID bigint,
+	LIV_IDIOMA VARCHAR ( 50 ),
 	LIV_CONTROLE_EMPRESTIMO_ID bigint
 );
 
@@ -137,11 +131,6 @@ CREATE TABLE CONTROLE_EMPRESTIMOS (
 );
 
 -- chaves estrangeiras de livros
-
-alter table LIVROS 
-add constraint fk_idioma
-foreign key (LIV_IDIOMA_ID)
-references IDIOMAS(IDIOMA_ID);
 
 alter table LIVROS 
 add constraint fk_controle_emprestimos
@@ -215,37 +204,7 @@ INSERT INTO public.pessoas
 (pes_nome, pes_cpf, pes_email, pes_data_nascimento, pes_data_cadastro, pes_contato1, pes_contato2, pes_logradouro, pes_numero, pes_complemento, pes_bairro, pes_cep, pes_cidade, pes_uf)
 VALUES('Lilia nogueira', '61597387315', 'liliadesousanogueira@gmail.com', '1986-06-12', NULL, '85988455050', '', 'Rua Artista Plástico Joaquim de Souza', '101', 'ap 801 torre c', 'Papicu', '60176-106', 'Fortaleza', 'CE');
 
---insert autores
 
-INSERT INTO public.autores(aut_nome) VALUES('J. R. R. Tolkien');
-INSERT INTO public.autores(aut_nome) VALUES('J. K. Rowling');
-INSERT INTO public.autores(aut_nome) VALUES('Karl Marx');
-INSERT INTO public.autores(aut_nome) VALUES('Friedrich Engels');
-INSERT INTO public.autores(aut_nome) VALUES('Bernard Cornwell');
-
---insert livros
-
-INSERT INTO public.livros
-(liv_titulo, liv_isbn, liv_data_cadastro, liv_data_publicacao, liv_idioma_id)
-VALUES(' O Senhor dos Anéis: A Sociedade do Anel', 'eretrg', '2022-01-08 00:00:00.000', '1876-04-01 00:00:00.000', 1);
-INSERT INTO public.livros
-(liv_titulo, liv_isbn, liv_data_cadastro, liv_data_publicacao, liv_idioma_id)
-VALUES('Manifesto Comunista', '123456789', '2022-01-08 00:00:00.000', '1872-04-01 00:00:00.000', 1);
-INSERT INTO public.livros
-(liv_titulo, liv_isbn, liv_data_cadastro, liv_data_publicacao, liv_idioma_id)
-VALUES('War Lord', '123456789', '2022-01-08 00:00:00.000', '1872-04-01 00:00:00.000', 2);
-INSERT INTO public.livros
-(liv_titulo, liv_isbn, liv_data_cadastro, liv_data_publicacao, liv_idioma_id)
-VALUES('Filhos de Hurin', '123456789', '2022-01-08 00:00:00.000', '1872-04-01 00:00:00.000', 3);
-
-
---insert autores_livros
-
-INSERT INTO public.autores_livros(autores_livros_id, aut_id, liv_id) VALUES(1, 1, 1);
-INSERT INTO public.autores_livros(autores_livros_id, aut_id, liv_id) VALUES(2, 3, 2);
-INSERT INTO public.autores_livros(autores_livros_id, aut_id, liv_id) VALUES(3, 4, 2);
-INSERT INTO public.autores_livros(autores_livros_id, aut_id, liv_id) VALUES(4, 5, 3);
-INSERT INTO public.autores_livros(autores_livros_id, aut_id, liv_id) VALUES(5, 5, 4);
 
 select * from usuarios u ;
 
@@ -253,7 +212,7 @@ select * from pessoas p;
 
 select * from autores a; 
 
-select * from livros l;
+select liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma from livros l;
 
 select * from autores_livros al; 
 
@@ -269,6 +228,11 @@ from public.livros l
 where l.liv_id not in (select ce.conemp_liv_id  from controle_emprestimos ce where ce.conemp_situacao = 'EMPRESTADO')
 
 
+select * from teste.usuarios u 
+
+select * from teste.autorizacoes a 
+
+select * from teste.autorizacao_usuario au 
 
 
 

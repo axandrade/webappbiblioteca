@@ -12,7 +12,7 @@ public interface LivroService {
 
 	List<Livro> findAll();
 
-	Livro save(Livro livro);
+	void save(Livro livro);
 
 	void delete(Livro livro);
 	

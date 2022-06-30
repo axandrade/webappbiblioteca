@@ -23,6 +23,11 @@
 												<f:facet name="header">#</f:facet>
                                        			 #{table.rowIndex + 1}
                                     		</h:column>
+                                    		
+                                    		<h:column>
+											<f:facet name="header">Código</f:facet>
+                                        	#{l.codigo}
+                                   			</h:column>
 
 											<h:column>
 											<f:facet name="header">Titulo</f:facet>
@@ -114,12 +119,20 @@
 
 						<div class="modal-body bg-light">
 							<div class="form-row">
-								<div class="form-group col-md-12">
+								<div class="form-group col-md-9">
 									<label for="titulo">Titulo</label> <label class="asterisco"
 										for="titulo">*</label>
 									<h:inputText styleClass="form-control" required="true"
 										requiredMessage="Campo titulo é Obrigatorio"
 										value="#{livroBean.livro.titulo}">
+									</h:inputText>
+								</div>
+								<div class="form-group col-md-3">
+									<label for="firstName">Código</label> <label class="asterisco"
+										for="firstName">*</label>
+									<h:inputText styleClass="form-control" required="true"
+										requiredMessage="Campo Código é Obrigatorio"
+										value="#{livroBean.livro.codigo}">
 									</h:inputText>
 								</div>
 							</div>
@@ -135,8 +148,8 @@
 								<div class="form-group col-md-4">
 									<label class="control-label">Idioma</label> <label
 										class="control-label asterisco" for="firstName">*</label>
-									<h:selectOneMenu value="#{livroBean.idiomaSelected}"
-										styleClass="form-control custom-select" converter="generic">
+									<h:selectOneMenu value="#{livroBean.livro.idioma}"
+										styleClass="form-control custom-select">
 										<f:selectItem itemValue="" itemLabel="Selecione..." />
 										<f:selectItems value="#{livroBean.idiomasList}" var="i"
 											itemLabel="#{i.descricao}" itemValue="#{i}" />

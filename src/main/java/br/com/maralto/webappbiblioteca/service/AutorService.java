@@ -13,7 +13,7 @@ public interface AutorService {
 
 	List<Autor> findAll();
 
-	Autor save(Autor autor);
+	void save(Autor autor);
 
 	void delete(Autor autor);
 	

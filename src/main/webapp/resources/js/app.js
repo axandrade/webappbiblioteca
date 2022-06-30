@@ -106,7 +106,7 @@ function dataTableUsuario() {
 function dataTableLivro() {
 
 	var table = $(".dataTable-livro").DataTable({
-		pageLength : 5,				// informa a quantidade de linhas por pagina na tabela
+		pageLength : 20,				// informa a quantidade de linhas por pagina na tabela
 		lengthChange : false,		//opcao que libera a alteracao da qtd de linhas por pagina
 		"columnDefs": [ 
 			
@@ -213,7 +213,7 @@ function dataTableAutor() {
 
 	var table = $(".dataTable-autor").DataTable({
 		lengthChange : false,
-		pageLength : 5,
+		pageLength : 20,
 		"columnDefs": [ {
 			"targets": 0, //informa qual coluna eu não desejo ordenar
 			"orderable": false

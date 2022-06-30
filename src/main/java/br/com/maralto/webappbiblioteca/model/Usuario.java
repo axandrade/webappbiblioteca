@@ -1,6 +1,7 @@
 package br.com.maralto.webappbiblioteca.model;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
@@ -22,7 +23,7 @@ public class Usuario extends PersistentEntity {
 
 	@Column(name = "USU_NOME")
 	private String nome;
-	@Column(name = "USU_LOGIN")
+	@Column(name = "USU_LOGIN", unique = true)
 	private String login;
 	@Column(name = "USU_SENHA")
 	private String senha;
@@ -31,7 +32,7 @@ public class Usuario extends PersistentEntity {
 	
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "AUTORIZACAO_USUARIO", joinColumns = {	@JoinColumn(name = "USU_ID") }, inverseJoinColumns = { @JoinColumn(name = "AUT_ID") })
-	private List<Autorizacao> autorizacaoList;
+	private Set<Autorizacao> autorizacaoList;
 
 	public String getNome() {
 		return nome;
@@ -65,16 +66,14 @@ public class Usuario extends PersistentEntity {
 		this.ativo = ativo;
 	}
 
-	public List<Autorizacao> getAutorizacaoList() {
-		
-		for (Autorizacao a : this.autorizacaoList) {
-			System.out.println("teste " + a.getDescricao());
-		}
+	public Set<Autorizacao> getAutorizacaoList() {
 		return autorizacaoList;
 	}
 
-	public void setAutorizacaoList(List<Autorizacao> autorizacaoList) {
+	public void setAutorizacaoList(Set<Autorizacao> autorizacaoList) {
 		this.autorizacaoList = autorizacaoList;
 	}
+
+	
 
 }

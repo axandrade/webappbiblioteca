@@ -2,6 +2,7 @@ package br.com.maralto.webappbiblioteca.bean;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.PostConstruct;
 
@@ -99,7 +100,7 @@ public class UsuarioBean {
 	
 	public void prepareUpdate(Usuario usuario) {
 		desejaResetarSenha = false;
-		this.autorizacaoSelected = usuario.getAutorizacaoList().get(0);
+		//this.autorizacaoSelected = usuario.getAutorizacaoList().get(0);
 		this.usuario = usuario;
 		
 	}
@@ -107,7 +108,7 @@ public class UsuarioBean {
 	public void save() {
 
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		List<Autorizacao> autorizacoesSelectedList = new ArrayList<Autorizacao>();
+		Set<Autorizacao> autorizacoesSelectedList = (Set<Autorizacao>) new ArrayList<Autorizacao>();
 
 		if (validaUsuario(this.usuario)) {
 
@@ -180,7 +181,7 @@ public class UsuarioBean {
 
 			usuario.setSenha(passwordEncoder.encode(""));
 		//	autorizacaoList.add(autorizacao);
-			usuario.setAutorizacaoList(autorizacaoList);
+		//	usuario.setAutorizacaoList(autorizacaoList);
 
 			usuarioService.save(usuario);
 			facesMessageUtils.addWarningMessage("Alterado com Sucesso!");

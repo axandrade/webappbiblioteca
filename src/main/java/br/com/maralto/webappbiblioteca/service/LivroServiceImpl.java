@@ -28,9 +28,16 @@ public class LivroServiceImpl implements LivroService {
 	}
 
 	@Override
-	public Livro save(Livro livro) {
-		livro.setDataCadastro(new Date());
-		return livroRepository.saveAndFlush(livro);
+	public void save(Livro livro) {
+		
+		try {
+			livro.setDataCadastro(new Date());
+			livroRepository.saveAndFlush(livro);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	
 	}
 
 	@Override

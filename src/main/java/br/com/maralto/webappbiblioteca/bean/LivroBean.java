@@ -1,6 +1,7 @@
 package br.com.maralto.webappbiblioteca.bean;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -9,11 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import br.com.maralto.webappbiblioteca.enums.Idioma;
 import br.com.maralto.webappbiblioteca.model.Autor;
-import br.com.maralto.webappbiblioteca.model.Idioma;
 import br.com.maralto.webappbiblioteca.model.Livro;
 import br.com.maralto.webappbiblioteca.service.AutorService;
-import br.com.maralto.webappbiblioteca.service.IdiomaService;
 import br.com.maralto.webappbiblioteca.service.LivroService;
 import br.com.maralto.webappbiblioteca.util.ConvertDate;
 import br.com.maralto.webappbiblioteca.util.jsf.FacesMessageUtils;
@@ -24,19 +24,18 @@ public class LivroBean {
 
 	private Livro livro;
 	private Livro livroSelected;
-	private Idioma idiomaSelected;
 	private String dataPublicacao;
 	private List<Livro> livrosList;
 	private List<Autor> autoresList;
-	private List<Idioma> idiomasList;
+	private String idiomaSelected;
 	private String autorNomeFiltro;
+	List<Idioma> idiomasList;
 
 	@Autowired
 	LivroService livroService;
 	@Autowired
 	AutorService autorService;
-	@Autowired
-	IdiomaService idiomaService;
+	
 
 	@Autowired
 	private FacesMessageUtils facesMessageUtils;
@@ -45,12 +44,12 @@ public class LivroBean {
 	private void init() {
 
 		livro = new Livro();
-		dataPublicacao = "";
-		idiomaSelected = new Idioma();
-		autorNomeFiltro = "";
-		idiomasList = idiomaService.findAll();
+		dataPublicacao = "";		
+		autorNomeFiltro = "";		
 		
 		findAllLivros();
+		
+		idiomasList = Arrays.asList(Idioma.values());
 	}
 
 	public void save() {
@@ -59,7 +58,7 @@ public class LivroBean {
 			this.livro.setDataPublicacao(ConvertDate.formataData(dataPublicacao));
 		}
 		
-		livro.setIdioma(idiomaSelected);
+		
 		try {
 			
 			livroService.save(livro);
@@ -73,14 +72,13 @@ public class LivroBean {
 	}
 	
 	public void prepareSave() {
-		this.dataPublicacao = "";
-		this.idiomaSelected = new Idioma();
+		this.dataPublicacao = "";		
 		this.livro = new Livro();
 	}
 	
 	public void prepareUpdate(Livro livro) {
 		this.setDataPublicacao(ConvertDate.DateToString(livro.getDataPublicacao()));
-		setIdiomaSelected(livro.getIdioma());
+		
 		this.livro = livro;
 	}
 
@@ -133,7 +131,7 @@ public class LivroBean {
 		this.livroSelected = new Livro();
 		this.dataPublicacao = "";
 		this.autoresList = new ArrayList<Autor>();
-		this.idiomaSelected = new Idioma();
+		
 
 	}
 	
@@ -169,21 +167,7 @@ public class LivroBean {
 		this.dataPublicacao = dataPublicacao;
 	}
 
-	public List<Idioma> getIdiomasList() {
-		return idiomasList;
-	}
-
-	public void setIdiomasList(List<Idioma> idiomasList) {
-		this.idiomasList = idiomasList;
-	}
-
-	public Idioma getIdiomaSelected() {
-		return idiomaSelected;
-	}
-
-	public void setIdiomaSelected(Idioma idiomaSelected) {
-		this.idiomaSelected = idiomaSelected;
-	}
+	
 
 	public List<Autor> getAutoresList() {
 		return autoresList;
@@ -200,6 +184,22 @@ public class LivroBean {
 
 	public void setAutorNomeFiltro(String autorNomeFiltro) {
 		this.autorNomeFiltro = autorNomeFiltro;
+	}
+
+	public List<Idioma> getIdiomasList() {
+		return idiomasList;
+	}
+
+	public void setIdiomasList(List<Idioma> idiomasList) {
+		this.idiomasList = idiomasList;
+	}
+
+	public String getIdiomaSelected() {
+		return idiomaSelected;
+	}
+
+	public void setIdiomaSelected(String idiomaSelected) {
+		this.idiomaSelected = idiomaSelected;
 	}
 
 	

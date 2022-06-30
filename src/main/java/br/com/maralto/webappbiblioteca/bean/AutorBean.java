@@ -1,5 +1,15 @@
 package br.com.maralto.webappbiblioteca.bean;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -8,8 +18,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import br.com.maralto.webappbiblioteca.enums.Idioma;
 import br.com.maralto.webappbiblioteca.model.Autor;
+import br.com.maralto.webappbiblioteca.model.Livro;
 import br.com.maralto.webappbiblioteca.service.AutorService;
+import br.com.maralto.webappbiblioteca.service.LivroService;
 
 @Controller
 @Scope("session")
@@ -17,10 +30,14 @@ public class AutorBean {
 
 	private Autor autor;
 	private Autor autorSelected;
+	
 	private List<Autor> autoresList;
 
 	@Autowired
 	AutorService autorService;
+	
+	@Autowired
+	LivroService livroService;
 	
 
 	@PostConstruct
@@ -30,7 +47,7 @@ public class AutorBean {
 		findAll();
 	}
 
-	public void findAll() {
+	public void findAll() {		
 
 		autoresList = autorService.findAll();
 
@@ -53,6 +70,65 @@ public class AutorBean {
 		reset();
 
 	}
+	
+	public void export(){
+		
+		Livro livro = new Livro();
+		List<Livro> livros = new ArrayList<>();
+		
+		try {
+			
+			String fileName = "C:\\arquivos\\livros.txt";
+			
+			
+			
+			BufferedReader buffRead = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "UTF-8"));
+			
+			
+			String linha = "";
+			
+			while (true) {
+				if (linha != null) {
+					
+					String[] recorte = linha.split("\\|");
+					livro.setTitulo(recorte[0]);
+					
+					
+					if(1 < recorte.length) {
+						livro.setCodigo(recorte[1]);
+					}
+					
+					livros.add(livro);
+					
+					livro = new Livro();
+					
+				} else
+					break;
+				linha = buffRead.readLine();
+			}
+			
+			
+			
+			for(Livro livrox : livros) {
+				livro.setTitulo(livrox.getTitulo());
+				livro.setCodigo(livrox.getCodigo());
+				livro.setIdioma(Idioma.PORTUGUES.toString());
+				
+				livroService.save(livro);
+				
+				livro = new Livro();
+			}
+			
+			buffRead.close();
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+	
 
 	private void reset() {
 		autor = new Autor();
