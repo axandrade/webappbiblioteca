@@ -53,17 +53,7 @@
 										<i class="fa fa-clone fa-fw" aria-hidden="true" /> Adicionar
                                         <f:ajax render="form-cadastro-autor" listener="#{autorBean.prepareSave}"/>
 									</h:commandLink>
-
-									<h:commandLink
-										styleClass="btn btn-danger">
-										<i class="fa fa-save fa-fw" aria-hidden="true" />
-
-										<f:ajax event="click" execute="@form"
-											render="@form :form-autores" listener="#{autorBean.export}"
-											onevent="dataTableAutorFromJSF" /> Exportar
-
-                            </h:commandLink>
-
+									
 								</div>
 							</h:panelGroup>
 						</h:form>

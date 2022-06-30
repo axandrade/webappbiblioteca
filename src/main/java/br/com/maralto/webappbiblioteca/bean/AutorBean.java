@@ -69,66 +69,7 @@ public class AutorBean {
 
 		reset();
 
-	}
-	
-	public void export(){
-		
-		Livro livro = new Livro();
-		List<Livro> livros = new ArrayList<>();
-		
-		try {
-			
-			String fileName = "C:\\arquivos\\livros.txt";
-			
-			
-			
-			BufferedReader buffRead = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "UTF-8"));
-			
-			
-			String linha = "";
-			
-			while (true) {
-				if (linha != null) {
-					
-					String[] recorte = linha.split("\\|");
-					livro.setTitulo(recorte[0]);
-					
-					
-					if(1 < recorte.length) {
-						livro.setCodigo(recorte[1]);
-					}
-					
-					livros.add(livro);
-					
-					livro = new Livro();
-					
-				} else
-					break;
-				linha = buffRead.readLine();
-			}
-			
-			
-			
-			for(Livro livrox : livros) {
-				livro.setTitulo(livrox.getTitulo());
-				livro.setCodigo(livrox.getCodigo());
-				livro.setIdioma(Idioma.PORTUGUES.toString());
-				
-				livroService.save(livro);
-				
-				livro = new Livro();
-			}
-			
-			buffRead.close();
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		}
-		
-		
-	}
-	
-	
+	}	
 
 	private void reset() {
 		autor = new Autor();
