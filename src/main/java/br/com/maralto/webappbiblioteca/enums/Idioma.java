@@ -2,10 +2,14 @@ package br.com.maralto.webappbiblioteca.enums;
 
 public enum Idioma {
 
-	PORTUGUES("PORTUGUÊS"), 	
-	INGLES("INGLÊS"),
-	ESPANHOL("ESPANHOL"),
-	ALEMAO("ALEMÃO");
+	PORTUGUES("Português"), 	
+	INGLES("Inglês"),
+	ESPANHOL("Espanhol"),
+	ALEMAO("Alemão"),
+	FRANCES("Francês"),
+	ITALIANO("Italiano"),
+	RUSSO("Russo"),	
+	JAPONES("Japonês");
 	
 	String descricao = null;
 

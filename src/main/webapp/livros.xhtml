@@ -18,15 +18,11 @@
 									<div class="table-responsive">
 										<h:dataTable binding="#{table}"
 											value="#{livroBean.livrosList}" var="l"
-											styleClass="table dataTable-livro table-striped table-sm">
-											<h:column>
-												<f:facet name="header">#</f:facet>
-                                       			 #{table.rowIndex + 1}
-                                    		</h:column>
+											styleClass="table dataTable-livro table-striped table-sm">											
                                     		
                                     		<h:column>
 											<f:facet name="header">Código</f:facet>
-                                        	#{l.codigo}
+                                        	#{l.id}
                                    			</h:column>
 
 											<h:column>
@@ -37,12 +33,7 @@
                                     		<h:column>
 												<f:facet name="header">Autor</f:facet>
                                        			 #{l.listAutores}
-                                    		</h:column>
-                                    		
-                                    		<h:column>
-												<f:facet name="header">ISBN</f:facet>
-                                       			 #{l.isbn}
-                                    		</h:column>
+                                    		</h:column>                              		
 
 											<h:column pt:style="text-align:center;padding:5px 0;">
 												<f:facet name="header">
@@ -119,22 +110,22 @@
 
 						<div class="modal-body bg-light">
 							<div class="form-row">
-								<div class="form-group col-md-9">
+								<div class="form-group col-md-2">
+									<label for="firstName">Código</label> <label class="asterisco"
+										for="firstName">*</label>
+									<h:inputText disabled="true" styleClass="form-control" required="true"
+										requiredMessage="Campo Código é Obrigatorio"
+										value="#{livroBean.livro.id}">
+									</h:inputText>
+								</div>
+								<div class="form-group col-md-10">
 									<label for="titulo">Titulo</label> <label class="asterisco"
 										for="titulo">*</label>
 									<h:inputText styleClass="form-control" required="true"
 										requiredMessage="Campo titulo é Obrigatorio"
 										value="#{livroBean.livro.titulo}">
 									</h:inputText>
-								</div>
-								<div class="form-group col-md-3">
-									<label for="firstName">Código</label> <label class="asterisco"
-										for="firstName">*</label>
-									<h:inputText styleClass="form-control" required="true"
-										requiredMessage="Campo Código é Obrigatorio"
-										value="#{livroBean.livro.codigo}">
-									</h:inputText>
-								</div>
+								</div>								
 							</div>
 							<div class="form-row">
 								<div class="form-group col-md-4">

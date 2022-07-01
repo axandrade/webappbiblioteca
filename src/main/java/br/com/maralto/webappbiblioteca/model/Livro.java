@@ -25,8 +25,7 @@ public class Livro extends PersistentEntity {
 
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "LIV_CODIGO")
-	private String codigo;
+	
 	@Column(name = "LIV_ISBN")
 	private String isbn;
 	@Column(name = "LIV_TITULO")
@@ -54,14 +53,6 @@ public class Livro extends PersistentEntity {
 	public void setId(Long id) {
 		this.id = id;
 	}	
-
-	public String getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
-	}
 
 	public String getIsbn() {
 		return isbn;

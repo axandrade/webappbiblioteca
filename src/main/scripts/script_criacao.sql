@@ -1,10 +1,10 @@
---
+--DROP TABLES
+
 DROP TABLE public.autorizacao_usuario CASCADE;
 
 DROP TABLE public.usuarios CASCADE;
 
 DROP TABLE public.autorizacoes CASCADE;
-
 
 DROP TABLE public.autores CASCADE;
 
@@ -13,8 +13,6 @@ DROP TABLE public.autores_livros CASCADE;
 DROP TABLE public.controle_emprestimos CASCADE;
 
 DROP TABLE public.emprestimos CASCADE;
-
-DROP TABLE public.idiomas CASCADE;
 
 DROP TABLE public.livros CASCADE;
 
@@ -94,8 +92,7 @@ CREATE TABLE AUTORES (
 
 CREATE TABLE LIVROS (
 	LIV_ID serial PRIMARY KEY,
-	LIV_TITULO VARCHAR ( 50 ),
-	LIV_CODIGO VARCHAR ( 6 ),
+	LIV_TITULO VARCHAR ( 50 ),	
 	LIV_ISBN VARCHAR ( 50 ),	
 	LIV_DATA_CADASTRO TIMESTAMP,
 	LIV_DATA_PUBLICACAO TIMESTAMP,
@@ -179,21 +176,6 @@ foreign key (CONEMP_LIV_ID)
 references LIVROS(LIV_ID);
 
 
-
-
---inserts de idiomas
-INSERT INTO public.idiomas(idioma_ativo, idioma_descricao)
-    VALUES (true, 'PORTUGUÊS');
-    
-INSERT INTO public.idiomas(idioma_ativo, idioma_descricao)
-    VALUES (true, 'ESPANHOL');
-    
-INSERT INTO public.idiomas(idioma_ativo, idioma_descricao)
-    VALUES (true, 'ALEMÃO');
-   
-INSERT INTO public.idiomas(idioma_ativo, idioma_descricao)
-    VALUES (true, 'INGLÊS');
-
 --insert pessoas
    
 INSERT INTO public.pessoas
@@ -212,18 +194,17 @@ select * from pessoas p;
 
 select * from autores a; 
 
-select liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma from livros l;
+select * from livros l;
 
 select * from autores_livros al; 
 
-select * from idiomas i;
 
 
 select * from emprestimos e;
 
 select * from controle_emprestimos ce;
 
-select distinct l.liv_id, l.liv_titulo, l.liv_data_cadastro, l.liv_data_publicacao, l.liv_idioma_id, l.liv_isbn
+select distinct l.liv_id, l.liv_titulo, l.liv_data_cadastro, l.liv_data_publicacao, l.liv_idioma, l.liv_isbn
 from public.livros l
 where l.liv_id not in (select ce.conemp_liv_id  from controle_emprestimos ce where ce.conemp_situacao = 'EMPRESTADO')
 
