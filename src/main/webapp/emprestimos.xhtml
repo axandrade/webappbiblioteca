@@ -210,7 +210,7 @@
 							<fieldset class="scheduler-border">
 								<legend class="scheduler-border">Livros Selecionados</legend>
 								<div class="form-row mt-3">
-									<ui:repeat id="tblLivrosSelected" var="c"
+									<ui:repeat id="tblLivrosSelected" var="ce"
 										value="#{emprestimoBean.emprestimo.controleEmprestimoList}"
 										varStatus="status">
 										<div class="col-md-6">
@@ -218,13 +218,13 @@
 												<div class="card-body">
 													<div class="form-group row">
 														<div class="col-md-12">
-															<h:outputLabel styleClass="modal-title"	value="Titulo : #{c.livro.titulo}" />
+															<h:outputLabel styleClass="modal-title"	value="Titulo : #{ce.livro.titulo}" />
 														</div>
 														<div class="col-md-12">
-															<h:outputLabel rendered="#{emprestimoBean.emprestimo.id ne null}" styleClass="modal-title"	value="	#{c.situacao}" />
+															<h:outputLabel rendered="#{emprestimoBean.emprestimo.id ne null and ce.dataEntrega != null}" styleClass="modal-title" value="DEVOLVIDO" />
 														</div>
 														<div class="col-md-7">
-															<h:outputLabel rendered="#{c.dataEntrega != null}" styleClass="modal-title"	value="Entrega : #{c.dataEntregaFormatado}" />
+															<h:outputLabel rendered="#{ce.dataEntrega != null}" styleClass="modal-title"	value="Entrega : #{ce.dataEntregaFormatado}" />
 														</div>
 														<div class="col-md-6">
 															<h:commandLink
@@ -234,7 +234,7 @@
 
 																<f:ajax event="click" execute="@form"
 																	render="@form :form-emprestimos"
-																	listener="#{emprestimoBean.removeControleEmprestimo(c)}" /> 
+																	listener="#{emprestimoBean.removeControleEmprestimo(ce)}" /> 
                            									 </h:commandLink>
 														</div>
 													</div>
@@ -481,10 +481,10 @@
 											<label for="nome">Selecione os livros que estão sendo devolvidos</label>
 											<h:dataTable id="tblLivrosSelecionados"
 												styleClass="table dataTable-autor-selected table-striped table-sm"
-												value="#{emprestimoBean.emprestimo.controleEmprestimoList}" var="c">
+												value="#{emprestimoBean.emprestimo.controleEmprestimoList}" var="ce">
 												<h:column>
 													<f:facet name="header">Titulo</f:facet>
-													 #{c.livro.titulo}
+													 #{ce.livro.titulo}
 												</h:column>
 												<h:column
 													pt:style="text-align:center;padding-right:5px;padding-left:5px">
@@ -493,11 +493,11 @@
 													<i class="fa fa-toggle-off" aria-hidden="true" />
 													&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
 													</f:facet>
-													<h:selectBooleanCheckbox id="ativo" pt:data-size="small" disabled="#{c.dataEntrega != null}"
+													<h:selectBooleanCheckbox id="ativo" pt:data-size="small" disabled="#{ce.dataEntrega != null}"
 														pt:data-on-text="|" pt:data-off-text="O"
 														styleClass="switch">
 														<f:ajax event="change"
-															listener="#{emprestimoBean.toogleIsItemDevolucaoList(c)}"
+															listener="#{emprestimoBean.toogleIsItemDevolucaoList(ce)}"
 															render="@this" />
 													</h:selectBooleanCheckbox>
 												</h:column>

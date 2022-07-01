@@ -134,11 +134,9 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 		for (ControleEmprestimo controleEmprestimo : emprestimo.getControleEmprestimoList()) {
 			
 				if (controleEmprestimo.isItemDevolucaoList()) {
-					controleEmprestimo.setDataEntrega(new Date());
-					controleEmprestimo.setSituacao("DISPONIVEL");
+					controleEmprestimo.setDataEntrega(new Date());					
 				}
-				
-				System.out.println(controleEmprestimo.getLivro().getTitulo() + "-" + controleEmprestimo.getSituacao());
+							
 
 			controleEmprestimoRepository.save(controleEmprestimo);
 		}
@@ -152,7 +150,7 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 		
 		for (ControleEmprestimo controleEmprestimo : emprestimo.getControleEmprestimoList()) {
 
-			if (controleEmprestimo.getSituacao().equals("EMPRESTADO")) {
+			if (controleEmprestimo.getDataEntrega() == null) {
 
 				statusEmprestimo = true;
 			}

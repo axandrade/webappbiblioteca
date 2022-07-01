@@ -204,6 +204,15 @@ select * from emprestimos e;
 
 select * from controle_emprestimos ce;
 
+-- Auto-generated SQL script #202207011540
+UPDATE public.controle_emprestimos
+	SET conemp_data_entrega=NULL
+	WHERE conemp_id=5;
+UPDATE public.controle_emprestimos
+	SET conemp_data_entrega=NULL
+	WHERE conemp_id=6;
+
+
 select distinct l.liv_id, l.liv_titulo, l.liv_data_cadastro, l.liv_data_publicacao, l.liv_idioma, l.liv_isbn
 from public.livros l
 where l.liv_id not in (select ce.conemp_liv_id  from controle_emprestimos ce where ce.conemp_situacao = 'EMPRESTADO')

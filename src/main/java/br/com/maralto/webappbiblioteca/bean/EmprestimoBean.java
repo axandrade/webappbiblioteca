@@ -133,7 +133,7 @@ public class EmprestimoBean {
 		this.livrosList = new ArrayList<Livro>();
 		this.pessoasList = new ArrayList<Pessoa>();
 		this.controleEmprestimo = new ControleEmprestimo();
-		this.controleEmprestimo.setSituacao("DISPONIVEL");
+		this.controleEmprestimo.setDataEntrega(null);
 	}
 
 	public void addLivro(Livro livro) {
@@ -152,8 +152,7 @@ public class EmprestimoBean {
 			this.controleEmprestimo.setLivro(livro);
 			this.controleEmprestimo.setDataEmprestimo(new Date());
 			this.controleEmprestimo.setEmprestimo(this.emprestimo);
-			this.controleEmprestimo.setUsuario(this.usuario);
-			this.controleEmprestimo.setSituacao("EMPRESTADO");
+			this.controleEmprestimo.setUsuario(this.usuario);			
 			this.emprestimo.getControleEmprestimoList().add(controleEmprestimo);
 		}
 		
