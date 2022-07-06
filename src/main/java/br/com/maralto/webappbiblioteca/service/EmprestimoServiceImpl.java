@@ -1,5 +1,6 @@
 package br.com.maralto.webappbiblioteca.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import org.apache.commons.mail.SimpleEmail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.maralto.webappbiblioteca.exception.GenericException;
 import br.com.maralto.webappbiblioteca.model.ControleEmprestimo;
 import br.com.maralto.webappbiblioteca.model.Emprestimo;
 import br.com.maralto.webappbiblioteca.model.Livro;
@@ -42,73 +44,46 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 	}
 
 	@Override
-	public void save(Emprestimo emprestimo) {
-
-		if (validaDadosEmprestimo(emprestimo) && verificaHitoricoEmprestimos(emprestimo)) {
-
-			emprestimoRepository.save(emprestimo);
-			// sendEmail(emprestimo);
-		}
-
+	public void save(Emprestimo emprestimo) throws GenericException {	
+			
+			verificaHistoricoEmprestimos(emprestimo);
+			
+			if (validaDadosEmprestimo(emprestimo)) {
+				emprestimoRepository.save(emprestimo);
+				
+				// sendEmail(emprestimo);
+			}
 	}
 	
-	private boolean verificaHitoricoEmprestimos(Emprestimo emprestimo) {
-
-		boolean isLivroDevolvido = false;
-		Integer qtdControleEmprestimosDisponiveis;
+	private void verificaHistoricoEmprestimos(Emprestimo emprestimo) throws GenericException {		
 
 		List<Emprestimo> emprestimosBusca = emprestimoRepository.findEmprestimoByUsuario(emprestimo.getPessoa().getId());
 
-		if (!emprestimosBusca.isEmpty()) {
+		if (!emprestimosBusca.isEmpty()) {			
 
-			qtdControleEmprestimosDisponiveis = verificaQtdControleEmprestimosAtivos(emprestimosBusca.get(0).getControleEmprestimoList());
-
-			if (emprestimosBusca.size() == 1 && emprestimo.getControleEmprestimoList().size() > qtdControleEmprestimosDisponiveis) {
-
-				facesMessageUtils.addErrorMessage("Esse usuário ja possui o limite máximo de empréstimos ativos, faça a devolução de um dos livros para poder realizar um novo empréstimo");
-				return false;
-
-			} else {
-				for (ControleEmprestimo ce : emprestimosBusca.get(0).getControleEmprestimoList()) {
-					if (ce.getDataEntrega() != null) {
-						isLivroDevolvido = true;
-					}
-				}
-
-				if (isLivroDevolvido) {
-					return true;
-				} else {
-					facesMessageUtils.addErrorMessage("Esse usuário ja possui o limite máximo de empréstimos ativos, faça a devolução de um dos livros para poder realizar um novo empréstimo");
-					return false;
-				}
-
+			if (emprestimosBusca.size() == 2 || emprestimo.getControleEmprestimoList().size() > verificaQtdControleEmprestimosAtivos(emprestimosBusca.get(0).getControleEmprestimoList())) {				
+				throw new GenericException("Esse usuário ja possui o limite máximo de empréstimos ativos, faça a devolução de um dos livros para poder realizar um novo empréstimo");
 			}
-
+					
 		}
-		
-		else {
-			
-			if (!emprestimo.getControleEmprestimoList().isEmpty()) {
-				return true;
-			} else {
-				facesMessageUtils.addErrorMessage("Nenhum livro foi selecionado para o empréstimo");
-				return false;
-			}	
-		}
-
 	}
 	
-	private Integer verificaQtdControleEmprestimosAtivos(List<ControleEmprestimo> controleEmprestimoList) {
+	private Integer verificaQtdControleEmprestimosAtivos(List<ControleEmprestimo> controleEmprestimoList) {		
 		
-		for(ControleEmprestimo ce: controleEmprestimoList) {
-			if(ce.getDataEntrega() != null) {
-				return 1;
-			}else {
-				return 2;
+		Integer qtdControleEmprestimosDisponiveis = 0;
+		
+		if(controleEmprestimoList.size() == 1) {
+			qtdControleEmprestimosDisponiveis = 1;
+		}		
+		else {
+			for(ControleEmprestimo ce: controleEmprestimoList) {
+				if(ce.getDataEntrega() != null) {
+					qtdControleEmprestimosDisponiveis++;
+				}
 			}
-		}
+		}					
 		
-		return null;
+		return qtdControleEmprestimosDisponiveis;
 	}
 
 	public boolean validaDadosEmprestimo(Emprestimo emprestimo) {
@@ -159,14 +134,7 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 		emprestimo.setStatus(statusEmprestimo);
 		
 		if(validaDadosfinalizacaoEmprestimo(emprestimo)) {
-			emprestimoRepository.save(emprestimo);
-			
-			if(statusEmprestimo) {
-				System.out.println("O emprestimo ainda esta ativo");
-			}else {
-				System.out.println("Emprestimo encerrado");
-			}
-			
+			emprestimoRepository.save(emprestimo);			
 		}
 		
 	}
@@ -239,9 +207,5 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 
 		return email.toString();
 	}
-
-	
-	
-
 
 }

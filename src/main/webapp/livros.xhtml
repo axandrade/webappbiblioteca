@@ -29,12 +29,34 @@
 											<f:facet name="header">Titulo</f:facet>
                                         	#{l.titulo}
                                    			</h:column>
-                                    		
+                                   			                                    		
                                     		<h:column>
 												<f:facet name="header">Autor</f:facet>
                                        			 #{l.listAutores}
-                                    		</h:column>                              		
-
+                                    		</h:column>       
+                                    		
+                                    		<h:column pt:style="text-align:center;padding-right:5px;padding-left:5px">
+												<f:facet name="header">Situacao</f:facet>
+                                       			<h:panelGroup rendered="#{l.situacao eq 'DISPONIVEL'}"
+													styleClass="text-center">
+													<i class="fa fa-circle text-success" aria-hidden="true" />
+												</h:panelGroup>
+												
+												<h:panelGroup rendered="#{l.situacao eq 'EMPRESTADO'}"
+													styleClass="text-center">
+													<i class="fa fa-circle text-warning" aria-hidden="true" />
+												</h:panelGroup>
+												
+												<h:panelGroup rendered="#{l.situacao eq 'PERDIDO'}"
+													styleClass="text-center">
+													<i class="fa fa-circle text-primary" aria-hidden="true" />
+												</h:panelGroup>
+												
+												<h:panelGroup rendered="#{l.situacao eq 'AVARIADO'}"
+													styleClass="text-center">
+													<i class="fa fa-circle text-danger" aria-hidden="true" />
+												</h:panelGroup>												
+                                    		</h:column>
 											<h:column pt:style="text-align:center;padding:5px 0;">
 												<f:facet name="header">
 													<i class="fa fa-cog" aria-hidden="true"></i>
@@ -55,14 +77,11 @@
 							<div class="row">
 								<div class="col-sm-12">
 									<div class="legendas">
-										<label class="col-form-label">Legenda:</label><br /> <span><i
-											class="fa fa-circle fa-fw text-success" aria-hidden="true" />
-											Disponivel</span> <span><i class="fa fa-circle fa-fw text-warning"
-											aria-hidden="true" />Emprestado</span> <span><i
-											class="fa fa-circle fa-fw text-primary" aria-hidden="true" />
-											Perdido</span> <span><i
-											class="fa fa-circle fa-fw text-danger" aria-hidden="true" />
-											Extraviado</span> 
+										<label class="col-form-label">Legenda:</label><br /> 
+											<span><i class="fa fa-circle fa-fw text-success" aria-hidden="true" />Disponivel</span> 
+											<span><i class="fa fa-circle fa-fw text-warning" aria-hidden="true" />Emprestado</span> 
+											<span><i class="fa fa-circle fa-fw text-primary" aria-hidden="true" />Perdido</span> 
+											<span><i class="fa fa-circle fa-fw text-danger" aria-hidden="true" /> Avariado</span> 
 									</div>
 								</div>
 							</div>

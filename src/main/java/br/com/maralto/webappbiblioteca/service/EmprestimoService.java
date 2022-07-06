@@ -2,7 +2,9 @@ package br.com.maralto.webappbiblioteca.service;
 
 import java.util.List;
 
+import br.com.maralto.webappbiblioteca.exception.GenericException;
 import br.com.maralto.webappbiblioteca.model.Emprestimo;
+import br.com.maralto.webappbiblioteca.model.Livro;
 
 
 
@@ -10,9 +12,11 @@ public interface EmprestimoService {
 
 	List<Emprestimo> findAll();
 
-	void save(Emprestimo emprestimo);
+	void save(Emprestimo emprestimo) throws GenericException;
 
 	void finalizaEmprestimo(Emprestimo emprestimo);
+
+	
 	
 
 

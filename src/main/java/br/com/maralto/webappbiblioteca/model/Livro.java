@@ -28,6 +28,8 @@ public class Livro extends PersistentEntity {
 	
 	@Column(name = "LIV_ISBN")
 	private String isbn;
+	@Column(name = "LIV_SITUACAO")
+	private String situacao;
 	@Column(name = "LIV_TITULO")
 	private String titulo;	
 	@Column(name = "LIV_IDIOMA")
@@ -60,6 +62,14 @@ public class Livro extends PersistentEntity {
 
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
+	}
+
+	public String getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(String situacao) {
+		this.situacao = situacao;
 	}
 
 	public String getTitulo() {

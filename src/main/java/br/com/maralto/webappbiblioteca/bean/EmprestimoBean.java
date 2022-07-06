@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import br.com.maralto.webappbiblioteca.enums.Situacao;
+import br.com.maralto.webappbiblioteca.exception.GenericException;
 import br.com.maralto.webappbiblioteca.model.Autor;
 import br.com.maralto.webappbiblioteca.model.ControleEmprestimo;
 import br.com.maralto.webappbiblioteca.model.Emprestimo;
@@ -149,6 +151,7 @@ public class EmprestimoBean {
 		}
 
 		if (!encontrado) {
+			livro.setSituacao(Situacao.EMPRESTADO.toString());
 			this.controleEmprestimo.setLivro(livro);
 			this.controleEmprestimo.setDataEmprestimo(new Date());
 			this.controleEmprestimo.setEmprestimo(this.emprestimo);
@@ -164,15 +167,19 @@ public class EmprestimoBean {
 	public void removeControleEmprestimo(ControleEmprestimo controleEmprestimo) {
 		this.emprestimo.getControleEmprestimoList().remove(controleEmprestimo);
 	}
-
-	
 	
 	public void saveEmprestimo() {
 		
-		this.emprestimo.setStatus(true);		
-		emprestimoService.save(this.emprestimo);
-		reset();
+			
+		try {
+			this.emprestimo.setStatus(true);
+			emprestimoService.save(this.emprestimo);
+		} catch (GenericException e) {
 
+			e.printStackTrace();
+		}
+		
+		reset();
 	}
 	
 	public void toogleIsItemDevolucaoList(ControleEmprestimo controleEmprestimo) {

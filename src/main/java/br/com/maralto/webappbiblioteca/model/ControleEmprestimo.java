@@ -3,6 +3,7 @@ package br.com.maralto.webappbiblioteca.model;
 import java.util.Date;
 
 import javax.persistence.AttributeOverride;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -35,11 +36,7 @@ public class ControleEmprestimo extends PersistentEntity {
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "CONEMP_EMP_ID")
-	private Emprestimo emprestimo = new Emprestimo();
-	
-	
-	@Column(name = "CONEMP_SITUACAO")
-	private String situacao;
+	private Emprestimo emprestimo = new Emprestimo();	
 	
 	@OneToOne()
 	@JoinColumn(name = "CONEMP_LIV_ID", referencedColumnName = "LIV_ID", nullable = false)
@@ -90,14 +87,6 @@ public class ControleEmprestimo extends PersistentEntity {
 
 	public void setEmprestimo(Emprestimo emprestimo) {
 		this.emprestimo = emprestimo;
-	}
-	
-	public String getSituacao() {
-		return situacao;
-	}
-
-	public void setSituacao(String situacao) {
-		this.situacao = situacao;
 	}
 
 	public boolean isItemDevolucaoList() {

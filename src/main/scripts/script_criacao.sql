@@ -92,8 +92,9 @@ CREATE TABLE AUTORES (
 
 CREATE TABLE LIVROS (
 	LIV_ID serial PRIMARY KEY,
-	LIV_TITULO VARCHAR ( 50 ),	
-	LIV_ISBN VARCHAR ( 50 ),	
+	LIV_TITULO VARCHAR ( 50 ) unique,	
+	LIV_ISBN VARCHAR ( 50 ),
+	LIV_SITUACAO VARCHAR ( 15 ),
 	LIV_DATA_CADASTRO TIMESTAMP,
 	LIV_DATA_PUBLICACAO TIMESTAMP,
 	LIV_IDIOMA VARCHAR ( 50 ),
@@ -120,8 +121,7 @@ CREATE TABLE EMPRESTIMOS (
 CREATE TABLE CONTROLE_EMPRESTIMOS (
 	CONEMP_ID serial PRIMARY KEY,
 	CONEMP_DATA_EMPRESTIMO TIMESTAMP,
-	CONEMP_DATA_ENTREGA TIMESTAMP,
-	CONEMP_SITUACAO varchar(12),
+	CONEMP_DATA_ENTREGA TIMESTAMP,	
 	CONEMP_EMP_ID bigint,
 	CONEMP_LIV_ID bigint,
 	CONEMP_USU_ID bigint
@@ -204,20 +204,6 @@ select * from emprestimos e;
 
 select * from controle_emprestimos ce;
 
--- Auto-generated SQL script #202207011540
-UPDATE public.controle_emprestimos
-	SET conemp_data_entrega=NULL
-	WHERE conemp_id=5;
-UPDATE public.controle_emprestimos
-	SET conemp_data_entrega=NULL
-	WHERE conemp_id=6;
-
-
-select distinct l.liv_id, l.liv_titulo, l.liv_data_cadastro, l.liv_data_publicacao, l.liv_idioma, l.liv_isbn
-from public.livros l
-where l.liv_id not in (select ce.conemp_liv_id  from controle_emprestimos ce where ce.conemp_situacao = 'EMPRESTADO')
-
-
 select * from teste.usuarios u 
 
 select * from teste.autorizacoes a 
@@ -225,4 +211,29 @@ select * from teste.autorizacoes a
 select * from teste.autorizacao_usuario au 
 
 
+select
+	l.liv_id,
+	l.liv_titulo,
+	l.liv_data_cadastro,
+	l.liv_data_publicacao,
+	l.liv_idioma,
+	l.liv_isbn,	
+	case
+		when ce.conemp_data_entrega  isnull then 'EMPRESTADO'
+		when ce.conemp_data_entrega  is not null then 'EMPRESTADO'	
+		else l.liv_situacao
+		END situacao,
+	e.emp_id,
+	e.emp_data_emprestimo,
+	e.emp_data_devolucao,
+	e.emp_pes_id,
+	e.emp_observacao,
+	e.emp_status,
+	ce.conemp_id,
+	ce.conemp_data_entrega	
+from public.livros l
+left join controle_emprestimos ce on ce.conemp_liv_id = l.liv_id 
+left join  emprestimos e on e.emp_id = ce.conemp_emp_id 
 
+
+	
