@@ -12,8 +12,10 @@ import org.springframework.stereotype.Controller;
 
 import br.com.maralto.webappbiblioteca.enums.Idioma;
 import br.com.maralto.webappbiblioteca.model.Autor;
+import br.com.maralto.webappbiblioteca.model.ControleEmprestimo;
 import br.com.maralto.webappbiblioteca.model.Livro;
 import br.com.maralto.webappbiblioteca.service.AutorService;
+import br.com.maralto.webappbiblioteca.service.ControleEmprestimoService;
 import br.com.maralto.webappbiblioteca.service.LivroService;
 import br.com.maralto.webappbiblioteca.util.ConvertDate;
 import br.com.maralto.webappbiblioteca.util.jsf.FacesMessageUtils;
@@ -35,7 +37,8 @@ public class LivroBean {
 	LivroService livroService;
 	@Autowired
 	AutorService autorService;
-	
+	@Autowired
+	private ControleEmprestimoService controleEmprestimoService;
 
 	@Autowired
 	private FacesMessageUtils facesMessageUtils;
@@ -47,7 +50,7 @@ public class LivroBean {
 		dataPublicacao = "";		
 		autorNomeFiltro = "";		
 		
-		findAllLivros();
+		this.livrosList	= findAllLivros();
 		
 		idiomasList = Arrays.asList(Idioma.values());
 	}
@@ -58,12 +61,11 @@ public class LivroBean {
 			this.livro.setDataPublicacao(ConvertDate.formataData(dataPublicacao));
 		}
 		
-		
 		try {
 			
 			livroService.save(livro);
 			
-			findAllLivros();
+			this.livrosList	= findAllLivros();
 
 			reset();
 		} catch (Exception e) {
@@ -106,10 +108,24 @@ public class LivroBean {
 		this.livroSelected = livroSelected;
 	}
 
-	public void findAllLivros() {
+	public List<Livro> findAllLivros() {
+		
+		List<Livro> livrosSituacaoVerificada = new ArrayList<>();		
 
 		livrosList = livroService.findAll();
 		
+		for(Livro livro : this.livrosList) {
+			
+			ControleEmprestimo controleEmprestimo = this.controleEmprestimoService.findControleEmprestimoByLivro(livro);
+			
+			if(controleEmprestimo != null)
+				livro.setSituacao("EMPRESTADO");
+			
+			livrosSituacaoVerificada.add(livro);
+		}
+		
+		
+		return livrosSituacaoVerificada;
 		
 	}
 

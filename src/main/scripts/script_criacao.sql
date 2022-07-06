@@ -198,17 +198,9 @@ select * from livros l;
 
 select * from autores_livros al; 
 
-
-
 select * from emprestimos e;
 
 select * from controle_emprestimos ce;
-
-select * from teste.usuarios u 
-
-select * from teste.autorizacoes a 
-
-select * from teste.autorizacao_usuario au 
 
 
 select
@@ -216,24 +208,13 @@ select
 	l.liv_titulo,
 	l.liv_data_cadastro,
 	l.liv_data_publicacao,
+	l.liv_situacao,
 	l.liv_idioma,
-	l.liv_isbn,	
-	case
-		when ce.conemp_data_entrega  isnull then 'EMPRESTADO'
-		when ce.conemp_data_entrega  is not null then 'EMPRESTADO'	
-		else l.liv_situacao
-		END situacao,
-	e.emp_id,
-	e.emp_data_emprestimo,
-	e.emp_data_devolucao,
-	e.emp_pes_id,
-	e.emp_observacao,
-	e.emp_status,
-	ce.conemp_id,
-	ce.conemp_data_entrega	
+	l.liv_isbn
 from public.livros l
-left join controle_emprestimos ce on ce.conemp_liv_id = l.liv_id 
-left join  emprestimos e on e.emp_id = ce.conemp_emp_id 
+
+UNION ALL
 
 
-	
+
+

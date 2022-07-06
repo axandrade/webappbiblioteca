@@ -50,7 +50,9 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 			
 			if (validaDadosEmprestimo(emprestimo)) {
 				emprestimoRepository.save(emprestimo);
-				
+				for(ControleEmprestimo ce : emprestimo.getControleEmprestimoList()) {
+					System.out.println(ce.getLivro().getSituacao());
+				}
 				// sendEmail(emprestimo);
 			}
 	}

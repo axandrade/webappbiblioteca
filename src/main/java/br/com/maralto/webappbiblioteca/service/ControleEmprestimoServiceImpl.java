@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.maralto.webappbiblioteca.model.ControleEmprestimo;
 import br.com.maralto.webappbiblioteca.model.Emprestimo;
+import br.com.maralto.webappbiblioteca.model.Livro;
 import br.com.maralto.webappbiblioteca.repository.ControleEmprestimoRepository;
 import br.com.maralto.webappbiblioteca.repository.EmprestimoRepository;
 import br.com.maralto.webappbiblioteca.repository.LivroRepository;
@@ -38,6 +39,12 @@ public class ControleEmprestimoServiceImpl implements ControleEmprestimoService 
 	@Override
 	public List<ControleEmprestimo> findByEmprestimoAtivo(Emprestimo emprestimo) {
 		return controleEmprestimoRepository.findByEmprestimoAtivo(emprestimo.getId());
+	}
+
+	@Override
+	public ControleEmprestimo findControleEmprestimoByLivro(Livro livro) {
+		
+		return controleEmprestimoRepository.findControleEmprestimoByLivro(livro.getId());
 	}
 
 	
