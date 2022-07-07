@@ -16,6 +16,14 @@ $(document).ready(function() {
 	
 });
 
+function dataInitMask() {
+		
+	$('.cpf').mask('000.000.000-00', {reverse: true});
+	$('.phone').mask('(00) 00000-0000');
+	$('.cep').mask('00000-000');
+	
+}
+
 function dataTable() {
 
 	$(".dataTable").DataTable({
@@ -101,83 +109,17 @@ function dataTableUsuario() {
 
 }
 
-function dataTableLivro() {
-
-	var table = $(".dataTable-livro").DataTable({
-		pageLength : 20,				// informa a quantidade de linhas por pagina na tabela
-		lengthChange : false,		//opcao que libera a alteracao da qtd de linhas por pagina
-		"columnDefs": [ 
-			
-			{
-			"targets": 3,
-			"orderable": false
-			} 
-			
-			
-			],
-		buttons : [ {
-			extend : 'csvHtml5',
-			text : 'CSV',
-			title : 'report-csv'
-		}, {
-			extend : 'excelHtml5',
-			text : 'EXCEL',
-			title : 'report-excel'
-		}, {
-			extend : 'pdfHtml5',
-			text : 'PDF',
-			title : 'report-pdf'
-		} ],
-		language : {
-			"sEmptyTable" : "Nenhum registro encontrado",
-			"sInfo" : "Mostrando de _START_ até _END_ de _TOTAL_ registros",
-			"sInfoEmpty" : "Mostrando 0 até 0 de 0 registros",
-			"sInfoFiltered" : "(Filtrados de _MAX_ registros)",
-			"sInfoPostFix" : "",
-			"sInfoThousands" : ".",
-			"sLengthMenu" : "_MENU_ resultados por página",
-			"sLoadingRecords" : "Carregando...",
-			"sProcessing" : "Processando...",
-			"sZeroRecords" : "Nenhum registro encontrado",
-			"sSearch" : "Pesquisar",
-			"oPaginate" : {
-				"sNext" : ">>",
-				"sPrevious" : "<<",
-				"sFirst" : "Primeiro",
-				"sLast" : "Último"
-			},
-			"oAria" : {
-				"sSortAscending" : ": Ordenar colunas de forma ascendente",
-				"sSortDescending" : ": Ordenar colunas de forma descendente"
-			}
-		}
-	});
-
-	table.buttons().container().html("").appendTo('.dataTables_wrapper .col-md-6:eq(0)');
-
-}
 
 function dataTablePessoa() {
 
 	var table = $(".dataTable-pessoa").DataTable({
+		dom: 'lBfrtip',
 		lengthChange : false,
 		"columnDefs": [ {
 			"targets": 4, //informa qual coluna eu não desejo ordenar
 			"orderable": false
 			} ],
-		buttons : [ {
-			extend : 'csvHtml5',
-			text : 'CSV',
-			title : 'report-csv'
-		}, {
-			extend : 'excelHtml5',
-			text : 'EXCEL',
-			title : 'report-excel'
-		}, {
-			extend : 'pdfHtml5',
-			text : 'PDF',
-			title : 'report-pdf'
-		} ],
+		buttons: ['excel', 'pdf' ],
 		language : {
 			"sEmptyTable" : "Nenhum registro encontrado",
 			"sInfo" : "Mostrando de _START_ até _END_ de _TOTAL_ registros",
@@ -203,23 +145,68 @@ function dataTablePessoa() {
 		}
 	});
 
-	table.buttons().container().html("").appendTo('.dataTables_wrapper .col-md-6:eq(0)');
-
 }
 
-function dataInitMask() {
-		
-	$('.cpf').mask('000.000.000-00', {reverse: true});
-	$('.phone').mask('(00) 0 0000-0000');
-	$('.cep').mask('00000-000');
+function dataTableLivro() {
+
+	var table = $(".dataTable-livro").DataTable({
+		dom: 'lBfrtip',
+		pageLength : 20,				// informa a quantidade de linhas por pagina na tabela
+		lengthChange : false,		//opcao que libera a alteracao da qtd de linhas por pagina
+		columnDefs: [ 			
+			{
+			"targets": 2,
+			"orderable": false
+			},
+			{
+			"targets": 3,
+			"orderable": false
+			},
+			{
+			"targets": 4,
+			"orderable": false
+			} 			
+			
+			],
+		buttons: ['excel', 'pdf' ],
+		language : {
+			"sEmptyTable" : "Nenhum registro encontrado",
+			"sInfo" : "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+			"sInfoEmpty" : "Mostrando 0 até 0 de 0 registros",
+			"sInfoFiltered" : "(Filtrados de _MAX_ registros)",
+			"sInfoPostFix" : "",
+			"sInfoThousands" : ".",
+			"sLengthMenu" : "_MENU_ resultados por página",
+			"sLoadingRecords" : "Carregando...",
+			"sProcessing" : "Processando...",
+			"sZeroRecords" : "Nenhum registro encontrado",
+			"sSearch" : "Pesquisar",
+			"oPaginate" : {
+				"sNext" : ">>",
+				"sPrevious" : "<<",
+				"sFirst" : "Primeiro",
+				"sLast" : "Último"
+			},
+			"oAria" : {
+				"sSortAscending" : ": Ordenar colunas de forma ascendente",
+				"sSortDescending" : ": Ordenar colunas de forma descendente"
+			}
+		}
+	});
+
 	
+
 }
 
 function dataTableAutor() {
-
 	var table = $(".dataTable-autor").DataTable({	
-		dom: 'lBfrti',
+		dom: 'lBfrtip',
 		lengthChange : false,
+		pageLength : 20,
+		columnDefs: [ {
+			"targets": 2, //informa qual coluna eu não desejo ordenar
+			"orderable": false
+			} ],
         buttons: ['excel', 'pdf' ],
 		language : {
 			"sEmptyTable" : "Nenhum registro encontrado",

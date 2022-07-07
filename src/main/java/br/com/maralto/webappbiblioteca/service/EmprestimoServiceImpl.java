@@ -51,7 +51,7 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 		
 		verificaHistoricoEmprestimos(emprestimo);		
 
-		//emprestimoRepository.save(emprestimo);
+		emprestimoRepository.save(emprestimo);
 		
 		// sendEmail(emprestimo);
 
