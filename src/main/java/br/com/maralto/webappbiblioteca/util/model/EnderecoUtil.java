@@ -38,9 +38,9 @@ public class EnderecoUtil {
 		array = json.split("\n");
 
 		pessoa.setCep(array[3]);
-		pessoa.setLogradouro(array[7]);
-		pessoa.setBairro(array[15]);
-		pessoa.setCidade(array[19]);
+		pessoa.setLogradouro(new String(array[7].getBytes(), "UTF-8"));			
+		pessoa.setBairro(new String(array[15].getBytes(), "UTF-8"));
+		pessoa.setCidade(new String(array[19].getBytes(), "UTF-8"));
 		pessoa.setUf(array[23]);
 
 		return pessoa;

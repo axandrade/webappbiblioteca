@@ -76,6 +76,8 @@ public class LivroBean {
 	public void prepareSave() {
 		this.dataPublicacao = "";		
 		this.livro = new Livro();
+		this.livro.setSituacao("DISPONIVEL");
+		this.livro.setIdioma(Idioma.PORTUGUES.toString());
 	}
 	
 	public void prepareUpdate(Livro livro) {

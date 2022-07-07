@@ -35,6 +35,8 @@ public class PessoaBean {
 	EnderecoUtil enderecoUtil;
 	
 	private String cepDigitado;
+	
+	private String cpfDigitado;
 
 	@PostConstruct
 	private void init() {
@@ -68,11 +70,15 @@ public class PessoaBean {
 	
 	public void prepareSave() {
 		pessoa = new Pessoa();
+		this.cepDigitado = "";
+		this.cpfDigitado = "";
 		this.dataNascimento = "";
 	}
 	
 	public void prepareUpdate(Pessoa pessoa) {
 		
+		setCepDigitado(pessoa.getCep());
+		setCpfDigitado(pessoa.getCpf());
 		setDataNascimento(ConvertDate.DateToString(pessoa.getDataNascimento()));
 		this.pessoa = pessoa;
 	}
@@ -84,8 +90,9 @@ public class PessoaBean {
 			pessoa.setDataNascimento(ConvertDate.formataData(dataNascimento));
 		}
 		
-		
-		pessoaService.save(pessoa);
+		this.pessoa.setCpf(cpfDigitado.replaceAll("[^0-9]", ""));
+		this.pessoa.setCep(cepDigitado.replaceAll("[^0-9]", ""));
+		pessoaService.save(this.pessoa);
 
 		findAll();
 
@@ -136,6 +143,14 @@ public class PessoaBean {
 
 	public void setCepDigitado(String cepDigitado) {
 		this.cepDigitado = cepDigitado;
+	}
+
+	public String getCpfDigitado() {
+		return cpfDigitado;
+	}
+
+	public void setCpfDigitado(String cpfDigitado) {
+		this.cpfDigitado = cpfDigitado;
 	}
 
 

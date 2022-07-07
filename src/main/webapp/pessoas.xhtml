@@ -51,7 +51,8 @@
 													pt:data-target=".modal-cadastro" pt:data-backdrop="static"
 													pt:data-keyboard="false">
 													<i class="fa fa-pencil fa-fw" aria-hidden="true" />
-													<f:ajax render="form-cadastro-pessoa" />
+													<f:ajax render="form-cadastro-pessoa"
+													 onevent="dataInitMask" />
 												</h:commandLink>
 											</h:column>
 										</h:dataTable>
@@ -110,7 +111,7 @@
 									<label for="cpf">CPF</label>
 									<h:inputText styleClass="form-control cpf" required="true"
 										requiredMessage="Campo CPF é Obrigatorio"
-										value="#{pessoaBean.pessoa.cpf}">
+										value="#{pessoaBean.cpfDigitado}">
 									</h:inputText>
 								</div>
 								<div class="col-md-7">
@@ -203,8 +204,6 @@
 									</h:inputText>
 								</div>
 							</div>
-							
-
 							
 						</div>
 

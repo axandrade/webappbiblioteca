@@ -180,7 +180,7 @@ references LIVROS(LIV_ID);
    
 INSERT INTO public.pessoas
 (pes_nome, pes_cpf, pes_email, pes_data_nascimento, pes_data_cadastro, pes_contato1, pes_contato2, pes_logradouro, pes_numero, pes_complemento, pes_bairro, pes_cep, pes_cidade, pes_uf)
-VALUES('Alexsandro Andrade', '01786978342', 'alexsandro.mpe@gmail.com', '1988-02-03', NULL, '85985552048', '', 'Rua Expedito Pereira Gomes', '151', 'casa a', 'Parque SÃƒÂ£o JoÃƒÂ£o', '61946-040', 'Maranguape', 'CE');
+VALUES('Alexsandro Andrade', '01786978342', 'alexsandro.mpe@gmail.com', '1988-02-03', NULL, '85985552048', '', 'Rua Expedito Pereira Gomes', '151', 'casa a', 'Parque São João', '61946-040', 'Maranguape', 'CE');
 
 INSERT INTO public.pessoas
 (pes_nome, pes_cpf, pes_email, pes_data_nascimento, pes_data_cadastro, pes_contato1, pes_contato2, pes_logradouro, pes_numero, pes_complemento, pes_bairro, pes_cep, pes_cidade, pes_uf)
@@ -194,7 +194,7 @@ select * from pessoas p;
 
 select * from autores a; 
 
-select liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao  from livros l;
+select *  from livros l;
 
 select * from autores_livros al; 
 
