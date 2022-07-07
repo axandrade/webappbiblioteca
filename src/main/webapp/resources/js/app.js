@@ -11,11 +11,9 @@ $(document).ready(function() {
 	dataTableAutor();
 	dataTableAutorSelected();
 	dataTablePessoa();
-	dataTableEmprestimo()
+	dataTableEmprestimo();
+	dataInitMask();
 	
-	$('.cpf').mask('000.000.000-00', {reverse: true});
-	$('.phone').mask('(00) 0 0000-0000');
-	$('.cep').mask('00000-000');
 });
 
 function dataTable() {
@@ -209,28 +207,20 @@ function dataTablePessoa() {
 
 }
 
+function dataInitMask() {
+		
+	$('.cpf').mask('000.000.000-00', {reverse: true});
+	$('.phone').mask('(00) 0 0000-0000');
+	$('.cep').mask('00000-000');
+	
+}
+
 function dataTableAutor() {
 
-	var table = $(".dataTable-autor").DataTable({
+	var table = $(".dataTable-autor").DataTable({	
+		dom: 'lBfrti',
 		lengthChange : false,
-		pageLength : 20,
-		"columnDefs": [ {
-			"targets": 0, //informa qual coluna eu não desejo ordenar
-			"orderable": false
-			} ],
-		buttons : [ {
-			extend : 'csvHtml5',
-			text : 'CSV',
-			title : 'report-csv'
-		}, {
-			extend : 'excelHtml5',
-			text : 'EXCEL',
-			title : 'report-excel'
-		}, {
-			extend : 'pdfHtml5',
-			text : 'PDF',
-			title : 'report-pdf'
-		} ],
+        buttons: ['excel', 'pdf' ],
 		language : {
 			"sEmptyTable" : "Nenhum registro encontrado",
 			"sInfo" : "Mostrando de _START_ até _END_ de _TOTAL_ registros",
@@ -256,7 +246,7 @@ function dataTableAutor() {
 		}
 	});
 
-	table.buttons().container().html("").appendTo('.dataTables_wrapper .col-md-6:eq(0)');
+	
 
 }
 

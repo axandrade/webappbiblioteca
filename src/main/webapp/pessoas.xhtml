@@ -32,7 +32,7 @@
 
 											<h:column>
 												<f:facet name="header">CPF</f:facet>
-												<h:outputLabel style="cpf" value="#{p.cpf}" />
+												<h:outputLabel styleClass="cpf" value="#{p.cpf}" />
 		                                    </h:column>
 
 											<h:column>
@@ -67,7 +67,8 @@
 									<i class="fa fa-clone fa-fw" aria-hidden="true" /> Adicionar
                                         <f:ajax
 										render="form-cadastro-pessoa"
-										listener="#{pessoaBean.prepareSave}" />
+										listener="#{pessoaBean.prepareSave}"
+										onevent="dataInitMask" />
 								</h:commandLink>
 							</div>
 						</div>

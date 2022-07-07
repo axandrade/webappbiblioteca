@@ -56,12 +56,12 @@ public class EmprestimoBean {
 	
 	@Autowired
 	private UsuarioService usuarioService;
-		
-	@Autowired
-	private EmprestimoService emprestimoService;
 	
 	@Autowired
 	private FacesMessageUtils facesMessageUtils;
+		
+	@Autowired
+	private EmprestimoService emprestimoService;	
 	
 	@Autowired
 	private AuthenticationFacade authenticationFacade;
@@ -168,14 +168,14 @@ public class EmprestimoBean {
 		this.emprestimo.getControleEmprestimoList().remove(controleEmprestimo);
 	}
 	
-	public void saveEmprestimo() {
-		
-			
+	public void saveEmprestimo() {			
 		try {
 			this.emprestimo.setStatus(true);
 			emprestimoService.save(this.emprestimo);
 		} catch (GenericException e) {
-
+			facesMessageUtils.addErrorMessage(e.getMessage());
+			e.printStackTrace();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		

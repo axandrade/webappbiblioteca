@@ -44,17 +44,17 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 	}
 
 	@Override
-	public void save(Emprestimo emprestimo) throws GenericException {	
-			
-			verificaHistoricoEmprestimos(emprestimo);
-			
-			if (validaDadosEmprestimo(emprestimo)) {
-				emprestimoRepository.save(emprestimo);
-				for(ControleEmprestimo ce : emprestimo.getControleEmprestimoList()) {
-					System.out.println(ce.getLivro().getSituacao());
-				}
-				// sendEmail(emprestimo);
-			}
+	public void save(Emprestimo emprestimo) throws GenericException {
+
+		
+		validaDadosEmprestimo(emprestimo);
+		
+		verificaHistoricoEmprestimos(emprestimo);		
+
+		//emprestimoRepository.save(emprestimo);
+		
+		// sendEmail(emprestimo);
+
 	}
 	
 	private void verificaHistoricoEmprestimos(Emprestimo emprestimo) throws GenericException {		
@@ -88,19 +88,20 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 		return qtdControleEmprestimosDisponiveis;
 	}
 
-	public boolean validaDadosEmprestimo(Emprestimo emprestimo) {
+	public void validaDadosEmprestimo(Emprestimo emprestimo) throws GenericException{
 
-		if (emprestimo.getPessoa() != null && emprestimo.getPessoa().getCpf() != null && !emprestimo.getPessoa().getCpf().equals("")) {
+		if (emprestimo.getPessoa() == null && emprestimo.getPessoa().getCpf() == null && emprestimo.getPessoa().getCpf().equals("")) {			
+			throw new GenericException("Voce deve selecionar uma pessoa que irá receber o empréstimo");
+		} 
+		
+		if (emprestimo.getControleEmprestimoList().isEmpty()) {
+			throw new GenericException("Nenhum livro foi selecionado para o empréstimo");
+		}
+		
+		for(ControleEmprestimo controleEmprestimo : emprestimo.getControleEmprestimoList()) {
 			
-			if (!emprestimo.getControleEmprestimoList().isEmpty()) {
-				return true;
-			} else {
-				facesMessageUtils.addErrorMessage("Nenhum livro foi selecionado para o empréstimo");
-				return false;
-			}	
-		} else {
-			facesMessageUtils.addErrorMessage("O Campo CPF é Obrigatório");
-			return false;
+			if(controleEmprestimo.getLivro().getAutoresList().isEmpty())
+				throw new GenericException("O livro não possui Autores, va ate a tela de cadastro de livros e atualize as informações");
 		}
 
 	}

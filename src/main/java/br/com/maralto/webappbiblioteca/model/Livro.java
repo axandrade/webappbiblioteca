@@ -112,7 +112,6 @@ public class Livro extends PersistentEntity {
 		this.autoresList = autoresList;
 	}
 	
-
 	public String getListAutores() {
 		String delimitador = ", ";
 		List<String> nomesAutores = new ArrayList<String>();
