@@ -83,7 +83,7 @@
 			<div class="modal-dialog modal-lg" role="document">
 				<div class="modal-content">
 					<h:form id="form-cadastro-usuario">
-						<h:messages />
+						
 						<div class="modal-header">
 							<h:outputLabel rendered="#{usuarioBean.usuario.id eq null}"
 								styleClass="modal-title" value="Cadastro de Usuarios" />
@@ -96,6 +96,11 @@
 						</div>
 
 						<div class="modal-body bg-light">
+							<div class="form-group row">
+								<div class="col-md-12">
+									<h:messages />
+								</div>
+							</div>
 							<div class="form-group row">
 								<div class="col-md-8">
 									<label for="nome">Nome</label>

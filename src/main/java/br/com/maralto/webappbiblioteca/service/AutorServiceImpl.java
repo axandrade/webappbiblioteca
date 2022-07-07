@@ -42,10 +42,10 @@ public class AutorServiceImpl implements AutorService {
 
 			autorRepository.save(autor);
 		} catch (ConstraintViolationException e) {
-			
-		}		
-		catch (Exception e) {
 			facesMessageUtils.addErrorMessage("Nome do Autor já Existe");
+			e.printStackTrace();
+		}		
+		catch (Exception e) {			
 			e.printStackTrace();
 		}
 

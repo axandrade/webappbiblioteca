@@ -18,7 +18,7 @@
 								<h:dataTable binding="#{table}" value="#{autorBean.autoresList}"
 									var="a"
 									styleClass="table dataTable-autor table-striped table-sm">
-									<h:column>
+									<h:column pt:style="text-align:center">
 										<f:facet name="header">#</f:facet>
                                         #{table.rowIndex + 1}
                                     </h:column>
@@ -46,14 +46,12 @@
 							<h:panelGroup>
 								<hr class="mb-3" />
 								<div class="btn-group" role="group">
-
 									<h:commandLink styleClass="btn btn-success"
 										pt:data-toggle="modal" pt:data-target=".modal-cadastro"
 										pt:data-backdrop="static" pt:data-keyboard="false">
 										<i class="fa fa-clone fa-fw" aria-hidden="true" /> Adicionar
                                         <f:ajax render="form-cadastro-autor" listener="#{autorBean.prepareSave}"/>
-									</h:commandLink>
-									
+									</h:commandLink>									
 								</div>
 							</h:panelGroup>
 						</h:form>
@@ -69,7 +67,7 @@
 				role="document">
 				<div class="modal-content">
 					<h:form id="form-cadastro-autor">
-						<h:messages />
+						
 						<div class="modal-header">
 							<h:outputLabel rendered="#{autorBean.autor.id eq null}"
 								styleClass="modal-title" value="Cadastro de Autores" />
@@ -82,6 +80,11 @@
 						</div>
 
 						<div class="modal-body bg-light">
+							<div class="form-group row">
+								<div class="col-md-12">
+									<h:messages />
+								</div>
+							</div>
 							<div class="row">
 								<div class="form-group col-md-8">
 									<label for="firstName">Nome</label> <input type="hidden" /> <label

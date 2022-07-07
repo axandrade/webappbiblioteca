@@ -1,11 +1,13 @@
 package br.com.maralto.webappbiblioteca.bean;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import javax.annotation.PostConstruct;
 
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -105,15 +107,13 @@ public class UsuarioBean {
 		
 	}
 
-	public void save() {
+	public void save() {		
+		
+			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+			Set<Autorizacao> autorizacoesSelectedList = new HashSet<>();
 
-		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		Set<Autorizacao> autorizacoesSelectedList = (Set<Autorizacao>) new ArrayList<Autorizacao>();
-
-		if (validaUsuario(this.usuario)) {
-
-			if(confirmaSenha != null && !confirmaSenha.equals(""))
-			usuario.setSenha(passwordEncoder.encode(confirmaSenha));
+			if (confirmaSenha != null && !confirmaSenha.equals(""))
+				usuario.setSenha(passwordEncoder.encode(confirmaSenha));
 
 			autorizacoesSelectedList.add(this.autorizacaoSelected);
 			this.usuario.setAutorizacaoList(autorizacoesSelectedList);
@@ -122,56 +122,9 @@ public class UsuarioBean {
 
 			findAll();
 			reset();
-			facesMessageUtils.addInfoMessage("Salvo com Sucesso!");
-
-		} 
-
-		reset();
+		
 	}
 	
-	private boolean validaUsuario(Usuario usuario) {
-		
-		if (usuarioService.findByLogin(usuario.getLogin()) == null) {
-			
-			if (usuario.getId() == null) {
-				
-				if (!this.confirmaSenha.equals("") && !usuario.getSenha().equals("")) {
-					
-					if (this.usuario.getSenha().equals(confirmaSenha)) {
-						
-						return true;
-					}else {
-						facesMessageUtils.addErrorMessage("Voce digitou uma senha diferente na confirmação");
-						return false;
-					}
-					
-				}else {
-					facesMessageUtils.addErrorMessage("O campo Senha e a confirmação da senha são obrigatórios");
-					return false;
-				}
-			} else {
-				if (desejaResetarSenha) {
-
-					if (this.usuario.getSenha().equals(confirmaSenha)) {
-
-						return true;
-					} else {
-						facesMessageUtils.addErrorMessage("Voce digitou uma senha diferente na confirmação");
-						return false;
-					}
-
-				}else {
-					return true;
-				}
-				
-			}
-
-		} else {
-			facesMessageUtils.addErrorMessage("Login " + usuario.getLogin() + " ja Existe");
-			return false;
-		}
-
-	}
 
 	public void editar() {
 

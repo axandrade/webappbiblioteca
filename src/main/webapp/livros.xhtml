@@ -20,7 +20,7 @@
 											value="#{livroBean.livrosList}" var="l"
 											styleClass="table dataTable-livro table-striped table-sm">											
                                     		
-                                    		<h:column>
+                                    		<h:column pt:style="text-align:center">
 											<f:facet name="header">Código</f:facet>
                                         	#{l.id}
                                    			</h:column>
@@ -115,7 +115,7 @@
 				role="document">
 				<div class="modal-content">
 					<h:form id="form-cadastro-livro">
-						<h:messages />
+						
 						<div class="modal-header">
 							<h:outputLabel rendered="#{livroBean.livro.id eq null}"
 								styleClass="modal-title" value="Cadastro de Livros" />
@@ -128,6 +128,11 @@
 						</div>
 
 						<div class="modal-body bg-light">
+							<div class="form-group row">
+								<div class="col-md-12">
+									<h:messages />
+								</div>
+							</div>
 							<div class="form-row">
 								<div class="form-group col-md-2">
 									<label for="firstName">Código</label> <label class="asterisco"

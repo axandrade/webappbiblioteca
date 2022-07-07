@@ -20,7 +20,7 @@
 										<h:dataTable binding="#{table}"
 											value="#{pessoaBean.pessoasList}" var="p"
 											styleClass="table dataTable-pessoa table-striped table-sm">
-											<h:column>
+											<h:column pt:style="text-align:center">
 												<f:facet name="header">#</f:facet>
                                        		 	#{table.rowIndex + 1}
                                     		</h:column>
@@ -84,7 +84,7 @@
 			<div class="modal-dialog modal-lg" role="document">
 				<div class="modal-content">
 				<h:form id="form-cadastro-pessoa">
-					<h:messages />
+					
 					<div class="modal-header">
 						<h:outputLabel rendered="#{pessoaBean.pessoa.id eq null}" styleClass="modal-title"
 							value="Cadastro de Pessoas" />
@@ -98,6 +98,11 @@
 					</div>
 					
 						<div class="modal-body bg-light">
+							<div class="form-group row">
+								<div class="col-md-12">
+									<h:messages />
+								</div>
+							</div>
 							<div class="form-group row">
 								<div class="col-md-12">
 									<label for="nome">Nome</label>

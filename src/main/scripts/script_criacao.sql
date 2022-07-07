@@ -18,16 +18,12 @@ DROP TABLE public.livros CASCADE;
 
 DROP TABLE public.pessoas CASCADE;
 
-
-
-
 CREATE TABLE USUARIOS (
 	USU_ID serial PRIMARY KEY,
 	USU_NOME VARCHAR ( 50 ),
-	USU_LOGIN VARCHAR ( 50 ),
+	USU_LOGIN VARCHAR ( 50 ) unique,
 	USU_SENHA VARCHAR ( 90 ),
-	USU_ATIVO VARCHAR ( 10 )
-		 
+	USU_ATIVO VARCHAR ( 10 )		 
 );
 
 CREATE TABLE AUTORIZACOES (
@@ -54,7 +50,7 @@ foreign key (AUT_ID)
 references AUTORIZACOES(AUT_ID);
 
 INSERT INTO public.usuarios(usu_nome, usu_login, usu_senha, usu_ativo)
-    VALUES ('admin', 'admin','$2a$10$x1VZujdOdnWOlGq.mTcGmO4VKb6suEIDnqWydGAfIXbZ7WQCXykuC', 'true');
+    VALUES ('axaxax', 'admin','$2a$10$x1VZujdOdnWOlGq.mTcGmO4VKb6suEIDnqWydGAfIXbZ7WQCXykuC', 'true');
 	--senha 123
 
 INSERT INTO public.autorizacoes(aut_id, aut_descricao)
@@ -189,6 +185,8 @@ VALUES('Lilia nogueira', '61597387315', 'liliadesousanogueira@gmail.com', '1986-
 
 
 select * from usuarios u ;
+
+select * from autorizacao_usuario au; 
 
 select * from pessoas p;
 

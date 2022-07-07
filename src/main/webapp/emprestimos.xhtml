@@ -21,7 +21,7 @@
 											value="#{emprestimoBean.emprestimosList}" var="e"
 											styleClass="table dataTable-emprestimo table-striped table-sm">
 											
-											<h:column>
+											<h:column pt:style="text-align:center">
 												<f:facet name="header">Código</f:facet>
                                        		 	 #{e.id}
                                     		</h:column>
@@ -109,7 +109,7 @@
 				role="document">
 				<div class="modal-content">
 					<h:form id="form-cadastro-emprestimo">
-						<h:messages />
+						
 						<div class="modal-header">
 							<h:outputLabel rendered="#{emprestimoBean.emprestimo.id eq null}"
 								styleClass="modal-title" value="CRIAR NOVO EMPRÉSTIMO" />
@@ -125,6 +125,11 @@
 
 							<fieldset class="scheduler-border">
 								<legend class="scheduler-border">Dados do Usuário</legend>
+								<div class="form-group row">
+									<div class="col-md-12">
+										<h:messages />
+									</div>
+								</div>
 								<div class="form-group row">
 									<div class="col-md-3">
 										<label for="titulo">CPF</label>
