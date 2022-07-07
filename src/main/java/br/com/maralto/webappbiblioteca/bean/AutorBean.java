@@ -33,6 +33,7 @@ public class AutorBean {
 
 		autor = new Autor();
 		findAll();
+		
 	}
 
 	public void findAll() {		
@@ -88,5 +89,51 @@ public class AutorBean {
 	public void setAutoresList(List<Autor> autoresList) {
 		this.autoresList = autoresList;
 	}
+	
+//	public void export() {
+//		
+//		Livro livro = new Livro();
+//		List<Livro> livros = new ArrayList<>();
+//		Set<String> titulos = new HashSet<>();
+//		
+//		try {
+//			
+//			String fileName = "C:\\arquivos\\livros.txt";			
+//			
+//			BufferedReader buffRead = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "UTF-8"));			
+//			
+//			String linha = "";
+//			
+//			while (true) {
+//				if (linha != null) {
+//					
+//					String[] recorte = linha.split("\\|");
+//					titulos.add(recorte[0]);
+//					
+//				} else
+//					break;
+//				linha = buffRead.readLine();
+//			}
+//			
+//			for(String s : titulos) {
+//				livro.setTitulo(s);
+//				livro.setIdioma(Idioma.PORTUGUES.toString());
+//				livro.setSituacao(Situacao.DISPONIVEL.toString());
+//				livroService.save(livro);
+//				
+//				livro = new Livro();
+//			}
+//			
+//			
+//			
+//			
+//			
+//			buffRead.close();
+//		} catch (Exception e) {
+//			
+//			e.printStackTrace();
+//		}
+//
+//	}
 
 }

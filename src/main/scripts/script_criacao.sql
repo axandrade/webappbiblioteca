@@ -92,7 +92,7 @@ CREATE TABLE AUTORES (
 
 CREATE TABLE LIVROS (
 	LIV_ID serial PRIMARY KEY,
-	LIV_TITULO VARCHAR ( 50 ) unique,	
+	LIV_TITULO VARCHAR ( 100 ) unique,	
 	LIV_ISBN VARCHAR ( 50 ),
 	LIV_SITUACAO VARCHAR ( 15 ),
 	LIV_DATA_CADASTRO TIMESTAMP,
@@ -194,26 +194,13 @@ select * from pessoas p;
 
 select * from autores a; 
 
-select * from livros l;
+select liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao  from livros l;
 
 select * from autores_livros al; 
 
 select * from emprestimos e;
 
 select * from controle_emprestimos ce;
-
-
-select
-	l.liv_id,
-	l.liv_titulo,
-	l.liv_data_cadastro,
-	l.liv_data_publicacao,
-	l.liv_situacao,
-	l.liv_idioma,
-	l.liv_isbn
-from public.livros l
-
-UNION ALL
 
 
 

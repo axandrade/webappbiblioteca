@@ -1,720 +1,987 @@
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('3 Vias e as Três Conversões ', ' 158', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Paz Interior, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('15 dias de oração com Chiara Luce ', ' 292', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Milagres Eucarísticos ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Aborto e Sociedade Permissiva ', ' 84', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Damião, o Leproso ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Ação do Espírito Santo na Alma, A ', ' 24', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('História de uma Alma ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Adolescente: rebeldia e evasão, O ', ' 115', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Histórias Marianas para Rezar ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Alegria do Mundo, A ', ' 238', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Virgindade ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Alegria de Viver, A ', ' 71', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Ressurreição e a Esperança Cristã, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Amor e Castidade ', ' 148', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Autenticidade e Cia ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Anjos, Os ', ' 89', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Vida e Milagres de São Bento, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Anjos, Os ', ' 110', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Hora sexta – O valor das figuras secundárias ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Anticristo: mito ou profecia?, O ', ' 56', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Primeiro É o Amor ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Aparecida ', ' 288', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Simão Pedro ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Aprender a rezar para aprender a amar ', ' ', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Carta Encíclica: Humanae Vitae ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Mensagens de Nossa Senhora Aparecida ', ' 184', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Nossa Senhora de Fátima ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Arte da amizade, A ', ' 125', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Caminho do Céu, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Arte de Decidir Bem, A ', ' 264', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Somos Livres? ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Atitudes Éticas Fundamentais ', ' 179', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Presença Real, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Autodomínio ', ' 127', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Ele e Eu – Viver com Deus ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Auto-Estima do Cristão, A ', ' 175', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Filho Pródigo, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Banquete do Cordeiro, O ', ' 224', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Mistério do Deus-Homem, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Beato Josemaría Escrivá de Balaguer ', ' 261', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Questões de Bioética ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Bento XVI aos Jovens ', ' 58', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Bento XVI e os Jovens ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Bento XVI e os Jovens ', ' 172', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Encontrar Deus ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Bernadette Soubirous ', ' 187', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Caminho de Perfeição ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Bernardo de Claraval ', ' 185', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Há um outro Mundo ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Boa Vontade, A ', ' 53', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Por que confessar-se? ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Boi e o Jumento do Presépio, O ', ' 239', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Homem e mulher o criou - Catequeses sobre o amor humano ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Bom humor, O ', ' 63', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Madre Teresa de Calcutá ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Bondade, A ', ' 194', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Pegadas Sobre a Neve ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Bula de Proclamação: Aperite portas Redemptori ', ' 317', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Reflexões Espirituais ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Buscar Sentido na Vida Cotidiana ', ' 285', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Jesus uma figura fascinante ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Caminhar com Jesus ', ' 54', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Arte da amizade, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Caminho de Belém, A ', ' 45', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Monsenhor Escrivá de Balaguer, Instrumento de Deus ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Caminho de Perfeição ', ' 202', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Doutrina e Vida ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Cartas a um Jovem Católico ', ' 284', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Alegria de Viver, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Caritas in Veritate ', ' 78', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Filha de Sião, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Carta Apostólica: Mulieris Dignitatem ', ' 141', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Palavras do Bento XVI no Brasil ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Cartas Completas ', ' 65', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Coração de Jesus, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Carta Encíclica: Ecclesia de Eucharistia ', ' 206', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Edith Stein ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Carta Encíclica: Evangelium Vitae ', ' 250', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Anticristo: mito ou profecia?, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Carta Encíclica: Humanae Vitae ', ' 57', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Virgem Nossa Senhora, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Carta Encíclica: Redemptoris Mater ', ' 251', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Gotas Esparsas de Oração ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Carta Encíclica: Rerum Novarum ', ' 124', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Sobre Deus, a Igreja e o Mundo ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Carta Encíclica: Spe Salvi ', ' 308', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Deus e os Filhos ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Cartas a Proba e a Juliana ', ' 306', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Moral: a arte de viver ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Cartas dos Amigos de Cristo ', ' 70', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Catequeses ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Catecismo Contra o Aborto ', ' 300', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Perspectivas sobre o homossexualismo ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Catecismo do Espírito Santo ', ' 131', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Como Ser Um Bom Pai ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Catequeses ', ' 217', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Lágrimas de Cristo, Lágrimas dos Homens ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Cerejeiras em Flor, As ', ' 301', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Gianna Beretta Molla: Um Caminho de Santidade ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Chamados a Viver ', ' 86', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Última ao cadafalso, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Ciência e Fé em Harmonia ', ' 230', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Exortação Apostólica: Evangelii Gaudium ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Cinco Minutos com Deus ', ' 85', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Seguir Cristo ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Coisas Pequenas ', ' 51', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Santa Missa, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Combate Espiritual, O ', ' 320', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Pais Bem sucedidos ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Compêndio de Teologia Ascética e Mística ', ' 170', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Força e a Suavidade do Espírito Santo, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Como Defender a Fé Sem Levantar a Voz ', ' 177', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Jornadas Espirituais ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Como Ser Um Bom Pai ', ' 237', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Vida de Santa Tereza D’Ávila ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Confissões de um Converso ', ' 28', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Vocação de Amor ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Conhecer-se ', ' 189', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Bondade, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Conquista das Virtudes, A ', ' 229', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Lares Luminosos e Alegres ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Constituição Dogmática: Dei Verbum ', ' 318', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Rosa Mística ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Coração de Cristo, O ', ' 182', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Sabedoria do Cristão, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Coração de Jesus, O ', ' 313', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Vida de Jesus ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Cristo e os Apóstolos ', ' 87', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Pequena Via para Deus, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Cristo, minha Esperança ', ' 48', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Tornar a vida Amável ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Cruzando o Limiar da Esperança ', ' ', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Sabedoria da Cruz, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Cruz de Cristo, A ', ' 7, 7a', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Cartas a Proba e a Juliana ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Cuidar e ser cuidado ', ' 159', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Prática do Amor a Jesus Cristo, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Cura d’Ars ', ' 243', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Textos Eucarísticos ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Depois, a vida ', ' 254', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Arte de aproveitar as próprias faltas ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Deus é jovem ', ' 293', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Palavras de Luz – Florilégio do Epistolário ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Deus e os Filhos ', ' 116', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Para Estar com Deus ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Deus e o Sentido da Vida ', ' 135', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Confissão, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Deus em Busca do Homem ', ' 286', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Sermão da Montanha, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Deus em Questões ', ' 27', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Coisas Pequenas ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Dia a dia com o Papa Francisco ', ' 299', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Preguiça, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Diabo Hoje, O ', ' 118', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Lições de Gustavo Corção ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Diário: a misericórdia divina na minha alma ', ' 310', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Psicologia Aberta ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Documento de Aparecida ', ' 246', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Exortação Apostólica: Amoris Laetitia ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Doutrina Cristã, A ', ' 307', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Catecismo do Espírito Santo ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Doutrina e Vida ', ' 149', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Cura d’Ars ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Doze graus do silêncio, Os ', ' 221', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Pelas Mãos de Pascal ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Educar para a Amizade ', ' 120', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Educar para a Amizade ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Egoísmo e Amor ', ' 100', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Língua, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Encontrar Deus ', ' ???', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Tibieza, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Entrevista sobre o Fundador do Opus Dei ', ' 259', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Obras ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Espaço de um Sorriso, O ', ' 168', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Senhor do Tempo, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Esperança em Tempos Difíceis ', ' 38', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Sulco ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Espiritismo e Fé ', ' 199', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Documento de Aparecida ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Evangelho de Maria, O ', ' 6, 6a', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Milagre de Calanda, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Evangelho no Lar, O ', ' 22', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Auto-Estima do Cristão, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Exortação Apostólica: Amoris Laetitia ', ' 315', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Carta Encíclica: Redemptoris Mater ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Exortação Apostólica: Christifideles Laici ', ' 319', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Fidelidade ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Exortação Apostólica: Evangelii Gaudium ', ' 316', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Inveja, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Exortação Apostólica: Verbum Domini ', ' 69', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Vivei a Vida ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Falsas Doutrinas ', ' 327', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Otimismo ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Fé da Igreja, A ', ' 68', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Filipe Neri ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Fé em Crise, A? ', ' 245', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Gratia Plena ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Fé, Esperança e Caridade ', ' 81', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Deus e Eu ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Filha de Sião, A ', ' 304', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Sós, com Deus, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Filhos de Deus ', ' 137', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Dom de Si, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Filipe Neri ', ' 43', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Não Vos Preocupeis ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Força e a Suavidade do Espírito Santo, A ', ' 321', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Fé da Igreja, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Fórmula do Bom Humor, A ', ' 240', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Nervos, Preocupações e Depressão ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Forja ', ' 263', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('São Josemaria Escrivá ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Fraude Da Vinci, A ', ' 33', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Homilias Sobre a Eucaristia ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Frustrações e Paz ', ' 205', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Trindade à encarnação, Da ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Gianna Beretta Molla: Um Caminho de Santidade ', ' 169', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Serenidade e Paz pela Oração ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Glorioso São José, O ', ' 139', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Olhar para Maria ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Gotas Esparsas de Oração ', ' 244', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Fé em Crise, A? ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Grande Desconhecido, O ', ' 101', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Cristo, minha Esperança ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Gratia Plena ', ' 186', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Meu Deus! ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Há um outro Mundo ', ' 174', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Vitória da Páscoa, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Histórias Marianas para Rezar ', ' 79', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Ação do Espírito Santo na Alma, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Homem Bom, O ', ' 72', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Glorioso São José, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Homem de Villa Tevere, O ', ' 66', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Josemaria Escrivá, Instrumento de Deus ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Hora sexta – O valor das figuras secundárias ', ' 233', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Caminhar com Jesus ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Idades da vida, As ', ' 60', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Segredo de Maria, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Igreja, A - 51 catequeses ', ' 122', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('A quem pedir Conselho? ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Insegurança, medo e coragem? ', ' 106', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Cruz de Cristo, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Inveja, A ', ' 108', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Amor e Castidade ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Jesus em Nazaré ', ' 298', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Diabo Hoje, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Jesus uma figura fascinante ', ' 236', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Milagres e Testemunhos eucarísticos ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('João Maria Vianney, o Cura d’Ars ', ' 257', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Reflexões sobre o Mistérios do Rosário ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Jornadas Espirituais ', ' 97', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Cristo e os Apóstolos ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Josemaria Escrivá, Instrumento de Deus ', ' 94', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Luzes e sombras na igreja ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Juventude e Cristianismo ', ' 147', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Fórmula do Bom Humor, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Juventude para todas as Idades ', ' 271', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Doze graus do silêncio, Os ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Lares Luminosos e Alegres ', ' 322', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Vocação ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Levantai-vos! Vamos! ', ' 128', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Carta Apostólica: Mulieris Dignitatem ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Lições de Gustavo Corção ', ' 32', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Amigos de Deus ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Luzes e sombras na igreja ', ' 231', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Beato Josemaría Escrivá de Balaguer ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Madre Teresa de Calcutá ', ' 113', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Paciência, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Madre Teresa – Uma vida maravilhosa ', ' 61', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Vaso de Argila ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Manual de Doutrina Católica ', ' 252', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Valores Cristãos ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Maria e o Evangelho ', ' 143', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Bom humor, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Maria, um espelho para a Igreja ', ' 302', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Mistério do Natal, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Meditaciones de Cuaresma ', ' 278', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Aborto e Sociedade Permissiva ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Mestre de bom humor ', ' 191', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Amor e Casamento ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Meu Deus! ', ' 35', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Bernadette Soubirous ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Milagre de Calanda, O ', ' 90', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Homilias Sobre os Santos ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Milagres e Testemunhos eucarísticos ', ' 136', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Problemas Morais da Existência Humana ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Milagres Eucarísticos ', ' 156', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Insegurança, medo e coragem? ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Minhas Irmãs, as Santas – Memórias Espirituais ', ' 280', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Cinco Minutos com Deus ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Misericórdia Divina, A ', ' 40', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Diário: a misericórdia divina na minha alma ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Mistério do Natal, O ', ' 42', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Trabalhar Bem, trabalhar por Amor ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Monsenhor Escrivá de Balaguer, Instrumento de Deus', ' 166', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Espiritismo e Fé ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Mulher e a Família, A ', ' 59', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Diálogo, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Não Morro, Entro na Vida ', ' 324', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Mestre de bom humor ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Não Vos Preocupeis ', ' 126', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Reflexões sobre a Graça ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Nervos, Preocupações e Depressão ', ' 269', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Juventude e Cristianismo ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Nossa Senhora de Fátima ', ' 223', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Do Ressentimento ao Perdão ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('No Caminho da Santidade ', ' 151', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Suma Teológica em forma de Catecismo ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Obras ', ' 289', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Valor das Dificuldades, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Olhos Misericordiosos ', ' 260', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Amar a Igreja ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Opus Dei, O ', ' 132', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Deus em Questões ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Oração - História de Amizade ', ' 326', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Madre Teresa – Uma vida maravilhosa ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Otimismo ', ' 274', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Retratos de Família ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Paciência, A ', ' 218', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Opus Dei, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Palavra aos Universitários, Uma ', ' 142', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Por um Novo Feminismo ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Palavras de Luz – Florilégio do Epistolário ', ' 283', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Ciência e Fé em Harmonia ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Palavras do Bento XVI no Brasil ', ' 150', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('No Caminho da Santidade ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Para Vós nasci – Poesias e Exclamações ', ' 195', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Cristo e o Nosso Corpo ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Pecados e as Virtudes Capitais, Os ', ' 105', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Por que ir à Missa aos Domingos ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Pegadas Sobre a Neve ', ' ', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Unção dos Enfermos ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Pelas Mãos de Pascal ', ' 267', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('São Paulo – o Apóstolo das Gentes ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Pensar por conta própria ', ' 183', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Entrevista sobre o Fundador do Opus Dei ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Pequena Via para Deus, A ', ' 37', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Filiação Divina, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('20 perguntas a Monsenhor Escrivá ', ' 164', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Santo Rosário ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Perspectivas sobre o homossexualismo ', ' 219', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Apocalipse ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Por que a Alegria? ', ' 265', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Maria, um espelho para a Igreja ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Por que confessar-se? ', ' 275', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Salmo II ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Por que eu sou católico? ', ' 138', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Como Defender a Fé Sem Levantar a Voz ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Por um Novo Feminismo ', ' 114', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Olhos Misericordiosos ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Preguiça, A ', ' 103', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Amor que dá vida, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Presépio das Crianças, O ', ' 193', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Evangelho de Maria, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Presença Real, A ', ' 76', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Idades da vida, As ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Primeiro É o Amor ', ' 197', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Generosidade ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Primeiros Cristãos, Os ', ' 167', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Cartas Completas ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Problemas Morais da Existência Humana ', ' 129', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Combate Espiritual, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Pronunciamentos do Papa Francisco no Brasil ', ' 295', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Doutrina Cristã, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Provérbios e Virtudes ', ' 111', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Evangelho no Lar, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Psicologia Aberta ', ' 52', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Esperança em Tempos Difíceis ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Questões Atuais do Cristianismo ', ' 98', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('João, o Discípulo Amado ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Recordações sobre Mons. Escrivá ', ' 248', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Venha, seja minha luz ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Reflexões sobre a Eucaristia ', ' 281', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('3 Vias e as Três Conversões ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Reflexões sobre a Graça ', ' 144', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Pequenas virtudes do Lar, As ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Reflexões sobre o Mistérios do Rosário ', ' 200', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Provérbios e Virtudes ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Resposta Católica, A ', ' 154', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Castelo Interior ou Moradas ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Ressurreição e a Esperança Cristã, A ', ' 196', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Confissões de um Converso ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Retratos de Família ', ' 268', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Conquista das Virtudes, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Revolução de Deus, A ', ' 152', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Pudor, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Rosa Mística ', ' 153', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Vocação do Cristão, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Sabedoria da Cruz, A ', ' 297', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Filhos de Deus ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Salmo II ', ' 201', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Grandeza de Coração ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Santa Missa, A ', ' 249', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Anjos, Os ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Santidade e o Nosso Tempo, A ', ' 325', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('20 perguntas a Monsenhor Escrivá ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Santificação do Trabalho, A ', ' 1, 1a', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Santos Evangelhos, Os ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Santo Rosário ', ' 247', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Sexo e amor ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Santos Evangelhos, Os ', ' 198', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Três Sóis: A Sagrada Família, Os ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('São Josemaria Escrivá no Brasil ', ' 92', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Bem Aventurados os Pobres ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Segredo de Fátima, O ', ' ', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Recordações sobre Mons. Escrivá ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Segredo de Maria, O ', ' 44', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Carta Encíclica: Spe Salvi ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Segredo do Rosário, O ', ' 157', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Buscar Sentido na Vida Cotidiana ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Seguir Cristo ', ' 49', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Filoteia ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Senhor do Tempo, O ', ' 163', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Atitudes Éticas Fundamentais ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Sentimentalismo, O ', ' 83', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Sinais Sagrados, Os ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Serenidade e Paz pela Oração ', ' 227', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Forja ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Sinais Sagrados, Os ', ' 62', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Trabalho de Deus ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Sobre Deus, a Igreja e o Mundo ', ' 314', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Cruzando o Limiar da Esperança ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Sulco ', ' 262', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Dia a dia com o Papa Francisco ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Suma Teológica em forma de Catecismo ', ' 160', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Santificação do Trabalho, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Teresa de Lisieux ', ' 8', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Sinal da Cruz, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Textos Eucarísticos ', ' 161', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Manual de Doutrina Católica ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Thomas More ', ' 77', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Cristão e a dor, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Tibieza, A ', ' 228', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Carta Encíclica: Rerum Novarum ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Dons do Espírito Santo ', ' 50', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Chamados a Viver ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Trabalho Ordinário, Graça Extraordinária ', ' 4, 4a', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Palavra aos Universitários, Uma ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Três Sóis: A Sagrada Família, Os ', ' 107', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Autodomínio ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Trindade à encarnação, Da ', ' 241', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Egoísmo e Amor ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Triunfo de Cristo na Humildade, O ', ' 277', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Razões para crer Como entender, explicar e defender a Fé Católica ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Última ao cadafalso, A ', ' 5', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Frustrações e Paz ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Unção dos Enfermos ', ' 296', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Cartas a um Jovem Católico ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Venha, seja minha luz ', ' 311', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Na Escola do Espírito Santo ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Vida com Karol, Uma ', ' 121', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Boi e o Jumento do Presépio, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Vida de Jesus ', ' 291', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Triunfo de Cristo na Humildade, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Vida de Santa Edwiges ', ' 258', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Cerejeiras em Flor, As ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Vida de Santa Tereza D’Ávila ', ' 294', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('São Josemaria Escrivá no Brasil ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Vida e Milagres de São Bento, A ', ' 165', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Resposta Católica, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Vida Oculta em Deus, A ', ' 146', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Pensar por conta própria ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Virgindade ', ' 303', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Vida Eucarística ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Violência e Paz Interior ', ' 130', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Primeiros Cristãos, Os ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Vitória da Páscoa, A ', ' 34', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Santidade e o Nosso Tempo, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Vivei a Vida ', ' 171', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Espaço de um Sorriso, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Vocação ', ' 323', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Pronunciamentos do Papa Francisco no Brasil ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Vocação do Cristão, A ', ' 3, 3a', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Juventude para todas as Idades ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Vocação de Amor ', ' 2', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Segredo do Rosário, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Volta do Filho Pródigo, A ', ' 133', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Boa Vontade, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
 INSERT INTO public.livros
-(liv_titulo, liv_codigo, liv_data_cadastro, liv_idioma)
-VALUES('Voz da Consciência, A ', ' 41', '2022-06-29 00:00:00.000', 'PORTUGUES');
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Questões Atuais do Cristianismo ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Bernardo de Claraval ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Exortação Apostólica: Verbum Domini ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Namoro Cristão, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Trabalho Ordinário, Graça Extraordinária ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Exortação Apostólica: Christifideles Laici ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Fé, Esperança e Caridade ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('O que significa amar? ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Natal: reunião dos sorrisos ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Jesus Cristo ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Constituição Dogmática: Dei Verbum ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Amizade com Cristo, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Homem de Villa Tevere, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Volta do Filho Pródigo, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Mulher e a Família, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Tratado da Verdadeira Devoção à Santíssima Virgem ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Grande Desconhecido, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Minhas Irmãs, as Santas – Memórias Espirituais ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Paradoxos do Cristianismo, Os ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Revolução de Deus, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Adolescente: rebeldia e evasão, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Voz da Consciência, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Rosário de Nossa Senhora, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('José, O Silencioso ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Joseph Ratzinger – Uma biografia ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Pecados e as Virtudes Capitais, Os ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Presépio das Crianças, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Em Segredo ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Não Morro, Entro na Vida ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Misericórdia Divina, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Santos, pedras de escândalo, Os ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Maria, A Mãe de Jesus ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Depois, a vida ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Cuidar e ser cuidado ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Homem Bom, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Por que a Alegria? ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Vida de Santa Edwiges ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Fraude Da Vinci, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Deus e o Sentido da Vida ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Meditaciones de Cuaresma ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Thomas More ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Deus em Busca do Homem ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Oração - História de Amizade ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Levantai-vos! Vamos! ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Aprender a descansar ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('João Paulo I, o Papa do Sorriso ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Jogral de Nossa Senhora, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Dons do Espírito Santo ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Homem em Oração, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Credo, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Carta Encíclica: Evangelium Vitae ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Teresa de Lisieux ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Caritas in Veritate ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Sentimentalismo, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Carta Apostólica: Rosarium Virginis Mariae ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Igreja, A - 51 catequeses ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Conhecer-se ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Por que eu sou católico? ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Segredo de Fátima, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Jesus em Nazaré ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Contrição perfeita, A Uma chave de ouro do céu ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Vida com Karol, Uma ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Para Vós nasci – Poesias e Exclamações ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Caminho de Belém, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Compêndio de Teologia Ascética e Mística ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('João Maria Vianney, o Cura d’Ars ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Valor Divino do Humano, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Arte de Decidir Bem, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Alegria do Mundo, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Bula de Proclamação: Aperite portas Redemptori ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Falsas Doutrinas ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Aprender a rezar para aprender a amar ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Carta Encíclica: Ecclesia de Eucharistia ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Banquete do Cordeiro, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Vida Espiritual, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('15 dias de oração com Chiara Luce ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Violência e Paz Interior ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Aparecida ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Maria e o Evangelho ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Catecismo Contra o Aborto ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Reflexões sobre a Eucaristia ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('É Razoável Crer? ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Mensagens de Nossa Senhora Aparecida ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Bento XVI aos Jovens ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('João Crisóstomo ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Deus é jovem ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Para que todos se salvem ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Vida Oculta em Deus, A ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Coração de Cristo, O ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
+INSERT INTO public.livros
+(liv_titulo, liv_data_cadastro, liv_idioma, liv_situacao)
+VALUES('Cartas dos Amigos de Cristo ', '2022-07-07 00:00:00.000', 'PORTUGUES', 'DISPONIVEL');
