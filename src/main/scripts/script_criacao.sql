@@ -50,17 +50,28 @@ add constraint fk_autorizacoes
 foreign key (AUT_ID)
 references AUTORIZACOES(AUT_ID);
 
-INSERT INTO public.usuarios(usu_nome, usu_login, usu_senha, usu_ativo)
-    VALUES ('axaxax', 'admin','$2a$10$x1VZujdOdnWOlGq.mTcGmO4VKb6suEIDnqWydGAfIXbZ7WQCXykuC', 'true');
-	--senha 123
+
+INSERT INTO public.usuarios
+(usu_id, usu_nome, usu_login, usu_senha, usu_ativo)
+VALUES(1, 'admin', 'admin', '$2a$10$rsZ9qUMxtaMiXQBjI35UaOmuhHi2UnLM.RBgd9CCpoXci.oJvoyCq', 'true');
+--senha: @dmin123
+
+INSERT INTO public.usuarios
+(usu_id, usu_nome, usu_login, usu_senha, usu_ativo)
+VALUES(2, 'Lilia Andrade', 'lilia.andrade', '$2a$10$CvFE/4cjJD3YqrKmiRXatOI8DbhGzxgO9vapuJVVw9FZ5E9KuzxqW', 'true');
+--senha: 123456
 
 INSERT INTO public.autorizacoes(aut_id, aut_autorizacao, aut_descricao)
     VALUES (1, 'ROLE_ADMIN', 'Administrador');
+   
+   INSERT INTO public.autorizacoes(aut_id, aut_autorizacao, aut_descricao)
+    VALUES (2, 'ROLE_USER', 'Usuário');
 
 INSERT INTO public.autorizacao_usuario(autorizacao_usuario_id, usu_id, aut_id)
     VALUES (1, 1, 1);
 
-   
+ INSERT INTO public.autorizacao_usuario(autorizacao_usuario_id, usu_id, aut_id)
+    VALUES (2, 2, 2);  
 --==================== FIM CRIACAO USUARIO ==============================================================
       
    CREATE TABLE PESSOAS (

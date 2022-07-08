@@ -39,11 +39,11 @@
 												<h:outputText rendered="#{u.ativo != 'true'}"
 													styleClass="fa fa-remove text-danger" />
 											</h:column>
-											<h:column pt:style="text-align:center;padding:5px 0;">
+											<h:column rendered="#{autorizacaoBean.usuario.administrador}" pt:style="text-align:center;padding:5px 0;">
 												<f:facet name="header">
 													<i class="fa fa-cog" aria-hidden="true"></i>
 												</f:facet>
-												<h:commandLink action="#{usuarioBean.prepareUpdate(u)}"
+												<h:commandLink rendered="#{autorizacaoBean.usuario.administrador}" action="#{usuarioBean.prepareUpdate(u)}"
 													style="text-decoration:none;" pt:data-toggle="modal"
 													pt:data-target=".modal-cadastro" pt:data-backdrop="static"
 													pt:data-keyboard="false">
@@ -59,7 +59,7 @@
 								<hr class="mb-3" />
 								<div class="btn-group" role="group">
 
-									<h:commandLink styleClass="btn btn-success"
+									<h:commandLink rendered="#{autorizacaoBean.usuario.administrador}" styleClass="btn btn-success"
 										pt:data-toggle="modal" pt:data-target=".modal-cadastro"
 										pt:data-backdrop="static" pt:data-keyboard="false">
 										<i class="fa fa-clone fa-fw" aria-hidden="true" /> Adicionar

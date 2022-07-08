@@ -1,5 +1,6 @@
 package br.com.maralto.webappbiblioteca.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -37,6 +38,11 @@ public class Usuario extends PersistentEntity {
 
 	@Transient
 	private Boolean desejaResetarSenha = false;
+	
+	public boolean isAdministrador() {		
+		List<Autorizacao> autorizacaoListConvert = new ArrayList<>(this.autorizacaoList);
+		return autorizacaoListConvert.get(0).getAutorizacao().equals("ROLE_ADMIN");
+	}
 	
 	public String getNome() {
 		return nome;
