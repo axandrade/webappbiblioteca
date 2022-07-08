@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import br.com.maralto.webappbiblioteca.util.model.PersistentEntity;
 
@@ -30,10 +31,13 @@ public class Usuario extends PersistentEntity {
 	@Column(name = "USU_ATIVO")
 	private String ativo;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "AUTORIZACAO_USUARIO", joinColumns = {	@JoinColumn(name = "USU_ID") }, inverseJoinColumns = { @JoinColumn(name = "AUT_ID") })
 	private Set<Autorizacao> autorizacaoList;
 
+	@Transient
+	private Boolean desejaResetarSenha = false;
+	
 	public String getNome() {
 		return nome;
 	}
@@ -72,6 +76,14 @@ public class Usuario extends PersistentEntity {
 
 	public void setAutorizacaoList(Set<Autorizacao> autorizacaoList) {
 		this.autorizacaoList = autorizacaoList;
+	}
+
+	public Boolean getDesejaResetarSenha() {
+		return desejaResetarSenha;
+	}
+
+	public void setDesejaResetarSenha(Boolean desejaResetarSenha) {
+		this.desejaResetarSenha = desejaResetarSenha;
 	}
 
 	

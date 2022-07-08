@@ -8,7 +8,7 @@ public interface UsuarioService {
 	
 	Usuario findByLogin(String login);
 
-	void save(Usuario usuario);
+	void save(Usuario usuario, String confirmaSenha);
 	
 	void remove(Usuario usuario);
 	

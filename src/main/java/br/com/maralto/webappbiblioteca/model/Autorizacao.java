@@ -14,6 +14,9 @@ public class Autorizacao extends PersistentEntity {
 
 	private static final long serialVersionUID = 1L;
 
+	@Column(name = "AUT_AUTORIZACAO")
+	private String autorizacao;
+	
 	@Column(name = "AUT_DESCRICAO")
 	private String descricao;
 
@@ -24,5 +27,15 @@ public class Autorizacao extends PersistentEntity {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+
+	public String getAutorizacao() {
+		return autorizacao;
+	}
+
+	public void setAutorizacao(String autorizacao) {
+		this.autorizacao = autorizacao;
+	}
+	
+	
 
 }

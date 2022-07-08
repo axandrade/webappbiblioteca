@@ -28,6 +28,7 @@ CREATE TABLE USUARIOS (
 
 CREATE TABLE AUTORIZACOES (
 	AUT_ID serial PRIMARY KEY,
+	AUT_AUTORIZACAO VARCHAR ( 50 ),
 	AUT_DESCRICAO VARCHAR ( 50 ) 
 		 
 );
@@ -53,8 +54,8 @@ INSERT INTO public.usuarios(usu_nome, usu_login, usu_senha, usu_ativo)
     VALUES ('axaxax', 'admin','$2a$10$x1VZujdOdnWOlGq.mTcGmO4VKb6suEIDnqWydGAfIXbZ7WQCXykuC', 'true');
 	--senha 123
 
-INSERT INTO public.autorizacoes(aut_id, aut_descricao)
-    VALUES (1, 'ROLE_ADMIN');
+INSERT INTO public.autorizacoes(aut_id, aut_autorizacao, aut_descricao)
+    VALUES (1, 'ROLE_ADMIN', 'Administrador');
 
 INSERT INTO public.autorizacao_usuario(autorizacao_usuario_id, usu_id, aut_id)
     VALUES (1, 1, 1);
@@ -88,7 +89,7 @@ CREATE TABLE AUTORES (
 
 CREATE TABLE LIVROS (
 	LIV_ID serial PRIMARY KEY,
-	LIV_TITULO VARCHAR ( 100 ) unique,	
+	LIV_TITULO VARCHAR ( 100 ),	
 	LIV_ISBN VARCHAR ( 50 ),
 	LIV_SITUACAO VARCHAR ( 15 ),
 	LIV_DATA_CADASTRO TIMESTAMP,
@@ -185,6 +186,8 @@ VALUES('Lilia nogueira', '61597387315', 'liliadesousanogueira@gmail.com', '1986-
 
 
 select * from usuarios u ;
+
+select * from autorizacoes a; 
 
 select * from autorizacao_usuario au; 
 

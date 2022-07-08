@@ -3,9 +3,8 @@ package br.com.maralto.webappbiblioteca.service;
 import java.util.List;
 import java.util.Optional;
 
-import javax.validation.ConstraintViolationException;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.stereotype.Service;
 
 import br.com.maralto.webappbiblioteca.model.Autor;
@@ -41,8 +40,8 @@ public class AutorServiceImpl implements AutorService {
 		try {
 
 			autorRepository.save(autor);
-		} catch (ConstraintViolationException e) {
-			facesMessageUtils.addErrorMessage("Nome do Autor já Existe");
+		} catch (JpaSystemException e) {
+			facesMessageUtils.addErrorMessage("Nome do Autor '" + autor.getNome() + "' já Existe");
 			e.printStackTrace();
 		}		
 		catch (Exception e) {			

@@ -18,5 +18,6 @@ public class AutorizacaoServiceImpl implements AutorizacaoService {
 	public List<Autorizacao> findAll() {
 		return repository.findAll();
 	}
+	
 
 }

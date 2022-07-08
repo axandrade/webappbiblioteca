@@ -143,7 +143,7 @@
 								<div class="col-md-8">
 									<h:selectBooleanCheckbox
 										rendered="#{not empty usuarioBean.usuario.id}"
-										value="#{usuarioBean.desejaResetarSenha}"
+										value="#{usuarioBean.usuario.desejaResetarSenha}"
 										styleClass="form-check-input">
 										<f:ajax event="change" execute="@this" render="@form" />
 									</h:selectBooleanCheckbox>
@@ -154,17 +154,17 @@
 							</div>
 							<div class="form-group row mt-3">
 								<div class="col-md-6">
-									<h:outputLabel rendered="#{usuarioBean.desejaResetarSenha}"
+									<h:outputLabel rendered="#{usuarioBean.usuario.desejaResetarSenha}"
 										styleClass="form-check-label" value="Senha" />
-									<h:inputSecret rendered="#{usuarioBean.desejaResetarSenha}"
+									<h:inputSecret required="true" requiredMessage="Campo Senha é obrigátorio" rendered="#{usuarioBean.usuario.desejaResetarSenha}"
 										id="inptSenha" styleClass="form-control"
 										value="#{usuarioBean.usuario.senha}">
 									</h:inputSecret>
 								</div>
 								<div class="col-md-6">
-									<h:outputLabel rendered="#{usuarioBean.desejaResetarSenha}"
+									<h:outputLabel rendered="#{usuarioBean.usuario.desejaResetarSenha}"
 										styleClass="form-check-label" value="Confirmação da Senha" />
-									<h:inputSecret rendered="#{usuarioBean.desejaResetarSenha}"
+									<h:inputSecret required="true" requiredMessage="Campo Confirmação da Senha é obrigátorio" rendered="#{usuarioBean.usuario.desejaResetarSenha}"
 										id="inptConfirmaSenha" styleClass="form-control"
 										value="#{usuarioBean.confirmaSenha}">
 									</h:inputSecret>
@@ -176,7 +176,7 @@
 						<div class="modal-footer">
 
 							<h:commandLink style="margin-right:5px"
-								styleClass="btn btn-success">
+								styleClass="btn btn-success" pt:data-dismiss="modal">
 								<i class="fa fa-save fa-fw" aria-hidden="true" />
 
 								<f:ajax event="click" execute="@form"

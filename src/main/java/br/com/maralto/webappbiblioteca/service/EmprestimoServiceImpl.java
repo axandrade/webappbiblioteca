@@ -1,6 +1,5 @@
 package br.com.maralto.webappbiblioteca.service;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Service;
 import br.com.maralto.webappbiblioteca.exception.GenericException;
 import br.com.maralto.webappbiblioteca.model.ControleEmprestimo;
 import br.com.maralto.webappbiblioteca.model.Emprestimo;
-import br.com.maralto.webappbiblioteca.model.Livro;
 import br.com.maralto.webappbiblioteca.repository.ControleEmprestimoRepository;
 import br.com.maralto.webappbiblioteca.repository.EmprestimoRepository;
 import br.com.maralto.webappbiblioteca.repository.LivroRepository;

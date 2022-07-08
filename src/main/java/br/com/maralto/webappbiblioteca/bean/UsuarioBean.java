@@ -7,17 +7,14 @@ import java.util.Set;
 
 import javax.annotation.PostConstruct;
 
-import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 
 import br.com.maralto.webappbiblioteca.model.Autorizacao;
 import br.com.maralto.webappbiblioteca.model.Usuario;
 import br.com.maralto.webappbiblioteca.service.AutorizacaoService;
 import br.com.maralto.webappbiblioteca.service.UsuarioService;
-import br.com.maralto.webappbiblioteca.util.jsf.FacesMessageUtils;
 
 @Controller
 @Scope("session")
@@ -28,11 +25,8 @@ public class UsuarioBean {
 	private List<Usuario> usuarioList;
 	private Autorizacao autorizacaoSelected;
 	private List<Autorizacao> autorizacaoList;
-	private Boolean desejaResetarSenha;
 	@Autowired
-	private UsuarioService usuarioService;
-	@Autowired
-	private FacesMessageUtils facesMessageUtils;
+	private UsuarioService usuarioService;	
 	@Autowired
 	private AutorizacaoService autorizacaoService;
 
@@ -82,7 +76,7 @@ public class UsuarioBean {
 		autorizacaoSelected = new Autorizacao();
 		findAll();
 		autorizacaoList = autorizacaoService.findAll();
-		desejaResetarSenha = false;
+		
 	}
 
 	public void reset() {
@@ -96,52 +90,32 @@ public class UsuarioBean {
 	}
 	
 	public void prepareSave() {
-		desejaResetarSenha = true;
+		
 		this.usuario = new Usuario();
+		this.usuario.setDesejaResetarSenha(true);
+		this.autorizacaoSelected = new Autorizacao();
 	}
 	
 	public void prepareUpdate(Usuario usuario) {
-		desejaResetarSenha = false;
-		//this.autorizacaoSelected = usuario.getAutorizacaoList().get(0);
+		
 		this.usuario = usuario;
+		this.usuario.setDesejaResetarSenha(false);
+		List<Autorizacao> autorizacaoListConvert = new ArrayList<>(usuario.getAutorizacaoList());
+		
+		setAutorizacaoSelected(autorizacaoListConvert.get(0));
 		
 	}
 
-	public void save() {		
-		
-			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-			Set<Autorizacao> autorizacoesSelectedList = new HashSet<>();
+	public void save() {
 
-			if (confirmaSenha != null && !confirmaSenha.equals(""))
-				usuario.setSenha(passwordEncoder.encode(confirmaSenha));
+		Set<Autorizacao> autorizacoesSelectedList = new HashSet<>();
 
-			autorizacoesSelectedList.add(this.autorizacaoSelected);
-			this.usuario.setAutorizacaoList(autorizacoesSelectedList);
+		autorizacoesSelectedList.add(this.autorizacaoSelected);
+		this.usuario.setAutorizacaoList(autorizacoesSelectedList);
 
-			usuarioService.save(usuario);
+		usuarioService.save(usuario, this.confirmaSenha);
 
-			findAll();
-			reset();
-		
-	}
-	
-
-	public void editar() {
-
-		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-
-		if (confirmaSenha.equals("")) {
-
-			usuario.setSenha(passwordEncoder.encode(""));
-		//	autorizacaoList.add(autorizacao);
-		//	usuario.setAutorizacaoList(autorizacaoList);
-
-			usuarioService.save(usuario);
-			facesMessageUtils.addWarningMessage("Alterado com Sucesso!");
-		} else {
-			facesMessageUtils.addWarningMessage("As senhas digitadas não são iguais!");
-		}
-
+		findAll();
 		reset();
 
 	}
@@ -162,12 +136,6 @@ public class UsuarioBean {
 		this.autorizacaoSelected = autorizacaoSelected;
 	}
 
-	public Boolean getDesejaResetarSenha() {
-		return desejaResetarSenha;
-	}
-
-	public void setDesejaResetarSenha(Boolean desejaResetarSenha) {
-		this.desejaResetarSenha = desejaResetarSenha;
-	}
+	
 
 }
