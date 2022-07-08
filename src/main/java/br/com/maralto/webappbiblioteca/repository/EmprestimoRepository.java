@@ -12,9 +12,9 @@ import br.com.maralto.webappbiblioteca.model.Emprestimo;
 public interface EmprestimoRepository extends JpaRepository<Emprestimo, Long>{
 	
 	
-	@Query(value = "select * "
-			+ "from public.emprestimos e "			
-			+ "where e.emp_status = true and e.emp_pes_id =:idPessoa",nativeQuery = true)
+	@Query(value = "select e "
+			+ "from Emprestimo e "			
+			+ "where e.status = true and e.id =:idPessoa")
 	List<Emprestimo>  findEmprestimoByUsuario(@Param("idPessoa")Long idPessoa);
 	
 
