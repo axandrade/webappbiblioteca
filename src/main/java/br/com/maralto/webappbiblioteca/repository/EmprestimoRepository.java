@@ -17,5 +17,7 @@ public interface EmprestimoRepository extends JpaRepository<Emprestimo, Long>{
 			+ "where e.status = true and e.id =:idPessoa")
 	List<Emprestimo>  findEmprestimoByUsuario(@Param("idPessoa")Long idPessoa);
 	
+	List<Emprestimo> findByStatus(Boolean status);
+	
 
 }

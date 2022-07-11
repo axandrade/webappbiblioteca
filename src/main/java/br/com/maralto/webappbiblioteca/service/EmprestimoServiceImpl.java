@@ -37,8 +37,13 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 	
 
 	@Override
-	public List<Emprestimo> findAll() {
-		return emprestimoRepository.findAll();
+	public List<Emprestimo> findEmprestimoByStatus(Boolean status) {
+		
+		if(status == null) {
+			return emprestimoRepository.findAll();
+		}else {
+			return emprestimoRepository.findByStatus(status);
+		}
 	}
 
 	@Override
@@ -208,5 +213,7 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 
 		return email.toString();
 	}
+
+
 
 }

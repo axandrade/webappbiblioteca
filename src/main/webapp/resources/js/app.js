@@ -61,6 +61,7 @@ function dataTable() {
 function dataTableUsuario() {
 	
 	var table = $(".dataTable-usuario").DataTable({
+		dom: 'lBfrtip',
 		pageLength : 5,
 		lengthChange : false,
 		"columnDefs": [ {
@@ -105,7 +106,6 @@ function dataTableUsuario() {
 		}
 	});
 
-	table.buttons().container().html("").appendTo('.dataTables_wrapper .col-md-6:eq(0)');
 
 }
 
@@ -168,7 +168,16 @@ function dataTableLivro() {
 			} 			
 			
 			],
-		buttons: ['excel', 'pdf' ],
+		buttons : [ {
+			extend : 'excelHtml5',
+			text : 'EXCEL',
+			title : 'report-excel'
+		}, {
+			extend : 'pdfHtml5',
+			text : 'PDF',
+			title : 'report-pdf'
+		}
+		 ],
 		language : {
 			"sEmptyTable" : "Nenhum registro encontrado",
 			"sInfo" : "Mostrando de _START_ até _END_ de _TOTAL_ registros",
@@ -194,6 +203,13 @@ function dataTableLivro() {
 		}
 	});
 
+table.buttons.exportData( {
+    format: {
+        header: function ( data, columnIdx ) {
+            return columnIdx +': '+ data;
+        }
+    }
+} );
 	
 
 }

@@ -6,733 +6,292 @@
 	template="/templates/default/main.xhtml">
 	<ui:define name="content">
 		<div class="row">
-			<div class="col-md">
-				<div class="card" style="margin-top: 20px; min-height: 65vh;">
-					<div class="card-body bg-light">
-					
-						<h4 class="card-title">Listagem de empréstimos</h4>
-						<hr class="mb-5" />
-						<h:form >
-						<div class="row">
-							<div class="col-md-4 mb-5">
-							<label>Seleciona o Status do Edital</label>
-								<h:selectOneMenu value = "#{editalBean.statusBusca}"  styleClass="form-control custom-select" > 
-									<f:selectItem itemValue = "" itemLabel = "Todos" /> 
-   									<f:selectItem itemValue = "NV" itemLabel = "Novos" /> 
-   									<f:selectItem itemValue = "AN" itemLabel = "Análise Concluída" /> 
-   									<f:ajax event="change" render="form-editais" onevent="dataTableEditalFromJSF"  listener="#{editalBean.findEditaisByStatus}" />
-   								</h:selectOneMenu>
-						
-							</div>						
-						</div>
-						</h:form>
-						<h:form id="form-editais">
-							<div class="row mt-3">
-								<h:dataTable binding="#{table}"
-									value="#{editalBean.editaisList}" var="e"
-									styleClass="table dataTable-edital table-striped table-sm">
-									<h:column>
-										<f:facet name="header">#</f:facet>
-                                        #{table.rowIndex + 1}
-                                    </h:column>
-									<h:column>
-										<f:facet name="header">Numero</f:facet>
-                                        #{e.numero}
-                                    </h:column>
-                                    
-                                    <h:column>
-										<f:facet name="header">Orgão</f:facet>
-                                        #{e.orgao}
-                                    </h:column>
-                                    
-                                    <h:column>
-										<f:facet name="header">Data da Licitação</f:facet>
-                                       
-                                        <h:outputText value="#{e.dataLicitacao}">
-                                       <f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
-                                        </h:outputText>
-                                    </h:column>
-                                    
-                                     <h:column>
-										<f:facet name="header">Data Cadastro Edital</f:facet>
-                                       
-                                        <h:outputText value="#{e.dataRegistro}">
-                                       <f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
-                                        </h:outputText>
-                                    </h:column>
-									<h:column pt:style="text-align:center;padding-right:5px;padding-left:5px">
-									<f:facet name="header">
-													Status
-									</f:facet>
-									<h:panelGroup rendered="#{e.status == 'NV'}" styleClass="text-center">
-										<i class="fa fa-circle text-success" aria-hidden="true" />
-									</h:panelGroup>
-									<h:panelGroup rendered="#{e.status == 'AN'}" styleClass="text-center">
-										<i class="fa fa-circle text-warning" aria-hidden="true" />
-									</h:panelGroup>
-									<h:panelGroup rendered="#{e.status == 'XX'}" styleClass="text-center">
-										<i class="fa fa-circle text-danger" aria-hidden="true" />
-									</h:panelGroup>
-									</h:column >
-					
-								<h:column pt:style="text-align:center;">
-										<f:facet name="header" >Adicionar Lotes</f:facet>									
-										
-										<h:commandLink 	action="#{editalBean.showLotesEdital(e)}"
-											style="text-decoration:none;" pt:data-toggle="modal"
-											pt:data-target=".modal-lote" pt:data-backdrop="static"
-											pt:data-keyboard="false">
-											<i class="fa fa-plus-circle" aria-hidden="true" />
-											<f:ajax render="form-lote" onevent="dataTableLoteFromJSF"/>
-										</h:commandLink>
-										
-								</h:column>		
-								<h:column pt:style="text-align:center;">
-										<f:facet name="header" >Editar</f:facet>	 
-										<h:commandLink 	action="#{editalBean.setEditalSelected(e)}"
-											style="text-decoration:none;" pt:data-toggle="modal"
-											pt:data-target=".modal-edit-edital" pt:data-backdrop="static"
-											pt:data-keyboard="false">
-											<i class="fa fa-pencil" aria-hidden="true" />
-											<f:ajax render="form-edit-edital" />
-										</h:commandLink>
-								</h:column>
-								</h:dataTable>
+			<div class="col-md-12">
+				<div class="card" style="margin-top: 20px">				
+					<div class="card-header ">
+						<h4 class="card-title">Empréstimos</h4>
+					</div>
+					<h:form id="form-emprestimos">
+						<div class="card-body bg-light">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="col-md-4 mb-2">
+									<label>Seleciona o Status</label>
+										<h:selectOneMenu value = "#{emprestimoBean.statusBusca}"  styleClass="form-control custom-select" > 
+											<f:selectItem itemValue = "" itemLabel = "Todos" /> 
+		   									<f:selectItem itemValue = "true" itemLabel = "Empréstimos Ativos" /> 
+		   									<f:selectItem itemValue = "false" itemLabel = "Empréstimos Finalizados" /> 
+		   									<f:ajax event="change" render="form-emprestimos" onevent="dataTableEmprestimoFromJSF"  listener="#{emprestimoBean.findEmprestimoByStatus}" />
+		   								</h:selectOneMenu>							
+									</div>
+								</div>						
 							</div>
-							
+							<div class="row">
+								<div class="col-md-12">
+									<div class="table-responsive">
+										<h:dataTable id="dataTableEmprestimo" binding="#{table}"
+											value="#{emprestimoBean.emprestimosList}" var="e"
+											styleClass="table dataTable-emprestimo table-striped table-sm">
+											
+											<h:column pt:style="text-align:center">
+												<f:facet name="header">Código</f:facet>
+                                       		 	 #{e.id}
+                                    		</h:column>
+
+											<h:column>
+												<f:facet name="header">Nome</f:facet>
+                                       			 #{e.pessoa.nome}
+                                    		</h:column>
+                                    		
+                                    		<h:column>
+												<f:facet name="header">Data Empréstimo</f:facet>
+                                       			 #{e.dataEmprestimoFormatado}
+                                    		</h:column>                                 		
+                                    		
+                                    		<h:column pt:style="text-align:center;padding-right:5px;padding-left:5px">
+                                    		
+												<f:facet name="header">Status</f:facet>
+                                       			<h:panelGroup rendered="#{e.status == true}"
+													styleClass="text-center">
+													<i class="fa fa-circle text-success" aria-hidden="true" />
+												</h:panelGroup>
+												
+												<h:panelGroup rendered="#{e.status == false}"
+													styleClass="text-center">
+													<i class="fa fa-circle text-warning" aria-hidden="true" />
+												</h:panelGroup>
+                                    		</h:column>
+                                    		
+                                    		<h:column pt:style="text-align:center;padding:5px 0;">
+												<f:facet name="header">Visualizar</f:facet>
+												<h:commandLink action="#{emprestimoBean.showEmprestimo(e)}"
+													style="text-decoration:none;" pt:data-toggle="modal"
+													pt:data-target=".modal-cadastro" pt:data-backdrop="static"
+													pt:data-keyboard="false">
+													<i class="fa fa-eye" aria-hidden="true" />
+													<f:ajax render="form-cadastro-emprestimo" />
+												</h:commandLink>
+											</h:column>
+											
+											<h:column pt:style="text-align:center;padding:5px 0;">
+												<f:facet name="header">Finalizar</f:facet>
+												<h:commandLink action="#{emprestimoBean.showEmprestimo(e)}" rendered="#{e.status == true}"
+													style="text-decoration:none;" pt:data-toggle="modal"
+													pt:data-target=".modal-finaliza-emprestimo" pt:data-backdrop="static"
+													pt:data-keyboard="false">
+													<i class="fa fa-check-square-o" aria-hidden="true" />
+													<f:ajax render="form-finaliza-emprestimo" />
+												</h:commandLink>
+											</h:column>
+										</h:dataTable>
+									</div>
+								</div>
+							</div>
+							<hr />
 							<div class="row">
 								<div class="col-sm-12">
 									<div class="legendas">
-										<label class="col-form-label">Legenda:</label><br /> 
-											<span><i
-											class="fa fa-circle fa-fw text-success" aria-hidden="true" />
-											Nova</span> 
-											<span><i class="fa fa-circle fa-fw text-warning"
-											aria-hidden="true" />Análise Iniciada</span> 
-											<span><i class="fa fa-circle fa-fw text-danger"
-											aria-hidden="true" /> Teste</span> 
+										<label class="col-form-label">Legenda:</label><br /> <span><i
+											class="fa fa-circle fa-fw text-success" aria-hidden="true" />Empréstimo Ativo</span> <span><i class="fa fa-circle fa-fw text-warning ml-3"
+											aria-hidden="true" />Empréstimo Finalizado</span>  
 									</div>
 								</div>
 							</div>
-							<h:panelGroup>
-								<hr class="mb-3" />
-								<div class="btn-group" role="group">
-								
-									<h:commandLink styleClass="btn btn-success"
-										pt:data-toggle="modal" pt:data-target=".modal-add"
-										pt:data-backdrop="static" pt:data-keyboard="false">
-										<i class="fa fa-clone fa-fw" aria-hidden="true" /> Novo Edital
-                                        <f:ajax />
-									</h:commandLink>
-
-								</div>					
-
-							</h:panelGroup>
-						</h:form>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<!-- 		Modal Adicionar edital-->
-		<div class="modal modal-add modal-draggable fade" tabindex="-1" role="dialog" >
-			<div class="modal-dialog" role="document" style="max-width: 90% !important">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="myModalLabel">Adicionar Novo Edital</h5>
-							<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&#215;</span>
-						</button>
-					</div>
-					<h:form id="form-add-edital">	
-					<h:messages />
-						<div class="modal-body bg-light">						
-								<div class="row">
-								
-									<div class="col-md-3">
-										
-										<label for="firstName">Numero</label> <input type="hidden"/>
-										<h:inputText styleClass="form-control" required="true"
-											requiredMessage="Campo numero é obrigatorio"
-											value="#{editalBean.edital.numero}">
-										</h:inputText>
-										
-									</div>
-									
-									<div class="col-md-6">
-										
-										<label for="firstName">Orgão</label> <input type="hidden"/>
-										<h:inputText styleClass="form-control" required="true"
-											requiredMessage="Campo orgão é obrigatorio"
-											value="#{editalBean.edital.orgao}">
-										</h:inputText>
-										
-									</div>			
-										
-									
-									<div class="col-md-3">
-									
-									<label>Data Licitação</label>
-									<h:inputText pt:type="date" required="true" requiredMessage="Data do registro"
-										styleClass="form-control	" value="#{editalBean.dataLicitacao}"/>
-										
-									</div>
-									
-									<div class="col-md-3">
-									
-									<label>Tipo da Licitação</label>
-									<h:selectOneMenu value="#{editalBean.tipoLicitacao}"
-										styleClass="form-control custom-select"  converter="generic" required="true">
-										<f:selectItem itemValue="" itemLabel="Selecione..." />
-											<f:selectItems value="#{editalBean.tiposLicitacoesList}" var="t"
-											itemValue="#{t}" itemLabel="#{t.descricao}" />
-									</h:selectOneMenu>
-									
-									
-									</div>
-									
-									<div class="col-md-3">
-									<label>Modalidade</label>
-									<h:selectOneMenu value="#{editalBean.modalidade}"
-										styleClass="form-control custom-select"  converter="generic" required="true">
-										<f:selectItem itemValue="" itemLabel="Selecione..." />
-											<f:selectItems value="#{editalBean.modalidadesList}" var="m"
-											itemValue="#{m}" itemLabel="#{m.descricao}" />
-											<f:ajax event="change" render="cbx-portal"
-												listener="#{editalBean.getModalidade}" />
-									</h:selectOneMenu>
-									
-									
-									</div>			
-									
-									<div class="col-md-3">
-									<label>Portal</label>
-									<h:selectOneMenu disable="#{editalBean.modalidade.descricao == 'PREGAO ELETRONICO'}" id="cbx-portal" value="#{editalBean.portal}"
-										styleClass="form-control custom-select"  converter="generic" required="true">
-										<f:selectItem itemValue="" itemLabel="Selecione..." />
-											<f:selectItems value="#{editalBean.portaisList}" var="p"
-											itemValue="#{p}" itemLabel="#{p.site}" />
-									</h:selectOneMenu>
-									
-									
-									</div>								
-									
-									<div class="col-md-3">
-									<label>Cidade</label>
-									<h:selectOneMenu value="#{editalBean.cidade}"
-										styleClass="form-control custom-select"  converter="generic">
-										<f:selectItem itemValue="" itemLabel="Selecione..." />
-											<f:selectItems value="#{editalBean.cidadesList}" var="c"
-											itemValue="#{c}" itemLabel="#{c.nome}" />
-											<f:ajax event="change" render="txtUf"
-												listener="#{editalBean.getCidade}" />
-									</h:selectOneMenu>									
-									</div>
-									
-									<div class="col-md-3">										 
-                                       
-                                       <label>Estado</label> <span class="input-group-text"><h:outputText
-										id="txtUf" value="#{editalBean.cidade.estado.uf}" /></span>
-									</div>
-								
-								<div class="col-md-6">
-									<label>Serviço</label>
-									<h:selectOneMenu value="#{editalBean.servico}"
-										styleClass="form-control custom-select"  converter="generic" required="true" requiredMessage="O Tipo do serviço é obrigatorio">
-										<f:selectItem itemValue="" itemLabel="Selecione..." />
-											<f:selectItems value="#{editalBean.servicosList}" var="s"
-											itemValue="#{s}" itemLabel="#{s.descricao}" />
-									</h:selectOneMenu>
-									
-									
-								</div>
-								
-							
-								<div class="col-md-3">
-										
-										<label for="firstName">Responsavel</label> <input type="hidden"/>
-										<h:inputText styleClass="form-control" required="true" disabled="true"
-											requiredMessage="Campo orgão é obrigatorio"
-											value="#{editalBean.usuario.nome}">
-										</h:inputText>
-										
-								</div>								
-								
-								<div class="col-md-12">		
-														
-								<label for="story">Objeto:</label>
-								
-								<h:inputTextarea value="#{editalBean.edital.objeto}" styleClass="form-control z-depth-1"  />
-																
-								</div>						
-								
-								<div class="col-md-12">								
-								<label for="story">Observação:</label>
-
-								<h:inputTextarea value="#{editalBean.edital.observacao}" styleClass="form-control z-depth-1"  />
-																
-								</div>
-																
-								</div>
 						</div>
-
-						<div class="modal-footer">
-
-							<h:commandLink style="margin-right:5px"
-								styleClass="btn btn-success">
-								<i class="fa fa-save fa-fw" aria-hidden="true" />
-
-								<f:ajax event="click" execute="@form" render="@form :form-editais"
-									listener="#{editalBean.saveEdital}" onevent="dataTableEditalFromJSF" /> Salvar
-
-                            </h:commandLink>
-
-							<h:commandLink style="margin-right:5px"
-								styleClass="btn btn-danger" pt:data-dismiss="modal">
-								<i class="fa fa-sign-out fa-fw" aria-hidden="true" /> Fechar
-                                <f:ajax event="click"  />
-							</h:commandLink>
-
-						</div>
-					</h:form>
-
-				</div>
-			</div>
-		</div>
-		<!-- Fecha Modal adicionar edital-->
-		
-			<!-- 		Modal Editar edital-->
-		<div class="modal modal-edit-edital modal-draggable fade" tabindex="-1" role="dialog" >
-			<div class="modal-dialog" role="document" style="max-width: 90% !important">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="myModalLabel">Editar Edital</h5>
-							<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&#215;</span>
-						</button>
-					</div>
-					<h:form id="form-edit-edital">	
-					<h:messages />
-						<div class="modal-body bg-light">						
-								<div class="row">
-								
-									<div class="col-md-3">
-										
-										<label for="firstName">Numero</label> <input type="hidden"/>
-										<h:inputText styleClass="form-control" required="true"
-											requiredMessage="Campo numero é obrigatorio"
-											value="#{editalBean.editalSelected.numero}">
-										</h:inputText>
-										
-									</div>
-									
-									<div class="col-md-6">
-										
-										<label for="firstName">Orgão</label> <input type="hidden"/>
-										<h:inputText styleClass="form-control" required="true"
-											requiredMessage="Campo orgão é obrigatorio"
-											value="#{editalBean.editalSelected.orgao}">
-										</h:inputText>
-										
-									</div>			
-										
-									
-									<div class="col-md-3">
-									
-									<label>Data Licitação</label>
-									<h:inputText required="true" requiredMessage="Data da Licitação é obrigatorio"
-										styleClass="form-control dti" value="#{editalBean.dataLicitacao}"/>
-										
-									</div>
-									
-									<div class="col-md-3">
-									<label>Tipo da Licitação</label>
-									<h:selectOneMenu value="#{editalBean.tipoLicitacao}"
-										styleClass="form-control custom-select"  converter="generic" required="true" requiredMessage="Tipo da Licitação é obrigatorio">
-										<f:selectItem itemValue="" itemLabel="Selecione..." />
-											<f:selectItems value="#{editalBean.tiposLicitacoesList}" var="t"
-											itemValue="#{t}" itemLabel="#{t.descricao}" />
-									</h:selectOneMenu>
-									
-									
-									</div>
-									
-									<div class="col-md-3">
-									<label>Modalidade</label>
-									<h:selectOneMenu value="#{editalBean.modalidade}"
-										styleClass="form-control custom-select"  converter="generic" required="true" requiredMessage="modalidade é obrigatorio">
-										<f:selectItem itemValue="" itemLabel="Selecione..." />
-											<f:selectItems value="#{editalBean.modalidadesList}" var="m"
-											itemValue="#{m}" itemLabel="#{m.descricao}" />
-									</h:selectOneMenu>
-									
-									
-									</div>
-									
-									<div class="col-md-3">
-									<label>Cidade</label>
-									<h:selectOneMenu value="#{editalBean.cidade}"
-										styleClass="form-control custom-select"  converter="generic">
-										<f:selectItem itemValue="" itemLabel="Selecione..." />
-											<f:selectItems value="#{editalBean.cidadesList}" var="c"
-											itemValue="#{c}" itemLabel="#{c.nome}" />
-											<f:ajax event="change" render="txtUf"
-												listener="#{editalBean.getCidade}" />
-									</h:selectOneMenu>									
-									</div>
-									
-									<div class="col-md-3">										 
-                                       
-                                       <label>Estado</label> <span class="input-group-text"><h:outputText
-										id="txtUf" value="#{editalBean.cidade.estado.uf}" /></span>
-									</div>
-								
-								<div class="col-md-6">
-									<label>Tipo de Serviço</label>
-									<h:selectOneMenu value="#{editalBean.servico}"
-										styleClass="form-control custom-select"  converter="generic" required="true" requiredMessage="tipo de Serviço é obrigatorio">
-										<f:selectItem itemValue="" itemLabel="Selecione..." />
-											<f:selectItems value="#{editalBean.servicosList}" var="s"
-											itemValue="#{s}" itemLabel="#{s.descricao}" />
-									</h:selectOneMenu>
-									
-									
-								</div>
-								
-							
-								<div class="col-md-3">
-										
-										<label for="firstName">Responsavel</label> <input type="hidden"/>
-										<h:inputText styleClass="form-control" required="true" disabled="true"
-											requiredMessage="Campo orgão é obrigatorio"
-											value="#{editalBean.usuario.nome}">
-										</h:inputText>
-										
-								</div>								
-								
-								<div class="col-md-12">		
-														
-								<label for="story">Objeto:</label>
-								
-								<h:inputTextarea value="#{editalBean.editalSelected.objeto}" styleClass="form-control z-depth-1"  />
-																
-								</div>						
-								
-								<div class="col-md-12">								
-								<label for="story">Observação:</label>
-
-								<h:inputTextarea value="#{editalBean.editalSelected.observacao}" styleClass="form-control z-depth-1"  />
-																
-								</div>
-																
-								</div>
-						</div>
-
-						<div class="modal-footer">
-
-							<h:commandLink style="margin-right:5px"
-								styleClass="btn btn-success">
-								<i class="fa fa-save fa-fw" aria-hidden="true" />
-
-								<f:ajax event="click" execute="@form" render="@form :form-editais"
-									listener="#{editalBean.editEdital}" onevent="dataTableEditalFromJSF" /> Salvar
-
-                            </h:commandLink>
-
-							<h:commandLink style="margin-right:5px"
-								styleClass="btn btn-danger" pt:data-dismiss="modal">
-								<i class="fa fa-sign-out fa-fw" aria-hidden="true" /> Fechar
-                                <f:ajax event="click"  />
-							</h:commandLink>
-
-						</div>
-					</h:form>
-
-				</div>
-			</div>
-		</div>
-		<!-- Fecha Modal editar edital-->		
-		
-		
-	<!-- 		Modal Lotes -->		
-		<div class="modal modal-lote modal-draggable fade" tabindex="-1" role="dialog">
-			<div class="modal-dialog" role="document" style="max-width: 70% !important">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="myModalLabel">Lotes</h5>
-							<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&#215;</span>
-						</button>
-					</div>				
-					
-					<h:form id="form-lote">	
-					
-						<div class="modal-body bg-light">
-						<h:messages />
-						
-						<div class="row">
-						<div class="col-md-12 form-group h3">
-						EDITAL
-						
-						</div>
-
-								<div class="col-md-3 form-group">
-									<label class="control-label">Código</label><br /> <span
-										class="text-primary">#{editalBean.editalSelected.numero}</span>
-								</div>
-								
-								<div class="col-md-6 form-group">
-									<label class="control-label">Orgão</label><br /> <span
-										class="text-primary">#{editalBean.editalSelected.orgao}</span>
-								</div>
-										
-								
-								<div class="col-md-3 form-group">
-								
-									<label class="control-label">Data da Licitação</label><br /> 
-									<h:outputText class="control-label text-primary" value="#{editalBean.editalSelected.dataLicitacao}">
-									
-									<f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
-									
-									</h:outputText><br /> 
-										
-								</div>		
-								
-								<div class="col-md-3 form-group">
-									<label class="control-label">Tipo de Licitação</label><br /> <span
-										class="text-primary">#{editalBean.editalSelected.tipoLicitacao.descricao}</span>
-								</div>
-								
-								<div class="col-md-3 form-group">
-									<label class="control-label">Modalidade</label><br /> <span
-										class="text-primary">#{editalBean.editalSelected.modalidade.descricao}</span>
-								</div>
-								
-								<div class="col-md-3 form-group">
-									<label class="control-label">Serviço</label><br /> <span
-										class="text-primary">#{editalBean.editalSelected.servico.descricao}</span>
-								</div>
-								
-								<div class="col-md-3 form-group">
-								<label class="control-label">Data da Registro</label><br /> 
-									<h:outputText class="control-label text-primary" value="#{editalBean.editalSelected.dataRegistro}">
-									
-									<f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
-									
-									</h:outputText><br /> 
-										
-								</div>									
-			
-								
-								<div class="col-md-12 form-group">
-									<label class="control-label">Objeto</label><br /> <span
-										class="text-primary">#{editalBean.editalSelected.objeto}</span>
-								</div>		
-								
-							  <hr />
-															
-														
-						</div>
-						
-						<div class="row">
-						
-						<div class="col-md-12 form-group h3">
-						LOTES DO EDITAL
-						
-						</div>
-						
-							<div class="col-md-12 text-lowercase">									
-									<div class="table-responsive">
-									<h:dataTable
-									value="#{editalBean.editalSelected.lotes}" var="l"
-									styleClass="table dataTable-lote table-striped table-sm" style="width:100%">
-												
-									<h:column>
-										<f:facet name="header">Sequencial</f:facet>
-                                        #{l.sequencialLote}
-                                    </h:column>								                                 
-                                    <h:column>
-										<f:facet name="header">Prazo (Mês)</f:facet>
-                                        #{l.prazoEdital}
-                                    </h:column>
-                                    
-                                    <h:column>
-										<f:facet name="header">Valor Total</f:facet>                                          
-                                        <h:outputText value="#{l.valorTotal}">  
-                                       
-                                        </h:outputText>
-                                    </h:column>
-                                    
- 									<h:column>
-										<f:facet name="header">Valor Parcela</f:facet>                                          
-                                        <h:outputText value="#{l.valorMensal}"> 
-                                        </h:outputText>
-                                    </h:column>    
-                                    
-                                    <h:column>
-										<f:facet name="header">atende</f:facet>
-                                        #{l.atende}
-                                    </h:column>                                
-                                     
-                                    
-									<h:column pt:style="text-align:center;padding-right:5px;padding-left:5px">
-									<f:facet name="header">
-													Status
-									</f:facet>
-									<h:panelGroup id="status" rendered="#{l.status == 'NV'}" styleClass="text-center">
-										<i class="fa fa-circle text-success" aria-hidden="true" />
-									</h:panelGroup>
-									<h:panelGroup rendered="#{l.status == 'AN'}" styleClass="text-center">
-										<i class="fa fa-circle text-warning" aria-hidden="true" />
-									</h:panelGroup>
-									
-									
-									</h:column >                                   
-                                    
-                                    <h:column pt:style="text-align:center;">
-										<f:facet name="header" >analises</f:facet>										
-									<h:commandLink 	
-											style="text-decoration:none;" pt:data-toggle="modal" action="#{editalBean.showAnaliseByEdital(l)}"
-											pt:data-target=".modal-analise" pt:data-backdrop="static"
-											pt:data-keyboard="false">
-											<i class="fa fa-plus-circle" aria-hidden="true" />
-											<f:ajax  render="form-analise" onevent="dataTableAnaliseFromJSF" />
-										</h:commandLink>
-									</h:column>
-									<h:column pt:style="text-align:center;">
-										<f:facet name="header" >editar</f:facet>		
-										<h:commandLink	action="#{editalBean.setLoteSelected(l)}"
-											style="text-decoration:none;" pt:data-toggle="modal"
-											pt:data-target=".modal-edit-lote" pt:data-backdrop="static"
-											pt:data-keyboard="false">
-											<i class="fa fa-pencil" aria-hidden="true" />
-											<f:ajax render="form-edit-lote" />
-										</h:commandLink>
-									</h:column>
-									<h:column pt:style="text-align:center;">
-									<f:facet name="header" >encerrar analise</f:facet>	
-										<h:commandLink  action="#{editalBean.setLoteSelected(l)}"	 
-											style="text-decoration:none;" pt:data-toggle="modal"
-											pt:data-target=".modal-confirmacao-enc-analise" pt:data-backdrop="static"
-											pt:data-keyboard="false">
-											<i class="fa fa-check-square-o" aria-hidden="true" />
-											<f:ajax  />
-									</h:commandLink>
-									</h:column>
-									
-									
-									</h:dataTable>
-									
-									</div>
-					    	</div>
-									
-						</div>
-						
-						<div class="row">
-								<div class="col-sm-12">
-									<div class="legendas">
-										<label class="col-form-label">Legenda:</label><br /> 
-											<span><i
-											class="fa fa-circle fa-fw text-success" aria-hidden="true" />
-											Nova</span> 
-											<span><i class="fa fa-circle fa-fw text-warning"
-											aria-hidden="true" /> Análise em Andamento</span> 
-											
-									</div>
-								</div>
-							</div>
-						
-						</div>
-
-						<div class="modal-footer">
-						
-							<h:commandLink styleClass="btn btn-success"
-									pt:data-toggle="modal" pt:data-target=".modal-add-lote"
+						<div class="card-footer">
+							<div class="btn-group" role="group">
+								<h:commandLink styleClass="btn btn-success"
+									pt:data-toggle="modal" pt:data-target=".modal-cadastro"
 									pt:data-backdrop="static" pt:data-keyboard="false">
-									<i class="fa fa-clone fa-fw" aria-hidden="true" /> Novo Lote
-                                    <f:ajax event="click" render="form-add-lote" />
-							</h:commandLink>
-
-							<h:commandLink style="margin-right:5px"
-								styleClass="btn btn-danger" pt:data-dismiss="modal">
-								<i class="fa fa-sign-out fa-fw" aria-hidden="true" /> Fechar
-                                <f:ajax   />
-							</h:commandLink>
-
+									<i class="fa fa-plus fa-fw" aria-hidden="true" /> Novo Empréstimo
+                                        <f:ajax
+										render="form-cadastro-emprestimo"
+										listener="#{emprestimoBean.prepareControleEmprestimo}" />
+								</h:commandLink>
+							</div>
 						</div>
 					</h:form>
-
 				</div>
 			</div>
 		</div>
-		<!-- Fecha Modal Lotes-->
-		
-		<!-- 		Modal Adicionar lotes -->
-		<div class="modal modal-add-lote modal-draggable fade" tabindex="-1" role="dialog">
-			<div class="modal-dialog modal-lg" role="document">
+		<!-- 		Modal Cadastrar emprestimos-->
+		<div class="modal modal-cadastro modal-draggable fade" tabindex="-1"
+			role="dialog">
+			<div class="modal-dialog modal-dialog-scrollable modal-xl"
+				role="document">
 				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="myModalLabel">Adicionar Novo Lote</h5>
-							<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&#215;</span>
-						</button>
-					</div>
-					<h:form id="form-add-lote">	
-					<h:messages />
-						<div class="modal-body bg-light">						
-								<div class="row">
-								
-								<div class="col-md-3">
-										
-										<label for="firstName">Prazo (Mês)</label> <input type="hidden"/>
-										<h:inputText styleClass="form-control" required="true"
-											requiredMessage="Campo prazo é obrigatorio"
-											value="#{editalBean.lote.prazoEdital}">
-										</h:inputText>
-										
-								</div>
-								
-								<div class="col-md-3">
-										
-										<label for="firstName">Valor</label> <input type="hidden"/>
-										<h:inputText styleClass="form-control" required="true"
-											requiredMessage="Campo valor é obrigatorio"
-											value="#{editalBean.lote.valorTotal}">
-											 <f:convertNumber pattern="#,###,##0,00"/> 
-										</h:inputText>
-								</div>
-								
+					<h:form id="form-cadastro-emprestimo">
+						
+						<div class="modal-header">
+							<h:outputLabel rendered="#{emprestimoBean.emprestimo.id eq null}"
+								styleClass="modal-title" value="CRIAR NOVO EMPRÉSTIMO" />
+							<h:outputLabel rendered="#{emprestimoBean.emprestimo.id ne null}"
+								styleClass="modal-title" value="VISUALIZAR EMPRÉSTIMO" />
 
-								<div class="col-md-12">		
-														
-								<label for="story">Objeto:</label>
-								
-								<h:inputTextarea value="#{editalBean.lote.objetoLote}" styleClass="form-control z-depth-1"  />
-																
-								</div>	
-									
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&#215;</span>
+							</button>
+						</div>
+						<div class="modal-body bg-light">
+
+							<fieldset class="scheduler-border">
+								<legend class="scheduler-border">Dados do Usuário</legend>
+								<div class="form-group row">
+									<div class="col-md-12">
+										<h:messages />
+									</div>
 								</div>
+								<div class="form-group row">
+									<div class="col-md-3">
+										<label for="titulo">CPF</label>
+										<h:inputText id="inptCpf" disabled="true" required="true"
+											requiredMessage="Campo CPF é Obrigatório"
+											value="#{emprestimoBean.emprestimo.pessoa.cpf}"
+											styleClass="form-control">
+										</h:inputText>
+									</div>
+
+									<div class="col-md-7">
+										<label for="titulo">Nome</label>
+										<h:inputText id="inptNome" disabled="true"
+											value="#{emprestimoBean.emprestimo.pessoa.nome}"
+											styleClass="form-control">
+										</h:inputText>
+									</div>
+
+									<div class="col-md-2">
+										<h:commandLink styleClass="btn btn-primary" rendered="#{emprestimoBean.emprestimo.id eq null}"
+											style="margin-top:32px" pt:data-toggle="modal"
+											pt:data-target=".modal-busca-pessoa"
+											pt:data-backdrop="static" pt:data-keyboard="false">
+											<i class="fa fa-search" aria-hidden="true" /> Pesquisar
+                                        <f:ajax
+												render="form-cadastro-pessoa" />
+										</h:commandLink>
+									</div>
+
+
+								</div>
+							</fieldset>
+
+							<div class="form-group row">
+								<div class="form-group col-md-4">
+									<h:outputLabel
+										styleClass="modal-title" value="Data do Empréstimo" />
+									<h:inputText styleClass="form-control" disabled="true"
+										value="#{emprestimoBean.emprestimo.dataEmprestimoFormatado}">
+									</h:inputText>
+								</div>
+								<div class="form-group col-md-4">
+									<h:outputLabel
+										styleClass="modal-title" value="Data da Devolução" />
+									<h:inputText styleClass="form-control" disabled="true"
+										value="#{emprestimoBean.emprestimo.dataDevolucaoFormatado}">
+									</h:inputText>
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="form-group col-md-6">
+									<h:outputLabel
+										rendered="#{emprestimoBean.emprestimo.id ne null}"
+										styleClass="modal-title" value="Email" />
+									<h:inputText styleClass="form-control" disabled="true"
+										rendered="#{emprestimoBean.emprestimo.id ne null}"
+										value="#{emprestimoBean.emprestimo.pessoa.email}">
+									</h:inputText>
+								</div>
+								<div class="form-group col-md-6">
+									<h:outputLabel
+										rendered="#{emprestimoBean.emprestimo.id ne null}"
+										styleClass="modal-title" value="Contato" />
+									<h:inputText styleClass="form-control" disabled="true"
+										rendered="#{emprestimoBean.emprestimo.id ne null}"
+										value="#{emprestimoBean.emprestimo.pessoa.contato1}">
+									</h:inputText>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="col-md-3">
+									<h:commandLink styleClass="btn btn-primary"
+										rendered="#{emprestimoBean.emprestimo.controleEmprestimoList.size() lt 2}"
+										pt:data-toggle="modal"
+										pt:data-target=".modal-busca-livro" pt:data-backdrop="static"
+										pt:data-keyboard="false">
+										<i class="fa fa-search" aria-hidden="true" /> Incluir Livros
+                                        <f:ajax
+											render="form-cadastro-livro" />
+									</h:commandLink>
+								</div>
+							</div>
+							<fieldset class="scheduler-border">
+								<legend class="scheduler-border">Livros Selecionados</legend>
+								<div class="form-row mt-3">
+									<ui:repeat id="tblLivrosSelected" var="ce"
+										value="#{emprestimoBean.emprestimo.controleEmprestimoList}"
+										varStatus="status">
+										<div class="col-md-6">
+											<div class="card" style="width: 30rem; height: 120px;">
+												<div class="card-body">
+													<div class="form-group row">
+														<div class="col-md-12">
+															<h:outputLabel styleClass="modal-title"	value="Titulo : #{ce.livro.titulo}" />
+														</div>
+														<div class="col-md-12">
+															<h:outputLabel rendered="#{emprestimoBean.emprestimo.id ne null and ce.dataEntrega != null}" styleClass="modal-title" value="DEVOLVIDO" />
+														</div>
+														<div class="col-md-7">
+															<h:outputLabel rendered="#{ce.dataEntrega != null}" styleClass="modal-title"	value="Entrega : #{ce.dataEntregaFormatado}" />
+														</div>
+														<div class="col-md-6">
+															<h:commandLink
+																styleClass="btn btn-success btn-sm"
+																rendered="#{emprestimoBean.emprestimo.id eq null}">
+																<i class="fa fa-times" aria-hidden="true" />
+
+																<f:ajax event="click" execute="@form"
+																	render="@form :form-emprestimos"
+																	listener="#{emprestimoBean.removeControleEmprestimo(ce)}" /> 
+                           									 </h:commandLink>
+														</div>
+													</div>
+													
+													
+												</div>
+
+											</div>
+										</div>
+									</ui:repeat>
+								</div>
+							</fieldset>
+
+							<div class="form-row mt-3">
+								<div class="col-md-12">
+									<label for="titulo">Observação</label>
+									<h:inputTextarea disabled="#{emprestimoBean.emprestimo.id ne null}"
+										value="#{emprestimoBean.emprestimo.observacao}"
+										styleClass="form-control"></h:inputTextarea>
+								</div>
+							</div>
+
 						</div>
 
-						<div class="modal-footer">
+						<div class="modal-footer">						
 
-							<h:commandLink style="margin-right:5px"
-								styleClass="btn btn-success">
+							<h:commandLink style="margin-right:5px" 
+								styleClass="btn btn-success" rendered="#{emprestimoBean.emprestimo.id eq null}">
 								<i class="fa fa-save fa-fw" aria-hidden="true" />
 
-								<f:ajax event="click" execute="@form" render="@form :form-lote :form-editais"
-									listener="#{editalBean.saveLotes}" onevent="dataTableLoteFromJSF"/> Salvar
+								<f:ajax event="click" execute="@form"
+									render="@form :form-emprestimos" listener="#{emprestimoBean.saveEmprestimo}"
+									onevent="dataTableEmprestimoFromJSF"/> Salvar
 
                             </h:commandLink>
 
 							<h:commandLink style="margin-right:5px"
 								styleClass="btn btn-danger" pt:data-dismiss="modal">
 								<i class="fa fa-sign-out fa-fw" aria-hidden="true" /> Fechar
-                                <f:ajax event="click"  />
+                                <f:ajax />
 							</h:commandLink>
 
 						</div>
@@ -741,347 +300,257 @@
 				</div>
 			</div>
 		</div>
-		<!-- Fecha Modal add lotes -->
+		<!-- Fecha Modal adicionar Emprestimo-->
 		
-			<!-- 		Modal editar lotes -->
-		<div class="modal modal-edit-lote modal-draggable fade" tabindex="-1" role="dialog">
-			<div class="modal-dialog modal-lg" role="document">
+		<!-- 	inicio modal busca de pessoas -->
+
+		<div class="modal modal-busca-pessoa fade" id="staticBackdrop"
+			data-backdrop="static" data-keyboard="false" tabindex="-1"
+			aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="myModalLabel">Editar Lote</h5>
-							<button type="button" class="close" data-dismiss="modal"
+						<h5 class="modal-title" id="staticBackdropLabel">Pesquisa de Usuários</h5>
+						<button type="button" class="close" data-dismiss="modal"
 							aria-label="Close">
 							<span aria-hidden="true">&#215;</span>
 						</button>
 					</div>
-					<h:form id="form-edit-lote">	
-					<h:messages />
-						<div class="modal-body bg-light">						
-								<div class="row">
-								
-								<div class="col-md-3">
-										
-										<label for="firstName">Prazo (Mês)</label> <input type="hidden"/>
-										<h:inputText styleClass="form-control" required="true"
-											requiredMessage="Campo prazo é obrigatorio"
-											value="#{editalBean.loteSelected.prazoEdital}">
-										</h:inputText>
-										
-								</div>
-								
-								<div class="col-md-3">
-										
-										<label for="firstName">Valor</label> <input type="hidden"/>
-										<h:inputText styleClass="form-control" required="true"
-											requiredMessage="Campo valor é obrigatorio"
-											value="#{editalBean.loteSelected.valorTotal}">
-										</h:inputText>
-										
-								</div>
-								
-
-								<div class="col-md-12">		
-														
-								<label for="story">Objeto:</label>
-								
-								<h:inputTextarea value="#{editalBean.loteSelected.objetoLote}" styleClass="form-control z-depth-1"  />
-																
-								</div>	
-									
-								</div>
-						</div>
-
-						<div class="modal-footer">
-
-							<h:commandLink style="margin-right:5px"
-								styleClass="btn btn-success">
-								<i class="fa fa-save fa-fw" aria-hidden="true" />
-
-								<f:ajax event="click" execute="@form" render="@form :form-lote"
-									listener="#{editalBean.editLote}" onevent="dataTableLoteFromJSF"/> Salvar
-
-                            </h:commandLink>
-
-							<h:commandLink style="margin-right:5px"
-								styleClass="btn btn-danger" pt:data-dismiss="modal">
-								<i class="fa fa-sign-out fa-fw" aria-hidden="true" /> Fechar
-                                <f:ajax event="click"  />
-							</h:commandLink>
-
-						</div>
-					</h:form>
-
-				</div>
-			</div>
-		</div>
-		<!-- Fecha Modal editar lotes -->
-		
-		
-		
-		<!-- 		Modal Analise -->		
-		<div class="modal modal-analise modal-draggable" tabindex="-1" role="dialog">
-			<div class="modal-dialog" role="document" style="max-width: 90% !important">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="myModalLabel">Inserir Nova Analise</h5>
-							<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&#215;</span>
-						</button>
-					</div>				
-					<h:form id="form-analise">
-					<div class="modal-body bg-light">
-					
-					<div class="row">
-					
-					<div class="col-md-7 ">
-					
-					<p class="h1">LOTE -  #{editalBean.loteSelected.sequencialLote}</p>
-					
-					</div>
-					
-					</div>
-					
-					<div class="row mt-5">				
-					
-					<div class="col-md-7 ">
-					
-					<p class="text-center">QUALIFICAÇÃO TECNICA EXIGIDA PELO EDITAL</p>
-					
-					</div>
-					
-					<div class="col-md-5 ">
-					
-					<p class="text-center">QUALIFICAÇÃO TECNICA ATENDIDA PELA EMPRESA</p>
-					
-					</div>
-					
-					<div class="col-md-2">
-					
-					QUALIFICAÇÃO
-					
-					</div>
-					
-					<div class="col-md-3">
-					
-					DESCRIÇÃO DOS SERVIÇOS
-					</div>
-					
-					<div class="col-md-1">
-					
-					UND
-					
-					</div>
-					
-					<div class="col-md-1 ">
-					
-					QTD
-					
-					</div>
-					
-					<div class="col-md-3">
-					
-					<p class="text-center">DESCRIÇÃO DOS SERVIÇOS MOBIT</p>
-					
-					</div>
-					
-					<div class="col-md-1">
-					
-					<p class="text-center">QTD</p>
-					
-					</div>
-					
-					<div class="col-md-1">
-					
-					<p class="text-center">POSIÇÃO</p>
-					
-					</div>				
-					
-					</div>
-					
-					
-					<div class="row">
-								<h:messages />
-					
-					
-					<div class="col-md-2">
-					
-					<h:selectOneMenu  value = "#{editalBean.qualificacao}" styleClass="form-control custom-select" > 
-							<f:selectItem itemValue = "QL" itemLabel = "QL - Profissional/Licitante" /> 
-   							<f:selectItem itemValue = "P" itemLabel = "P - Profissional" /> 
-   							<f:selectItem itemValue = "L" itemLabel = "L - Licitante" /> 
-   							<f:ajax   />
-   					</h:selectOneMenu>
-					
-					</div>	
-					
-					<div class="col-md-3">
-					
-					<h:inputTextarea  styleClass="form-control z-depth-1"   value="#{editalBean.analise.descricaoServEdital}"/>
-					
-					</div>
-					
-					<div class="col-md-1">
-					
-					
-					<h:inputText styleClass="form-control" value="#{editalBean.analise.un}">
-					</h:inputText>				
-					
-					</div>					
-					
-					<div class="col-md-1">				
-					
-					<h:inputText styleClass="form-control" value="#{editalBean.analise.quantidade}">
-					<f:convertNumber pattern="#,###,##0,00"/> 
-					</h:inputText>
-					
-					</div>					
-										
-					<div class="col-md-3">
-					
-					<h:inputTextarea  styleClass="form-control z-depth-1"   value="#{editalBean.analise.descricaoServMobit}"/>
-					
-					</div>
-					
-					<div class="col-md-1">				
-					
-					<h:inputText styleClass="form-control" value="#{editalBean.analise.quantidadeMobit}">
-					 <f:convertNumber pattern="#,###,##0,00"/> 
-					</h:inputText>
-					
-					</div>		
-					
-					<div class="col-md-1">
-					
-					<h:selectOneMenu value = "#{editalBean.posicao}"  styleClass="form-control custom-select" > 
-							<f:selectItem itemValue = "SIM" itemLabel = "SIM" /> 
-   							<f:selectItem itemValue = "NAO" itemLabel = "NÂO" /> 
-   							<f:ajax   />
-   					</h:selectOneMenu>
-					
-					</div>				
-					
-					</div>
-					
-					<div class="row">					
-					
-					<div class="modal-footer ">
-						
-						<h:commandLink styleClass="btn btn-primary" 
-								action="#{editalBean.saveAnalise}" >
-								<i class="fa fa-check" aria-hidden="true" />
-								<f:ajax execute="@form"  render="@form :form-lote"
-									onevent="dataTableAnaliseFromJSF" />  Incluir
-							</h:commandLink>		
-                            
-                            				
-
-					</div>
-						
-					</div>					
-					
-					<div class="row">					
-					
-					<h:dataTable value="#{editalBean.loteSelected.analisesList}" var="a"
-									styleClass="table dataTable-analise table-striped table-sm">
-									
-						
-						<h:column styleClass = "text-center"  >
-										<f:facet name="header" >Qualificacao</f:facet>
-                                        #{a.qualificacao}
-                        </h:column>		
-                        
-                        <h:column 	styleClass="td">
-										<f:facet name="header">Descrição dos Serviço Edital</f:facet>
-                                        #{a.descricaoServEdital}
-                        </h:column>		
-                        
-                        <h:column>
-										<f:facet name="header">UND</f:facet>
-                                        #{a.un}
-                        </h:column>		
-                        
-                        <h:column>
-										<f:facet name="header">Qtd.</f:facet>
-                                        #{a.quantidade}
-                        </h:column>		
-                        
-                        <h:column 	styleClass="td">
-										<f:facet name="header">Descrição dos Serviço Mobit</f:facet>                                     
-                                        
-   										#{a.descricaoServMobit}
-                        </h:column >	
-                        
-                          <h:column>
-										<f:facet name="header">Qtd Mobit</f:facet>
-                                        #{a.quantidadeMobit}
-                        </h:column>	
-                        
-                        <h:column>
-										<f:facet name="header">Atende</f:facet>
-                                        #{a.atende}
-                        </h:column>	
-                        
-                        <h:column>
-                        			<f:facet name="header">Data Registro</f:facet>
-                        			
-									<h:outputText value="#{a.dataRegistro}">
-                                       <f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
-                                    </h:outputText>
-                        </h:column>					
-					
-					</h:dataTable>				
-					
-					</div>				
-						
-					</div>					
-						
-					</h:form>					
-					
-				</div>
-			</div>
-		</div>
-		<!-- Fecha Modal Analise-->
-		
-		<!-- 		Modal Confirmacao Encerra Analise -->	
-		<div class="modal modal-confirmacao-enc-analise " tabindex="-1" role="dialog"
-			aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog " role="document">
-				<div class="modal-content ">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Deseja Encerrar a analise ?</h5>
-					</div>
-					<div class = "modal-body">
-					
-					</div>
-					<div class="modal-footer">
-						<h:form>
+					<h:form id="form-cadastro-pessoa">
 						<h:messages />
-						
-						<div class="row">
-						
-						<div class="col-md">
-							<h:commandLink styleClass="btn btn-primary" pt:data-dismiss="modal"
-								action="#{editalBean.encerraAnaliseLote}" >
-								<i class="fa fa-check" aria-hidden="true" />
-								<f:ajax  render="@form :form-lote"
-									onevent="dataTableLoteFromJSF" />   SIM
-							</h:commandLink>
-							
-							<h:commandLink styleClass="btn btn-danger"
-									pt:data-dismiss="modal">
-									<i class="fa fa-times" aria-hidden="true" />   FECHAR
-							</h:commandLink>
+						<div class="modal-body bg-light">
+							<div class="form-row">
+								<label for="nome" class="col-sm-2 col-form-label">CPF</label>
+								<div class="col-sm-6">
+									<h:inputText styleClass="form-control cpf"
+										value="#{emprestimoBean.filtroCpf}">
+									</h:inputText>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="col-sm-1">
+									<h:outputLabel value="ou" />
+								</div>
+							</div>
+							<div class="form-row">
+								<label for="nome" class="col-sm-3 col-form-label">Parte
+									do Nome</label>
+								<div class="col-sm-9">
+									<h:inputText styleClass="form-control"
+										value="#{emprestimoBean.filtroNome}">
+									</h:inputText>
+								</div>
+							</div>
+							<div class="form-row mt-3">
+								<h:commandLink styleClass="btn btn-primary">
+									<i class="fa fa-search" aria-hidden="true" />
+									<f:ajax event="click" execute="@form"
+										render="@form :form-livros"
+										listener="#{emprestimoBean.buscaPessoa}" /> Localizar
+                            	</h:commandLink>
+							</div>
+							<div class="row mt-3">
+								<div class="col-md-12">
+									<h:dataTable styleClass="table table-striped table-sm"
+										value="#{emprestimoBean.pessoasList}" var="p">
+										<h:column>
+											<f:facet name="header">Nome</f:facet>
+											<h:outputText value="#{p.nome}" />
+										</h:column>
+										<h:column>
+											<f:facet name="header">Cpf</f:facet>
+											<h:outputText value="#{p.cpf}" />
+										</h:column>
+										<h:column pt:style="text-align:center;padding:5px 0;">
+											<f:facet name="header">
+												<i class="fa fa-cog" aria-hidden="true"></i>
+											</f:facet>
+											<h:commandLink action="#{emprestimoBean.addPessoa(p)}"
+												style="text-decoration:none;" pt:data-dismiss="modal">
+												<i class="fa fa-plus-circle" aria-hidden="true" />
+												<f:ajax 
+													render="form-cadastro-emprestimo:inptNome form-cadastro-emprestimo:inptCpf" />
+											</h:commandLink>
+										</h:column>
+									</h:dataTable>
+								</div>
+							</div>
+
+
 						</div>
-						
-						</div>
-						</h:form>
+					</h:form>
+					<div class="modal-footer">
+						<h:commandLink style="margin-right:5px"
+							styleClass="btn btn-danger" pt:data-dismiss="modal">
+							<i class="fa fa-sign-out fa-fw" aria-hidden="true" /> Fechar
+                                <f:ajax />
+						</h:commandLink>
 					</div>
 				</div>
 			</div>
 		</div>
-<!-- 		Fecha Modal Confirmacao Encerra Analise -->	
+		<!-- 	fim modal inclusao de pessoas -->
+		
+		<!-- 	inicio modal inclusao de livros -->
 
+		<div class="modal modal-busca-livro fade" data-backdrop="static"
+			data-keyboard="false" tabindex="-1"
+			aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="staticBackdropLabel">Pesquisa de Livros</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&#215;</span>
+						</button>
+					</div>
+					<h:form id="form-cadastro-livro">
+						<h:messages />
+						<div class="modal-body bg-light">
+							<div class="form-row">
+								<label for="titulo" class="col-sm-3 col-form-label">Titulo do Livro</label>
+								<div class="col-sm-9">
+									<h:inputText styleClass="form-control"
+										value="#{emprestimoBean.filtroTitulo}">
+									</h:inputText>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="col-sm-1">
+									<h:outputLabel value="ou" />
+								</div>
+							</div>
+							<div class="form-row">
+								<label for="nome" class="col-sm-3 col-form-label">Nome do Autor</label>
+								<div class="col-sm-9">
+									<h:inputText styleClass="form-control"
+										value="#{emprestimoBean.filtroAutor}">
+									</h:inputText>
+								</div>
+							</div>
+							<div class="form-row mt-3">
+								<h:commandLink styleClass="btn btn-primary">
+									<i class="fa fa-search" aria-hidden="true" />
+									<f:ajax event="click" execute="@form"
+										render="@form :form-livros"
+										listener="#{emprestimoBean.buscaLivros}"
+										onevent="dataTableLivroFromJSF" /> Localizar
+                            	</h:commandLink>
+							</div>
+							<div class="row mt-3">
+								<div class="col-md-12">
+									<h:dataTable styleClass="table table-striped table-sm"
+										value="#{emprestimoBean.livrosList}" var="l">
+										<h:column>
+											<f:facet name="header">Titulo</f:facet>
+											<h:outputText value="#{l.titulo}" />
+										</h:column>
+										
+										<h:column>
+											<f:facet name="header">Autor</f:facet>
+											<h:outputText value="#{l.listAutores}" />
+										</h:column>
+
+										<h:column pt:style="text-align:center;padding:5px 0;">
+											<f:facet name="header">
+												<i class="fa fa-cog" aria-hidden="true"></i>
+											</f:facet>
+											<h:commandLink action="#{emprestimoBean.addLivro(l)}"
+												style="text-decoration:none;" pt:data-dismiss="modal">
+												<i class="fa fa-plus-circle" aria-hidden="true" />
+												<f:ajax render="form-cadastro-emprestimo" />
+											</h:commandLink>
+										</h:column>
+									</h:dataTable>
+								</div>
+							</div>
+
+						</div>
+					</h:form>
+					<div class="modal-footer">
+						<h:commandLink style="margin-right:5px"
+							styleClass="btn btn-danger" pt:data-dismiss="modal">
+							<i class="fa fa-sign-out fa-fw" aria-hidden="true" /> Fechar
+                                <f:ajax />
+						</h:commandLink>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 	fim modal inclusao de livros -->
+		
+		<!-- 	inicio modal finalizar emprestimos -->
+		<div class="modal modal-finaliza-emprestimo fade"
+			data-backdrop="static" data-keyboard="false" tabindex="-1"
+			aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="staticBackdropLabel">Finalizar Empréstimo</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&#215;</span>
+						</button>
+					</div>
+					<h:form id="form-finaliza-emprestimo">
+						<h:messages />
+						<div class="modal-body bg-light">
+							<div class="form-row mt-3">
+								<div class="col-md-12">
+									<div class="table-responsive">
+										<div class="table-responsive">
+											<label for="nome">Selecione os livros que estão sendo devolvidos</label>
+											<h:dataTable id="tblLivrosSelecionados"
+												styleClass="table dataTable-autor-selected table-striped table-sm"
+												value="#{emprestimoBean.emprestimo.controleEmprestimoList}" var="ce">
+												<h:column>
+													<f:facet name="header">Titulo</f:facet>
+													 #{ce.livro.titulo}
+												</h:column>
+												<h:column
+													pt:style="text-align:center;padding-right:5px;padding-left:5px">
+													<f:facet name="header">
+													&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+													<i class="fa fa-toggle-off" aria-hidden="true" />
+													&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+													</f:facet>
+													<h:selectBooleanCheckbox id="ativo" pt:data-size="small" disabled="#{ce.dataEntrega != null}"
+														pt:data-on-text="|" pt:data-off-text="O"
+														styleClass="switch">
+														<f:ajax event="change"
+															listener="#{emprestimoBean.toogleIsItemDevolucaoList(ce)}"
+															render="@this" />
+													</h:selectBooleanCheckbox>
+												</h:column>
+											</h:dataTable>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<h:commandLink style="margin-right:5px"
+								styleClass="btn btn-success" pt:data-dismiss="modal">
+								<i class="fa fa-save fa-fw" aria-hidden="true" />
+								<f:ajax event="click" execute="@form"
+									render="@form :form-emprestimos"
+									listener="#{emprestimoBean.finalizarEmprestimo}"
+									onevent="dataTableEmprestimoFromJSF"/> Salvar
+                       		 </h:commandLink>
+
+							<h:commandLink style="margin-right:5px"
+								styleClass="btn btn-danger" pt:data-dismiss="modal">
+								<i class="fa fa-sign-out fa-fw" aria-hidden="true" /> Fechar
+                                <f:ajax />
+							</h:commandLink>
+						</div>
+					</h:form>
+
+				</div>
+			</div>
+		</div>
+		<!-- 	fim modal finalizar emprestimos -->
 
 	</ui:define>
 </ui:composition>

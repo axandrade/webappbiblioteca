@@ -44,6 +44,7 @@ public class EmprestimoBean {
 	private List<Emprestimo> emprestimosList;
 	private ControleEmprestimo controleEmprestimo;
 	private List<ControleEmprestimo> controleEmprestimoList;
+	private Boolean statusBusca;
 	
 	@Autowired
 	private LivroService livroService;
@@ -71,19 +72,20 @@ public class EmprestimoBean {
 	
 	@PostConstruct
 	private void init() {
+		
 		this.filtroCpf = "";
-		this.filtroNome = "";
+		this.filtroNome = "";		
 		this.emprestimo = new Emprestimo();
 		this.livrosList = new ArrayList<Livro>();
 		this.emprestimosList = new ArrayList<Emprestimo>();
 		this.controleEmprestimoList = new ArrayList<ControleEmprestimo>();
 		this.usuario = usuarioService.findByLogin(authenticationFacade.getAuthentication().getName());
-		
+		this.statusBusca = null;
 	}
 
-	public void findAll() {
+	public void findEmprestimoByStatus() {
 		
-		emprestimosList = emprestimoService.findAll();
+		this.emprestimosList = emprestimoService.findEmprestimoByStatus(this.statusBusca);
 	}
 
 	public void buscaPessoa() {
@@ -292,7 +294,7 @@ public class EmprestimoBean {
 	}
 
 	public List<Emprestimo> getEmprestimosList() {
-		findAll();
+		findEmprestimoByStatus();
 		return emprestimosList;
 	}
 
@@ -314,6 +316,14 @@ public class EmprestimoBean {
 
 	public void setControleEmprestimoList(List<ControleEmprestimo> controleEmprestimoList) {
 		this.controleEmprestimoList = controleEmprestimoList;
+	}
+
+	public Boolean getStatusBusca() {
+		return statusBusca;
+	}
+
+	public void setStatusBusca(Boolean status) {
+		this.statusBusca = status;
 	}
 
 }

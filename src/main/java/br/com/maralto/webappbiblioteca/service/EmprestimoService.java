@@ -8,16 +8,13 @@ import br.com.maralto.webappbiblioteca.model.Livro;
 
 
 
-public interface EmprestimoService {
-
-	List<Emprestimo> findAll();
+public interface EmprestimoService {	
 
 	void save(Emprestimo emprestimo) throws GenericException;
 
 	void finalizaEmprestimo(Emprestimo emprestimo);
-
 	
-	
+	List<Emprestimo> findEmprestimoByStatus(Boolean status);
 
 
 }
