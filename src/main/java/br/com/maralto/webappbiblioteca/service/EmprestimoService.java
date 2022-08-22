@@ -4,7 +4,6 @@ import java.util.List;
 
 import br.com.maralto.webappbiblioteca.exception.GenericException;
 import br.com.maralto.webappbiblioteca.model.Emprestimo;
-import br.com.maralto.webappbiblioteca.model.Livro;
 
 
 

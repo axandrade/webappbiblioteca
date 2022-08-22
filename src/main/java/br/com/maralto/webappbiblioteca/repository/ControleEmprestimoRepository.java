@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import br.com.maralto.webappbiblioteca.model.ControleEmprestimo;
-import br.com.maralto.webappbiblioteca.model.Livro;
 
 
 public interface ControleEmprestimoRepository extends JpaRepository<ControleEmprestimo, Long>{
