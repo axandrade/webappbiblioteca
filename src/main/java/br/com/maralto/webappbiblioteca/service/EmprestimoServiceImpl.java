@@ -54,9 +54,9 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 		
 		verificaHistoricoEmprestimos(emprestimo);		
 
-		emprestimoRepository.save(emprestimo);
+		//emprestimoRepository.save(emprestimo);
 		
-		// sendEmail(emprestimo);
+		 sendEmail(emprestimo);
 
 	}
 	
@@ -164,9 +164,10 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 	}
 
 	private void sendEmail(Emprestimo emprestimo) {
-		
+		//ldrpafuvviwufzdg
+		//maralto2022
 		String from = "maralto.biblioteca@gmail.com";
-		String senha = "maralto2022";
+		String senha = "ldrpafuvviwufzdg";
 		String to = emprestimo.getPessoa().getEmail();
 		
 		
