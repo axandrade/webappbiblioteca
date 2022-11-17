@@ -14,7 +14,6 @@ import org.springframework.stereotype.Controller;
 import br.com.maralto.webappbiblioteca.model.Pessoa;
 import br.com.maralto.webappbiblioteca.service.PessoaService;
 import br.com.maralto.webappbiblioteca.util.ConvertDate;
-import br.com.maralto.webappbiblioteca.util.jsf.FacesMessageUtils;
 import br.com.maralto.webappbiblioteca.util.model.EnderecoUtil;
 
 @Controller
@@ -26,9 +25,6 @@ public class PessoaBean {
 
 	private List<Pessoa> pessoasList;
 	
-	@Autowired
-	private FacesMessageUtils facesMessageUtils;
-
 	@Autowired
 	PessoaService pessoaService;
 	@Autowired

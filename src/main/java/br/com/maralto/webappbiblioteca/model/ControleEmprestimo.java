@@ -3,7 +3,6 @@ package br.com.maralto.webappbiblioteca.model;
 import java.util.Date;
 
 import javax.persistence.AttributeOverride;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
