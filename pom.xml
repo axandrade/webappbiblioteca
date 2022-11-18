@@ -19,10 +19,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
-				<version>3.2.0</version>
-				<configuration>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
-				</configuration>
+				<version>3.3.1</version>			
 			</plugin>
 			<plugin>
 				<groupId>org.wildfly.plugins</groupId>
@@ -263,13 +260,13 @@
 			<artifactId>commons-email</artifactId>
 			<version>1.5</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.quartz-scheduler</groupId>
 			<artifactId>quartz</artifactId>
 			<version>2.3.0</version>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-search -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
